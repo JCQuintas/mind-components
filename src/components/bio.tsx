@@ -8,14 +8,14 @@ import { Icon } from './icon'
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: ${({ theme }: ST) => theme.typography.rhythm(2.5)};
+  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(2.5)};
 `
 const PictureAndText = styled.div`
   display: flex;
 `
 
 const Image = styled(GImage)`
-  margin-right: ${({ theme }: ST) => theme.typography.rhythm(0.5)};
+  margin-right: ${({ theme }: Styled) => theme.typography.rhythm(0.5)};
   margin-bottom: 0;
   min-width: 50px;
   border-radius: 100%;
@@ -30,6 +30,7 @@ const Location = styled.div`
   display: flex;
   align-items: center;
   opacity: 0.7;
+  color: ${({ theme }: Styled) => theme.palette.primary.color};
 `
 
 const LocationIcon = styled(Icon.Location)`

@@ -1,5 +1,4 @@
 import { DefaultTheme, CSSObject } from 'styled-components'
-import Typography from 'typography'
 
 interface Color {
   color: string
@@ -10,23 +9,27 @@ interface Palette {
   primary: Color
   secondary: Color
   background: Color
-  contrast: Color
+  foreground: Color
+}
+
+interface StyledTypography {
+  rhythm(rhythm?: number): string
+  rhythm(vertical: number, horizontal: number): string
+  rhythm(top: number, horizontal: number, bottom: number): string
+  rhythm(top: number, right: number, bottom: number, left: number): string
+  scale: StyledScale
 }
 
 declare global {
-  type StyledScale = (values: number) => CSSObject
+  type StyledScale = (values: number) => Pick<CSSObject, 'fontSize' | 'lineHeight'>
 
   class Theme implements DefaultTheme {
-    isDark?: boolean
+    isDark: boolean
     palette: Palette
-    spacing(spacing?: number): string
-    spacing(vertical: number, horizontal: number): string
-    spacing(top: number, horizontal: number, bottom: number): string
-    spacing(top: number, right: number, bottom: number, left: number): string
-    typography: Pick<Typography, 'rhythm'> & { scale: StyledScale }
+    typography: StyledTypography
   }
 
-  type ST<T extends {} = {}> = T & {
+  type Styled<T extends {} = {}> = T & {
     theme: Theme
   }
 }
