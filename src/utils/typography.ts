@@ -4,7 +4,6 @@ export const typography = new Typography({
   headerFontFamily: ['Ubuntu', 'Verdana', 'sans serif'],
   bodyFontFamily: ['Roboto', 'sans serif'],
   baseLineHeight: 1.75,
-  scaleRatio: 2.9,
 })
 
 // Hot reload typography in development.

@@ -86,15 +86,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
-    {
-      resolve: `gatsby-plugin-styled-components`,
-    },
-    {
-      resolve: `gatsby-styled-components-dark-mode`,
-      options: {
-        light: require(`${__dirname}/src/utils/theme.ts`).lightTheme,
-        dark: require(`${__dirname}/src/utils/theme.ts`).darkTheme,
-      },
-    },
+    `gatsby-plugin-styled-components`,
   ],
 }
