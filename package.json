@@ -62,6 +62,8 @@
     "source-map-support": "^0.5.13",
     "styled-components": "^4.3.2",
     "ts-node": "^8.3.0",
+    "typeface-roboto": "0.0.75",
+    "typeface-ubuntu": "0.0.65",
     "typescript": "^3.5.3",
     "typography": "^0.16.19"
   },

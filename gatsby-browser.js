@@ -1,5 +1,6 @@
 // custom typefaces
-// import 'typeface-montserrat'
+import 'typeface-ubuntu'
+import 'typeface-roboto'
 import React from 'react'
 import { Base } from './src/components/base'
 

@@ -24,14 +24,12 @@ const Image = styled(GImage)`
 
 const Subtitle = styled.div`
   line-height: 1.1em;
-  opacity: 0.7;
 `
 
 const Location = styled.div`
   display: flex;
   align-items: center;
-  opacity: 0.7;
-  color: ${({ theme }: Styled) => theme.palette.primary.color};
+  color: ${({ theme }: Styled) => theme.palette.secondary.color};
 `
 
 const LocationIcon = styled(Icon.Location)`

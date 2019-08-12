@@ -26,6 +26,7 @@ declare global {
   class Theme implements DefaultTheme {
     isDark: boolean
     palette: Palette
+    transition(property?: string[] | string, duration?: number, easing?: string): string
     typography: StyledTypography
   }
 
