@@ -20,10 +20,12 @@ const defaultTheme = {
 }
 
 const generateColor = (color: [number, number, number] | number) => {
-  const colorString = typeof color === 'number' ? [color, color, color].join(',') : color.join(',')
+  const colorArray = typeof color === 'number' ? [color, color, color] : color
+  const colorString = colorArray.join(',')
   return {
     color: `rgba(${colorString},1)`,
     opacity: (value?: number) => `rgba(${colorString},${typeof value === 'number' ? value : 1})`,
+    toHex: () => `#${colorArray.map(v => `0${v.toString(16)}`.slice(-2)).join('')}`,
   }
 }
 
@@ -34,7 +36,7 @@ export const darkTheme: Theme = {
     primary: generateColor([195, 232, 141]),
     secondary: generateColor([240, 113, 120]),
     background: generateColor([6, 28, 35]),
-    foreground: generateColor(200),
+    foreground: generateColor(244),
   },
 }
 
@@ -94,9 +96,9 @@ const initalIsDarkMode: boolean =
     ? false
     : matchMedia('(prefers-color-scheme: dark)').matches
 
-// The DarkModeContext can be imported and used on useContext
+// The ThemeModeContext can be imported and used on useContext
 // in order to use setIsDarkMode from whithin the app
-export const DarkModeContext = createContext<{
+export const ThemeModeContext = createContext<{
   theme: Theme
   setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>
 }>({
@@ -113,9 +115,9 @@ export const ThemeModeProvider: FunctionComponent = ({ children }) => {
 
   const mode = isDarkMode ? { theme: darkTheme, setIsDarkMode } : { theme: lightTheme, setIsDarkMode }
   return (
-    <DarkModeContext.Provider value={mode}>
+    <ThemeModeContext.Provider value={mode}>
       <ThemeProvider theme={mode.theme}>{children as any}</ThemeProvider>
-    </DarkModeContext.Provider>
+    </ThemeModeContext.Provider>
   )
 }
 

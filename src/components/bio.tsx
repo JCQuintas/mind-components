@@ -1,10 +1,9 @@
-import React, { FunctionComponent, useContext } from 'react'
+import React, { FunctionComponent } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import GImage from 'gatsby-image'
 
 import styled from 'styled-components'
 import { Icon } from './icon'
-import { DarkModeContext } from '../utils/theme'
 
 const Container = styled.div`
   display: flex;
@@ -60,8 +59,6 @@ export const Bio: FunctionComponent = () => {
     }
   `)
 
-  const { setIsDarkMode } = useContext(DarkModeContext)
-
   const { author, social } = data.site.siteMetadata
   return (
     <Container>
@@ -80,13 +77,7 @@ export const Bio: FunctionComponent = () => {
             </a>
             ' personal blog
           </div>
-          <Subtitle
-            onClick={() => {
-              setIsDarkMode(e => !e)
-            }}
-          >
-            This is where I tinker with new ideas
-          </Subtitle>
+          <Subtitle>This is where I tinker with new ideas</Subtitle>
         </div>
       </PictureAndText>
       <Location>

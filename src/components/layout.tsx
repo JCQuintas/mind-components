@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import styled from 'styled-components'
+import { ThemeToggle } from './theme-toggle'
 
 const H1 = styled.h1`
   ${({ theme }: Styled) => theme.typography.scale(1.5)}
-  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1.5)};
+  margin-bottom: 0;
   margin-top: 0;
 `
 
@@ -17,6 +18,13 @@ const LayoutRoot = styled.div`
   margin-right: auto;
   max-width: ${({ theme }: Styled) => theme.typography.rhythm(24)};
   padding: ${({ theme }: Styled) => theme.typography.rhythm(1.5, 3 / 4)};
+`
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1.5)};
 `
 
 const Link = styled(GatsbyLink)`
@@ -44,7 +52,10 @@ export const Layout: FunctionComponent<{ location: Location; title: string }> = 
   }
   return (
     <LayoutRoot>
-      <header>{header}</header>
+      <Header>
+        {header}
+        <ThemeToggle />
+      </Header>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with

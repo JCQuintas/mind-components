@@ -3,6 +3,7 @@ import { DefaultTheme, CSSObject } from 'styled-components'
 interface Color {
   color: string
   opacity: (value: number) => string
+  toHex: () => string
 }
 
 interface Palette {
