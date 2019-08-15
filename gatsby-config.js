@@ -2,7 +2,7 @@ require('ts-node').register({ files: true })
 
 module.exports = {
   siteMetadata: {
-    title: `JCQuintas`,
+    title: `Dot.Prop`,
     author: `Jose Quintas`,
     description: `A personal blog and portfolio by Jose Quintas.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,

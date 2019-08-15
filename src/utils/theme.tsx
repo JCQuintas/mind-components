@@ -58,7 +58,7 @@ export const lightTheme: Theme = {
   ...defaultTheme,
   isDark: false,
   palette: {
-    primary: generateColor([92, 143, 20]),
+    primary: generateColor([120, 187, 27]),
     secondary: generateColor([255, 83, 112]),
     background: generateColor(255),
     foreground: generateColor(2),
