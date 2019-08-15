@@ -63,7 +63,7 @@ export const lightTheme: Theme = {
     background: generateColor(252),
     foreground: generateColor(2),
     code: {
-      background: '#fdfaf6',
+      background: '#faf4f0',
       foreground: generateColor([255, 83, 112]).color,
       keyword: '#c678dd',
       string: '#77b82e',
