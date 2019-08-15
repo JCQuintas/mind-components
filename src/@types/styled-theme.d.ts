@@ -11,6 +11,20 @@ interface Palette {
   secondary: Color
   background: Color
   foreground: Color
+  code: {
+    background: string
+    foreground: string
+    keyword: string
+    string: string
+    function: string
+    operator: string
+    number: string
+    comment: string
+    selection: string
+    punctuation: string
+    selector: string
+    highlight: string
+  }
 }
 
 interface StyledTypography {
