@@ -10,6 +10,7 @@ const H1 = styled.h1`
 `
 
 const H3 = styled.h3`
+  margin-bottom: 0;
   margin-top: 0;
 `
 
