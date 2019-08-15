@@ -91,16 +91,17 @@ const StyledContainer = styled.div<{ checked: boolean; hasFocus: boolean }>`
     margin-bottom: auto;
     line-height: 0;
     transition: ${({ theme }: Styled) => theme.transition('opacity', 250)};
-    color: ${({ theme }: Styled) => theme.palette.primary.color};
   }
 
   .track-check {
     opacity: ${({ checked }) => (checked ? 1 : 0)};
+    color: ${({ theme }: Styled) => theme.palette.primary.color};
     left: 2px;
   }
 
   .track-x {
     opacity: ${({ checked }) => (checked ? 0 : 1)};
+    color: ${({ theme }: Styled) => theme.palette.secondary.color};
     right: 2px;
   }
 

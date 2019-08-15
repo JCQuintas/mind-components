@@ -60,7 +60,7 @@ export const lightTheme: Theme = {
   palette: {
     primary: generateColor([120, 187, 27]),
     secondary: generateColor([255, 83, 112]),
-    background: generateColor(255),
+    background: generateColor(252),
     foreground: generateColor(2),
     code: {
       background: '#fdfaf6',
@@ -81,7 +81,7 @@ export const lightTheme: Theme = {
 
 // Key used to save into LocalStorage
 const DarkModeKey = `${process.env.GATSBY_PROJECT_ID}_IS_DARK_MODE`
-const savedIsDarkMode = `${localStorage.getItem(DarkModeKey)}`
+const savedIsDarkMode = typeof window !== 'undefined' ? `${localStorage.getItem(DarkModeKey)}` : 'true'
 
 const initalIsDarkMode: boolean =
   // Checks if user has a preference already set and use it
