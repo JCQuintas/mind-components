@@ -2,7 +2,7 @@ require('ts-node').register({ files: true })
 
 module.exports = {
   siteMetadata: {
-    title: `Dot.Prop`,
+    title: `Read.Stream`,
     author: `Jose Quintas`,
     description: `A personal blog and portfolio by Jose Quintas.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
@@ -27,7 +27,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
           include: new RegExp(`${__dirname}/content/svg`),
@@ -38,6 +38,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-reading-time`,
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -69,11 +70,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Read.Stream a React Blog`,
+        short_name: `Read.Stream`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#78bb1b`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },
