@@ -19,6 +19,14 @@ const GlobalStyle = createGlobalStyle<Styled>`
     text-decoration: none;
   }
 
+  a.anchor {
+    fill: ${({ theme }: Styled) => theme.palette.foreground.color};
+
+    &:hover {
+      fill: ${({ theme }: Styled) => theme.palette.secondary.color};
+    }
+  }
+
   a:hover {
     color: ${({ theme }: Styled) => theme.palette.primary.color};
   }
