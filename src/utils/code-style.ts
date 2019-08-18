@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-export const prismCss = css`
+export const codeStyle = css`
   /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)

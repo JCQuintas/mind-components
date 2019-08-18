@@ -1,6 +1,6 @@
 import { createGlobalStyle, withTheme } from 'styled-components'
 import { createElement } from 'react'
-import { prismCss } from './theme-style'
+import { codeStyle } from './code-style'
 
 const GlobalStyle = createGlobalStyle<Styled>`
   html, body {
@@ -18,6 +18,11 @@ const GlobalStyle = createGlobalStyle<Styled>`
     color: ${({ theme }: Styled) => theme.palette.secondary.color};
     transition: ${({ theme }: Styled) => theme.transition('color')};
     text-decoration: none;
+    box-shadow: 0 1px 0 0 currentColor;
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 
   a.anchor {
@@ -53,7 +58,7 @@ const GlobalStyle = createGlobalStyle<Styled>`
     }
   }
 
-  ${prismCss}
+  ${codeStyle}
 `
 
 export const GlobalStylesComponent = withTheme(({ theme }: Styled) => createElement(GlobalStyle, { theme }))
