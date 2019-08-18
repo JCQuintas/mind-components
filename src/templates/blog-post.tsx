@@ -1,72 +1,86 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
+import React, { FunctionComponent } from 'react'
+import { Link as GLink, graphql } from 'gatsby'
 
 import { Bio } from '../components/bio'
 import { Layout } from '../components/layout'
 import { SEO } from '../components/seo'
-import { rhythm, scale } from '../utils/typography'
 import styled from 'styled-components'
+import { Icon } from '../components/icon'
 
-const PostTitle = styled.h1`
+const Title = styled.h1`
   ${({ theme }: Styled) => theme.typography.scale(1.5)}
   margin-top: ${({ theme }: Styled) => theme.typography.rhythm(1)};
   margin-bottom: 0;
 `
 
-class BlogPostTemplate extends React.Component<{ data: any; pageContext: any; location: Location }> {
-  render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+const Published = styled.p`
+  ${({ theme }: Styled) => theme.typography.scale(-1 / 5)}
+  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1)};
+  display: block;
+  color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.5)};
+`
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
-        <PostTitle>{post.frontmatter.title}</PostTitle>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: `block`,
-            marginBottom: rhythm(1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <Bio />
+const Divider = styled.hr`
+  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1)};
+  background-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
+`
 
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </Layout>
-    )
+const PaginationList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+`
+
+const Link = styled(GLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > *:first-child {
+    margin-right: ${({ theme }: Styled) => theme.typography.rhythm(1 / 4)};
   }
+`
+
+const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: any; location: Location }> = ({
+  data,
+  pageContext,
+  location,
+}) => {
+  const post = data.markdownRemark
+  const siteTitle = data.site.siteMetadata.title
+  const { previous, next } = pageContext
+
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
+      <Title>{post.frontmatter.title}</Title>
+      <Published>{post.frontmatter.date}</Published>
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <Divider />
+      <Bio />
+      <PaginationList>
+        <li>
+          {previous && (
+            <Link to={previous.fields.slug} rel="prev">
+              <Icon.Back />
+              <span>{previous.frontmatter.title}</span>
+            </Link>
+          )}
+        </li>
+        <li>
+          {next && (
+            <Link to={next.fields.slug} rel="next">
+              <span>{next.frontmatter.title}</span>
+              <Icon.Forward />
+            </Link>
+          )}
+        </li>
+      </PaginationList>
+    </Layout>
+  )
 }
 
 export default BlogPostTemplate
