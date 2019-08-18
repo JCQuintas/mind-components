@@ -1,4 +1,7 @@
 require('ts-node').register({ files: true })
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -52,9 +55,20 @@ module.exports = {
             },
           },
           `gatsby-remark-autolink-headers`,
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              injectStyles: true,
+              extensions: [
+                {
+                  identifier: 'jpoissonnier.vscode-styled-components',
+                  version: '0.0.26',
+                },
+              ],
+            },
+          },
         ],
       },
     },
