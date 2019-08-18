@@ -8,7 +8,7 @@ const build = (v: any) => styled(v)`
   width: 1em;
   height: 1em;
   display: inline-block;
-  font-size: 24px;
+  font-size: 1em;
   transition: ${({ theme }: Styled) => theme.transition(['color', 'fill'], 200)};
   user-select: none;
   flex-shrink: 0;

@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle<Styled>`
   }
 
   a {
-    color: ${({ theme }: Styled) => theme.palette.primary.color};
+    color: ${({ theme }: Styled) => theme.palette.secondary.color};
     transition: ${({ theme }: Styled) => theme.transition('color')};
     text-decoration: none;
   }
@@ -23,21 +23,32 @@ const GlobalStyle = createGlobalStyle<Styled>`
     fill: ${({ theme }: Styled) => theme.palette.foreground.color};
 
     &:hover {
-      fill: ${({ theme }: Styled) => theme.palette.secondary.color};
+      fill: ${({ theme }: Styled) => theme.palette.primary.color};
     }
   }
 
   a:hover {
+    color: ${({ theme }: Styled) => theme.palette.secondary.color};
+  }
+
+  h1 {
     color: ${({ theme }: Styled) => theme.palette.primary.color};
   }
 
+  h2, h3, h4, h5 {
+    color: ${({ theme }: Styled) => theme.palette.secondary.color};
+  }
+
   h1, h2, h3, h4, h5 {
-    color: ${({ theme }: Styled) => theme.palette.primary.color};
     transition: ${({ theme }: Styled) => theme.transition('color')};
 
     a {
       color: inherit;
       transition: none;
+
+      &:hover {
+        color: inherit;
+      }
     }
   }
 

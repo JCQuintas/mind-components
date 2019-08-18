@@ -4,21 +4,23 @@ import styled, { css } from 'styled-components'
 import { ThemeToggle } from './theme-toggle'
 
 const heading = css`
-  color: ${({ theme }: Styled) => theme.palette.secondary.color};
   margin-bottom: 0;
   margin-top: 0;
 
   a:hover {
-    color: ${({ theme }: Styled) => theme.palette.secondary.color};
+    color: inherit;
   }
 `
 
 const H1 = styled.h1`
   ${({ theme }: Styled) => theme.typography.scale(1.5)}
+  color: ${({ theme }: Styled) => theme.palette.primary.color};
+
   ${heading}
 `
 
 const H3 = styled.h3`
+  color: ${({ theme }: Styled) => theme.palette.secondary.color};
   ${heading}
 `
 

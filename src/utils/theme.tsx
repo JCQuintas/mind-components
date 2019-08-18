@@ -1,6 +1,7 @@
 import React, { useState, createContext, FunctionComponent, useEffect } from 'react'
 import { rhythm, scale } from './typography'
 import { ThemeProvider } from 'styled-components'
+import Helmet from 'react-helmet'
 
 const transition = (
   property: string[] | string = 'all',
@@ -33,8 +34,8 @@ export const darkTheme: Theme = {
   ...defaultTheme,
   isDark: true,
   palette: {
-    primary: generateColor([195, 232, 141]),
-    secondary: generateColor([240, 113, 120]),
+    primary: generateColor([240, 113, 120]),
+    secondary: generateColor([195, 232, 141]),
     background: generateColor([6, 28, 35]),
     foreground: generateColor(244),
     code: {
@@ -58,8 +59,8 @@ export const lightTheme: Theme = {
   ...defaultTheme,
   isDark: false,
   palette: {
-    primary: generateColor([120, 187, 27]),
-    secondary: generateColor([255, 83, 112]),
+    primary: generateColor([255, 83, 112]),
+    secondary: generateColor([120, 187, 27]),
     background: generateColor(252),
     foreground: generateColor(2),
     code: {
@@ -82,7 +83,8 @@ export const lightTheme: Theme = {
 // Key used to save into LocalStorage
 const darkModeKey = `${process.env.GATSBY_PROJECT_ID}_IS_DARK_MODE`
 const savedIsDarkMode = () => typeof window !== 'undefined' && `${localStorage.getItem(darkModeKey)}`
-const supportsDarkMode = () => typeof window !== 'undefined' && matchMedia('(prefers-color-scheme: dark)').matches
+const supportsDarkMode = () =>
+  typeof window !== 'undefined' ? matchMedia('(prefers-color-scheme: dark)').matches : true
 
 export const getIsDarkMode = (): boolean =>
   // Checks if user has a preference already set and use it
@@ -99,7 +101,7 @@ export const ThemeModeContext = createContext<{
   setIsDarkMode: () => {},
 })
 
-export const ThemeModeProvider: FunctionComponent = ({ children }) => {
+export const ThemeModeProvider: FunctionComponent<{ children: any }> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(getIsDarkMode())
 
   useEffect(() => {
@@ -109,7 +111,19 @@ export const ThemeModeProvider: FunctionComponent = ({ children }) => {
   const mode = { theme: isDarkMode ? darkTheme : lightTheme, setIsDarkMode }
   return (
     <ThemeModeContext.Provider value={mode}>
-      <ThemeProvider theme={mode.theme}>{children as any}</ThemeProvider>
+      <ThemeProvider theme={mode.theme}>
+        <>
+          <Helmet
+            meta={[
+              {
+                name: 'theme-color',
+                content: mode.theme.palette.secondary.color,
+              },
+            ]}
+          />
+          {children}
+        </>
+      </ThemeProvider>
     </ThemeModeContext.Provider>
   )
 }

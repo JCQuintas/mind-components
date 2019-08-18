@@ -95,13 +95,13 @@ const ToggleContainer = styled.div<{ hasFocus: boolean }>`
 
   .track-check {
     opacity: ${({ theme }: Styled) => (theme.isDark ? 1 : 0)};
-    color: ${({ theme }: Styled) => theme.palette.primary.color};
+    color: ${({ theme }: Styled) => theme.palette.secondary.color};
     left: 2px;
   }
 
   .track-x {
     opacity: ${({ theme }: Styled) => (theme.isDark ? 0 : 1)};
-    color: ${({ theme }: Styled) => theme.palette.secondary.color};
+    color: ${({ theme }: Styled) => theme.palette.primary.color};
     right: 2px;
   }
 
@@ -117,7 +117,7 @@ const ToggleContainer = styled.div<{ hasFocus: boolean }>`
     transition: ${({ theme }: Styled) => theme.transition(['transform', 'box-shadow'], 500)},
       ${({ theme }: Styled) => theme.transition('background-color', 250)};
     transform: ${({ theme }: Styled) => (theme.isDark ? `translateX(26px)` : 'translateX(0)')};
-    ${({ hasFocus, theme }) => hasFocus && `box-shadow: 0px 0px 2px 3px ${theme.palette.secondary.color};`}
+    ${({ hasFocus, theme }) => hasFocus && `box-shadow: 0px 0px 2px 3px ${theme.palette.primary.color};`}
   }
 
   svg {
@@ -126,7 +126,7 @@ const ToggleContainer = styled.div<{ hasFocus: boolean }>`
   }
 
   &:active .thumb {
-    box-shadow: 0px 0px 5px 5px ${({ theme }: Styled) => theme.palette.secondary.color};
+    box-shadow: 0px 0px 5px 5px ${({ theme }: Styled) => theme.palette.primary.color};
   }
 `
 

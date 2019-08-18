@@ -1,33 +1,7 @@
 ---
-title: Hello World
-date: '2015-05-01T22:12:03.284Z'
-description: 'Hello World'
+title: blog init -n Read.Stream
+date: '2019-08-16T13:12:03.284Z'
+description: 'Why create this blog and the tech stack I used.'
 ---
 
-This is my first post on my new fake blog! How exciting!
-
-```jsx{2}
-const value = () => {
-  if (process.env.NODE_ENV === 'development') return true
-  return [1, 2, 3].map(v => v * 2)
-}
-// Comment
-value()
-```
-
-I'm sure I'll write a lot more interesting things in the future.
-
-## Header
-
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](http://en.wikipedia.org/wiki/Salted_duck_egg).
-
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
-
-![Chinese Salty Egg](./salty_egg.jpg)
+Through this short blog post I'll go into details of why I wanted to create a personal blog, why didn't I just use [medium](https://medium.com) and why I chose [Gatsby](https://gatsbyjs.org) as the blog's framework.

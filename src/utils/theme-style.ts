@@ -187,7 +187,7 @@ export const prismCss = css`
     margin-left: -1em;
     padding-right: 1em;
     padding-left: 0.75em;
-    border-left: 0.25em solid ${({ theme }: Styled) => theme.palette.secondary.color};
+    border-left: 0.25em solid ${({ theme }: Styled) => theme.palette.primary.color};
   }
 
   .gatsby-highlight {

@@ -7,17 +7,14 @@ import { Icon } from './icon'
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
   margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(2.5)};
-`
-const PictureAndText = styled.div`
-  display: flex;
 `
 
 const Image = styled(GImage)`
   margin-right: ${({ theme }: Styled) => theme.typography.rhythm(0.5)};
   margin-bottom: 0;
-  min-width: 50px;
+  min-width: ${({ theme }: Styled) => theme.typography.rhythm(2)};
+  min-height: ${({ theme }: Styled) => theme.typography.rhythm(2)};
   border-radius: 100%;
 `
 
@@ -28,13 +25,12 @@ const Subtitle = styled.div`
 const Location = styled.div`
   display: flex;
   align-items: center;
-  color: ${({ theme }: Styled) => theme.palette.secondary.color};
+  color: ${({ theme }: Styled) => theme.palette.primary.color};
+  ${({ theme }: Styled) => theme.typography.scale(-0.2)};
 `
 
 const LocationIcon = styled(Icon.Location)`
-  height: 1.2rem;
-  width: 1.2rem;
-  margin-right: 0.1em;
+  margin-right: ${({ theme }: Styled) => theme.typography.rhythm(0.1)};
 `
 
 export const Bio: FunctionComponent = () => {
@@ -62,28 +58,26 @@ export const Bio: FunctionComponent = () => {
   const { author, social } = data.site.siteMetadata
   return (
     <Container>
-      <PictureAndText>
-        <Image
-          fixed={data.avatar.childImageSharp.fixed}
-          alt={author}
-          imgStyle={{
-            borderRadius: `50%`,
-          }}
-        />
+      <Image
+        fixed={data.avatar.childImageSharp.fixed}
+        alt={author}
+        imgStyle={{
+          borderRadius: `50%`,
+        }}
+      />
+      <div>
         <div>
-          <div>
-            <a href={`httdiv://github.com/${social.github}`}>
-              <strong>{author}</strong>
-            </a>
-            ' personal blog
-          </div>
-          <Subtitle>This is where I tinker with new ideas</Subtitle>
+          <a href={`https://github.com/${social.github}`}>
+            <strong>{author}</strong>
+          </a>
+          ' personal blog
         </div>
-      </PictureAndText>
-      <Location>
-        <LocationIcon />
-        Amsterdam
-      </Location>
+        <Subtitle>This is where I tinker with new ideas</Subtitle>
+        <Location>
+          <LocationIcon />
+          Amsterdam
+        </Location>
+      </div>
     </Container>
   )
 }
