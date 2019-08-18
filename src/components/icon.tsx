@@ -1,4 +1,6 @@
-import LocationSvg from '../../content/svg/location.svg'
+// import LocationSvg from '../../content/svg/location.svg'
+import BackSvg from '../../content/svg/back.svg'
+import ForwardSvg from '../../content/svg/forward.svg'
 import MoonSvg from '../../content/svg/moon.svg'
 import SunSvg from '../../content/svg/sun.svg'
 import styled from 'styled-components'
@@ -15,7 +17,9 @@ const build = (v: any) => styled(v)`
 `
 
 export const Icon = {
-  Location: build(LocationSvg),
-  Sun: build(SunSvg),
+  // Location: build(LocationSvg),
+  Back: build(BackSvg),
+  Forward: build(ForwardSvg),
   Moon: build(MoonSvg),
+  Sun: build(SunSvg),
 }
