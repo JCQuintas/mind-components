@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle<Styled>`
 
   a.anchor {
     fill: ${({ theme }: Styled) => theme.palette.foreground.color};
+    box-shadow: none;
 
     &:hover {
       fill: ${({ theme }: Styled) => theme.palette.primary.color};
@@ -56,6 +57,14 @@ const GlobalStyle = createGlobalStyle<Styled>`
         color: inherit;
       }
     }
+  }
+
+  hr {
+    background-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
+  }
+
+  th, td {
+    border-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
   }
 
   ${codeStyle}

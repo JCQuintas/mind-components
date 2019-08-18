@@ -18,12 +18,7 @@ export const codeStyle = css`
     word-break: normal;
     word-wrap: normal;
     line-height: 1.5;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
     tab-size: 4;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
     hyphens: none;
   }
 
@@ -60,13 +55,15 @@ export const codeStyle = css`
 
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    background: #282c34;
+    background-color: ${({ theme }: Styled) => theme.palette.code.background};
   }
 
   /* Inline code */
   :not(pre) > code[class*='language-'] {
-    padding: 0.1em;
-    border-radius: 0.3em;
+    ${({ theme }: Styled) => theme.typography.scale(0)};
+    color: ${({ theme }: Styled) => theme.palette.secondary.color};
+    padding: 0.3em 0.5em;
+    border-radius: 0.5em;
     white-space: normal;
   }
 
@@ -121,6 +118,10 @@ export const codeStyle = css`
     color: ${({ theme }: Styled) => theme.palette.code.function};
   }
 
+  .token.class-name {
+    color: ${({ theme }: Styled) => theme.palette.code.class};
+  }
+
   .token.regex,
   .token.important,
   .token.variable {
@@ -160,9 +161,6 @@ export const codeStyle = css`
     letter-spacing: -1px;
     border-right: 0;
 
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
   }
 

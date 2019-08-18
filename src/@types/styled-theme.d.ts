@@ -16,6 +16,7 @@ interface Palette {
     foreground: string
     keyword: string
     string: string
+    class: string
     function: string
     operator: string
     number: string

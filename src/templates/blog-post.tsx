@@ -22,7 +22,6 @@ const Published = styled.p`
 
 const Divider = styled.hr`
   margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1)};
-  background-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
 `
 
 const PaginationList = styled.ul`
