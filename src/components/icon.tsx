@@ -1,6 +1,6 @@
-import LocationSvg from '../../../content/svg/location.svg'
-import MoonSvg from '../../../content/svg/moon.svg'
-import SunSvg from '../../../content/svg/sun.svg'
+import LocationSvg from '../../content/svg/location.svg'
+import MoonSvg from '../../content/svg/moon.svg'
+import SunSvg from '../../content/svg/sun.svg'
 import styled from 'styled-components'
 
 const build = (v: any) => styled(v)`

@@ -28,7 +28,8 @@ interface Palette {
 }
 
 interface StyledTypography {
-  rhythm(rhythm?: number): string
+  rhythm(rhythm?: number, returnNumber?: false): string
+  rhythm(rhythm: number, returnNumber: true): number
   rhythm(vertical: number, horizontal: number): string
   rhythm(top: number, horizontal: number, bottom: number): string
   rhythm(top: number, right: number, bottom: number, left: number): string

@@ -1,6 +1,6 @@
 // custom typefaces
-import 'typeface-ubuntu'
-import 'typeface-roboto'
+import 'typeface-raleway'
+import 'typeface-poppins'
 import React from 'react'
 import { Base } from './src/components/base'
 

@@ -5,6 +5,13 @@ import { Bio } from '../components/bio'
 import { Layout } from '../components/layout'
 import { SEO } from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
+import styled from 'styled-components'
+
+const PostTitle = styled.h1`
+  ${({ theme }: Styled) => theme.typography.scale(1.5)}
+  margin-top: ${({ theme }: Styled) => theme.typography.rhythm(1)};
+  margin-bottom: 0;
+`
 
 class BlogPostTemplate extends React.Component<{ data: any; pageContext: any; location: Location }> {
   render() {
@@ -15,14 +22,7 @@ class BlogPostTemplate extends React.Component<{ data: any; pageContext: any; lo
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
-        <h1
-          style={{
-            marginTop: rhythm(1),
-            marginBottom: 0,
-          }}
-        >
-          {post.frontmatter.title}
-        </h1>
+        <PostTitle>{post.frontmatter.title}</PostTitle>
         <p
           style={{
             ...scale(-1 / 5),

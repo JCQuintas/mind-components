@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle<Styled>`
     background-color: ${({ theme }: Styled) => theme.palette.background.color};
     color: ${({ theme }: Styled) => theme.palette.foreground.color};
     transition: ${({ theme }: Styled) => theme.transition(['color', 'background-color'])};
+    font-weight: ${({ theme }: Styled) => (theme.isDark ? 400 : 500)};
   }
 
   a {

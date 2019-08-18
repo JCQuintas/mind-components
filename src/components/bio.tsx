@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 import GImage from 'gatsby-image'
 
 import styled from 'styled-components'
-import { Icon } from './icon'
 
 const Container = styled.div`
   display: flex;
@@ -22,23 +21,12 @@ const Subtitle = styled.div`
   line-height: 1.1em;
 `
 
-const Location = styled.div`
-  display: flex;
-  align-items: center;
-  color: ${({ theme }: Styled) => theme.palette.primary.color};
-  ${({ theme }: Styled) => theme.typography.scale(-0.2)};
-`
-
-const LocationIcon = styled(Icon.Location)`
-  margin-right: ${({ theme }: Styled) => theme.typography.rhythm(0.1)};
-`
-
 export const Bio: FunctionComponent = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile.png/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 56, height: 56) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -67,16 +55,12 @@ export const Bio: FunctionComponent = () => {
       />
       <div>
         <div>
-          <a href={`https://github.com/${social.github}`}>
+          <a href={`https://github.com/${social.github}`} target="_blank">
             <strong>{author}</strong>
           </a>
           ' personal blog
         </div>
         <Subtitle>This is where I tinker with new ideas</Subtitle>
-        <Location>
-          <LocationIcon />
-          Amsterdam
-        </Location>
       </div>
     </Container>
   )

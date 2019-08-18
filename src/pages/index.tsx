@@ -1,46 +1,46 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { Link, graphql } from 'gatsby'
 
 import { Bio } from '../components/bio'
 import { Layout } from '../components/layout'
 import { SEO } from '../components/seo'
-import { rhythm } from '../utils/typography'
+import styled from 'styled-components'
 
-class BlogIndex extends React.Component<{ data: any; location: Location }> {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+const Post = styled.div`
+  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(2)};
+`
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        {posts.map(({ node }: { node: any }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </div>
-          )
-        })}
-      </Layout>
-    )
-  }
+const Title = styled.h3`
+  ${({ theme }: Styled) => theme.typography.scale(0.8)}
+  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(0.1)};
+`
+
+const Published = styled.small`
+  color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.5)};
+`
+
+const BlogIndex: FunctionComponent<{ data: any; location: Location }> = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMarkdownRemark.edges
+
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title="All posts" />
+      <Bio />
+      {posts.map(({ node }: { node: any }) => {
+        const title = node.frontmatter.title || node.fields.slug
+        return (
+          <Post key={node.fields.slug}>
+            <Title>
+              <Link to={node.fields.slug}>{title}</Link>
+            </Title>
+            <div>{node.frontmatter.description || node.excerpt}</div>
+            <Published>{node.frontmatter.date}</Published>
+          </Post>
+        )
+      })}
+    </Layout>
+  )
 }
 
 export default BlogIndex

@@ -13,7 +13,7 @@ const heading = css`
 `
 
 const H1 = styled.h1`
-  ${({ theme }: Styled) => theme.typography.scale(1.5)}
+  ${({ theme }: Styled) => theme.typography.scale(1)}
   color: ${({ theme }: Styled) => theme.palette.primary.color};
 
   ${heading}
