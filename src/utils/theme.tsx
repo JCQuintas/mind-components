@@ -81,11 +81,15 @@ export const lightTheme: Theme = {
 }
 
 // Key used to save into LocalStorage
-const darkModeKey = `${process.env.GATSBY_PROJECT_ID}_IS_DARK_MODE`
+export const darkModeKey = `${process.env.GATSBY_PROJECT_ID}_IS_DARK_MODE`
+
+// Get dark mode setting from LocalStorage
 const savedIsDarkMode = () => typeof window !== 'undefined' && `${localStorage.getItem(darkModeKey)}`
+// Check if browser preffers Dark Mode
 const supportsDarkMode = () =>
   typeof window !== 'undefined' ? matchMedia('(prefers-color-scheme: dark)').matches : true
 
+// Get usabled isDarkMode
 export const getIsDarkMode = (): boolean =>
   // Checks if user has a preference already set and use it
   // If not set, then try to select mode by detecting system preference
