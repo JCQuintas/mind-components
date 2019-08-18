@@ -80,17 +80,14 @@ export const lightTheme: Theme = {
 }
 
 // Key used to save into LocalStorage
-const DarkModeKey = `${process.env.GATSBY_PROJECT_ID}_IS_DARK_MODE`
-const savedIsDarkMode = typeof window !== 'undefined' ? `${localStorage.getItem(DarkModeKey)}` : 'true'
+const darkModeKey = `${process.env.GATSBY_PROJECT_ID}_IS_DARK_MODE`
+const savedIsDarkMode = () => typeof window !== 'undefined' && `${localStorage.getItem(darkModeKey)}`
+const supportsDarkMode = () => typeof window !== 'undefined' && matchMedia('(prefers-color-scheme: dark)').matches
 
-const initalIsDarkMode: boolean =
+export const getIsDarkMode = (): boolean =>
   // Checks if user has a preference already set and use it
   // If not set, then try to select mode by detecting system preference
-  savedIsDarkMode === 'true'
-    ? true
-    : savedIsDarkMode === 'false'
-    ? false
-    : matchMedia('(prefers-color-scheme: dark)').matches
+  savedIsDarkMode() === 'true' ? true : savedIsDarkMode() === 'false' ? false : supportsDarkMode()
 
 // The ThemeModeContext can be imported and used on useContext
 // in order to use setIsDarkMode from whithin the app
@@ -98,18 +95,18 @@ export const ThemeModeContext = createContext<{
   theme: Theme
   setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>
 }>({
-  theme: initalIsDarkMode ? darkTheme : lightTheme,
+  theme: getIsDarkMode() ? darkTheme : lightTheme,
   setIsDarkMode: () => {},
 })
 
 export const ThemeModeProvider: FunctionComponent = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(initalIsDarkMode)
+  const [isDarkMode, setIsDarkMode] = useState(getIsDarkMode())
 
   useEffect(() => {
-    localStorage.setItem(DarkModeKey, JSON.stringify(isDarkMode))
+    localStorage.setItem(darkModeKey, JSON.stringify(isDarkMode))
   }, [isDarkMode])
 
-  const mode = isDarkMode ? { theme: darkTheme, setIsDarkMode } : { theme: lightTheme, setIsDarkMode }
+  const mode = { theme: isDarkMode ? darkTheme : lightTheme, setIsDarkMode }
   return (
     <ThemeModeContext.Provider value={mode}>
       <ThemeProvider theme={mode.theme}>{children as any}</ThemeProvider>

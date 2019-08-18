@@ -9,7 +9,7 @@ const build = (v: any) => styled(v)`
   height: 1em;
   display: inline-block;
   font-size: 24px;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: ${({ theme }: Styled) => theme.transition(['color', 'fill'], 200)};
   user-select: none;
   flex-shrink: 0;
 `

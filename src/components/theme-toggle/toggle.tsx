@@ -4,7 +4,7 @@
  * + applied https://github.com/aaronshaf/react-toggle/pull/90
  **/
 
-import React, { FunctionComponent, MouseEvent, TouchEvent, useState, useEffect, useRef, FocusEvent } from 'react'
+import React, { FunctionComponent, MouseEvent, TouchEvent, useState, useRef, FocusEvent } from 'react'
 import styled from 'styled-components'
 import { Icon } from '../icon'
 
@@ -43,7 +43,7 @@ interface Touch {
   hadFocusAtStart: boolean
 }
 
-const StyledContainer = styled.div<{ checked: boolean; hasFocus: boolean }>`
+const ToggleContainer = styled.div<{ hasFocus: boolean }>`
   touch-action: pan-x;
 
   display: inline-block;
@@ -94,13 +94,13 @@ const StyledContainer = styled.div<{ checked: boolean; hasFocus: boolean }>`
   }
 
   .track-check {
-    opacity: ${({ checked }) => (checked ? 1 : 0)};
+    opacity: ${({ theme }: Styled) => (theme.isDark ? 1 : 0)};
     color: ${({ theme }: Styled) => theme.palette.primary.color};
     left: 2px;
   }
 
   .track-x {
-    opacity: ${({ checked }) => (checked ? 0 : 1)};
+    opacity: ${({ theme }: Styled) => (theme.isDark ? 0 : 1)};
     color: ${({ theme }: Styled) => theme.palette.secondary.color};
     right: 2px;
   }
@@ -114,9 +114,9 @@ const StyledContainer = styled.div<{ checked: boolean; hasFocus: boolean }>`
     border-radius: 50%;
     background-color: ${({ theme }: Styled) => theme.palette.foreground.color};
     box-sizing: border-box;
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms, box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms,
+    transition: ${({ theme }: Styled) => theme.transition(['transform', 'box-shadow'], 500)},
       ${({ theme }: Styled) => theme.transition('background-color', 250)};
-    transform: ${({ checked }) => (checked ? `translateX(26px)` : 'translateX(0)')};
+    transform: ${({ theme }: Styled) => (theme.isDark ? `translateX(26px)` : 'translateX(0)')};
     ${({ hasFocus, theme }) => hasFocus && `box-shadow: 0px 0px 2px 3px ${theme.palette.secondary.color};`}
   }
 
@@ -131,27 +131,18 @@ const StyledContainer = styled.div<{ checked: boolean; hasFocus: boolean }>`
 `
 
 export const Toggle: FunctionComponent<ToggleInterface> = ({ checked, onFocus, onBlur, className, onChange }) => {
-  const previouslyChecked = useRef(!!checked)
   const inputRef = useRef<HTMLInputElement | null>(null)
   const touch = useRef<Touch>({ moved: false, startX: null, started: false, hadFocusAtStart: false })
-  const [isChecked, setIsChecked] = useState(!!checked)
   const [hasFocus, setHasFocus] = useState(false)
-
-  useEffect(() => {
-    previouslyChecked.current = !!checked
-    setIsChecked(!!checked)
-  }, [checked])
 
   const handleClick = (event: MouseEvent) => {
     const input = inputRef.current!
-    previouslyChecked.current = input.checked
     if (event.target !== input && !touch.current.moved) {
       event.preventDefault()
       input.focus()
       input.click()
       return
     }
-    setIsChecked(input.checked)
   }
 
   const handleTouchStart = (event: MouseEvent | TouchEvent) => {
@@ -164,12 +155,10 @@ export const Toggle: FunctionComponent<ToggleInterface> = ({ checked, onFocus, o
     touch.current = { ...touch.current, moved: true }
     if (touch.current.startX !== null) {
       const currentX = pointerCoord(event as any).x
-      if (isChecked && currentX + 15 < touch.current.startX) {
+      if (checked && currentX + 15 < touch.current.startX) {
         touch.current = { ...touch.current, startX: currentX }
-        setIsChecked(false)
-      } else if (!isChecked && currentX - 15 > touch.current.startX) {
+      } else if (!checked && currentX - 15 > touch.current.startX) {
         touch.current = { ...touch.current, startX: currentX }
-        setIsChecked(true)
       }
     }
   }
@@ -180,10 +169,7 @@ export const Toggle: FunctionComponent<ToggleInterface> = ({ checked, onFocus, o
     event.preventDefault()
 
     if (touch.current.startX !== null) {
-      if (previouslyChecked.current !== isChecked) {
-        input.click()
-      }
-
+      input.click()
       touch.current = { ...touch.current, started: false, startX: null, moved: false }
     }
 
@@ -217,9 +203,8 @@ export const Toggle: FunctionComponent<ToggleInterface> = ({ checked, onFocus, o
   }
 
   return (
-    <StyledContainer
+    <ToggleContainer
       className={className}
-      checked={isChecked}
       hasFocus={hasFocus}
       onClick={handleClick}
       onTouchStart={handleTouchStart}
@@ -248,6 +233,6 @@ export const Toggle: FunctionComponent<ToggleInterface> = ({ checked, onFocus, o
         type="checkbox"
         aria-label="Switch between Dark and Light mode"
       />
-    </StyledContainer>
+    </ToggleContainer>
   )
 }
