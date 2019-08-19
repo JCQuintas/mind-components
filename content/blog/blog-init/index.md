@@ -21,7 +21,7 @@ Through this short blog post I'll go into details of why I wanted to create a pe
 Try inside regular `text`, or maybe **bold** and _italic_
 
 <!-- prettier-ignore-start -->
-```jsx {11-14}
+```jsx
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title

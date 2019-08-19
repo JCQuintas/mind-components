@@ -61,10 +61,15 @@ module.exports = {
             resolve: `gatsby-remark-vscode`,
             options: {
               injectStyles: true,
+              colorTheme: 'One Dark Pro',
               extensions: [
                 {
                   identifier: 'jpoissonnier.vscode-styled-components',
                   version: '0.0.26',
+                },
+                {
+                  identifier: 'zhuangtongfa.Material-theme',
+                  version: '2.26.3',
                 },
               ],
             },

@@ -2,7 +2,7 @@ import { createGlobalStyle, withTheme } from 'styled-components'
 import { createElement } from 'react'
 import { codeStyle } from './code-style'
 
-const GlobalStyle = createGlobalStyle<Styled>`
+const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
   }

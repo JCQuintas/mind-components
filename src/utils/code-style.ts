@@ -1,6 +1,14 @@
 import { css } from 'styled-components'
 
 export const codeStyle = css`
+  pre.one-dark-pro {
+    background-color: ${({ theme }: Styled) => theme.palette.code.background};
+  }
+  .vscode-highlight .vscode-highlight-line-highlighted {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 2px 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+
   /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
