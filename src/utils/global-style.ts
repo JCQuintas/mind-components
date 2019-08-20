@@ -67,24 +67,6 @@ const GlobalStyle = createGlobalStyle`
     border-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
   }
 
-  :not(pre) > code {
-    padding: 0.3em 0.5em 0.4em;
-    border-radius: 0.4em;
-    margin: 0.5em 0;
-    overflow: auto;
-    background-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
-    color: ${({ theme }: Styled) => theme.palette.foreground.color};
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
-    line-height: 1.5;
-    tab-size: 4;
-    hyphens: none;
-  }
-
   ${codeStyle}
 `
 

@@ -1,27 +1,6 @@
 import { css } from 'styled-components'
 
 export const codeStyle = css`
-  pre.vscode-highlight {
-    background-color: ${({ theme }: Styled) => theme.palette.code.background};
-
-    span,
-    code {
-      line-height: 1.65em;
-    }
-
-    & *::selection {
-      color: inherit;
-      background-color: ${({ theme }: Styled) => theme.palette.secondary.opacity(0.1)};
-      line-height: 1.65em;
-      height: 1.65em;
-    }
-  }
-
-  .vscode-highlight .vscode-highlight-line-highlighted {
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: inset 2px 0 0 0 rgba(255, 255, 255, 0.5);
-  }
-
   /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
@@ -41,14 +20,6 @@ export const codeStyle = css`
     line-height: 1.5;
     tab-size: 4;
     hyphens: none;
-  }
-
-  pre[class*='language-']::-moz-selection,
-  pre[class*='language-'] ::-moz-selection,
-  code[class*='language-']::-moz-selection,
-  code[class*='language-'] ::-moz-selection {
-    text-shadow: none;
-    background: ${({ theme }: Styled) => theme.palette.code.selection};
   }
 
   pre[class*='language-']::selection,
@@ -76,14 +47,14 @@ export const codeStyle = css`
 
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    background-color: ${({ theme }: Styled) => theme.palette.code.background};
+    background-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.05)};
   }
 
   /* Inline code */
   :not(pre) > code[class*='language-'] {
     ${({ theme }: Styled) => theme.typography.scale(0)};
-    color: ${({ theme }: Styled) => theme.palette.secondary.color};
-    padding: 0.3em 0.5em;
+    color: ${({ theme }: Styled) => theme.palette.foreground.color};
+    padding: 0.3em;
     border-radius: 0.5em;
     white-space: normal;
   }

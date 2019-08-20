@@ -54,26 +54,10 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          `gatsby-remark-prismjs`,
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-          {
-            resolve: `gatsby-remark-vscode`,
-            options: {
-              injectStyles: true,
-              colorTheme: 'One Dark Pro',
-              extensions: [
-                {
-                  identifier: 'jpoissonnier.vscode-styled-components',
-                  version: '0.0.26',
-                },
-                {
-                  identifier: 'zhuangtongfa.Material-theme',
-                  version: '2.26.3',
-                },
-              ],
-            },
-          },
         ],
       },
     },
