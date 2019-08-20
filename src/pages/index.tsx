@@ -13,6 +13,7 @@ const Post = styled.div`
 const Title = styled.h3`
   ${({ theme }: Styled) => theme.typography.scale(0.8)}
   margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(0.1)};
+  color: ${({ theme }: Styled) => theme.palette.secondary.color};
 
   a {
     box-shadow: none;

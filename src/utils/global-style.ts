@@ -43,7 +43,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2, h3, h4, h5 {
-    color: ${({ theme }: Styled) => theme.palette.secondary.color};
+    color: ${({ theme }: Styled) => theme.palette.foreground.color};
+    margin-top: ${({ theme }: Styled) => theme.typography.rhythm(2)};
   }
 
   h1, h2, h3, h4, h5 {
@@ -65,6 +66,20 @@ const GlobalStyle = createGlobalStyle`
 
   th, td {
     border-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  blockquote {
+    padding:${({ theme }: Styled) => theme.typography.rhythm(1 / 2, 1)};
+    border-radius: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2)};
+    margin-left:${({ theme }: Styled) => theme.typography.rhythm(1)};
+    margin-right: ${({ theme }: Styled) => theme.typography.rhythm(1)};
+    background: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
+    border-left: 2px solid ${({ theme }: Styled) => theme.palette.primary.color};
+    border-right: 2px solid ${({ theme }: Styled) => theme.palette.primary.color};
   }
 
   ${codeStyle}
