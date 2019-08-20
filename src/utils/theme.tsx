@@ -30,17 +30,20 @@ const generateColor = (color: [number, number, number] | number) => {
   }
 }
 
+const primaryDark = generateColor([240, 113, 120])
+const secondaryDark = generateColor([195, 232, 141])
+
 export const darkTheme: Theme = {
   ...defaultTheme,
   isDark: true,
   palette: {
-    primary: generateColor([240, 113, 120]),
-    secondary: generateColor([195, 232, 141]),
+    primary: primaryDark,
+    secondary: secondaryDark,
     background: generateColor([6, 28, 35]),
     foreground: generateColor(244),
     code: {
       background: 'rgba(0, 0, 0, 0.3)',
-      foreground: generateColor([240, 113, 120]).color,
+      foreground: primaryDark.color,
       keyword: '#c678dd',
       string: '#98c379',
       class: '#e5c07b',
@@ -51,22 +54,25 @@ export const darkTheme: Theme = {
       selection: '#9aa2b1',
       punctuation: '#abb2bf',
       selector: '#e06c75',
-      highlight: generateColor([195, 232, 141]).opacity(0.05),
+      highlight: secondaryDark.opacity(0.05),
     },
   },
 }
+
+const primaryLight = generateColor([255, 83, 112])
+const secondaryLight = generateColor([120, 187, 27])
 
 export const lightTheme: Theme = {
   ...defaultTheme,
   isDark: false,
   palette: {
-    primary: generateColor([255, 83, 112]),
-    secondary: generateColor([120, 187, 27]),
+    primary: primaryLight,
+    secondary: secondaryLight,
     background: generateColor(252),
     foreground: generateColor(2),
     code: {
       background: '#faf4f0',
-      foreground: generateColor([255, 83, 112]).color,
+      foreground: primaryLight.color,
       keyword: '#c678dd',
       string: '#77b82e',
       class: '#e5c07b',
@@ -77,7 +83,7 @@ export const lightTheme: Theme = {
       selection: 'rgba(0,0,0,0.1)',
       punctuation: '#abb2bf',
       selector: '#e06c75',
-      highlight: generateColor([195, 232, 141]).opacity(0.2),
+      highlight: secondaryLight.opacity(0.2),
     },
   },
 }
