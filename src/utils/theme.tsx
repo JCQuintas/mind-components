@@ -30,11 +30,14 @@ const generateColor = (color: [number, number, number] | number) => {
   }
 }
 
+const darkColor = generateColor([6, 28, 35])
+const lightColor = generateColor(244)
+
 const darkPalette: Omit<Theme['palette'], 'code'> = {
   primary: generateColor([240, 113, 120]),
   secondary: generateColor([195, 232, 141]),
-  background: generateColor([6, 28, 35]),
-  foreground: generateColor(244),
+  background: darkColor,
+  foreground: lightColor,
 }
 
 export const darkTheme: Theme = {
@@ -63,8 +66,8 @@ export const darkTheme: Theme = {
 const lightPalette: Omit<Theme['palette'], 'code'> = {
   primary: generateColor([255, 83, 112]),
   secondary: generateColor([120, 187, 27]),
-  background: generateColor(252),
-  foreground: generateColor(2),
+  background: lightColor,
+  foreground: darkColor,
 }
 
 export const lightTheme: Theme = {
