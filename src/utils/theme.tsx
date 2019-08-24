@@ -2,6 +2,7 @@ import React, { useState, createContext, FunctionComponent, useEffect } from 're
 import { rhythm, scale } from './typography'
 import { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
+import { createBreakpoints } from './breakpoints'
 
 const transition = (
   property: string[] | string = 'all',
@@ -12,8 +13,9 @@ const transition = (
   return property.map(v => `${v} ${duration}ms ${easing}`).join(', ')
 }
 
-const defaultTheme = {
+const defaultTheme: Omit<Theme, 'isDark' | 'palette'> = {
   transition,
+  breakpoint: createBreakpoints(),
   typography: {
     rhythm,
     scale: scale as StyledScale,

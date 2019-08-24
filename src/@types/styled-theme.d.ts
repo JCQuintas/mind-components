@@ -40,11 +40,31 @@ interface StyledTypography {
 declare global {
   type StyledScale = (values: number) => Pick<CSSObject, 'fontSize' | 'lineHeight'>
 
+  interface BreakpointsUp {
+    xs: () => string
+    sm: () => string
+    md: () => string
+    lg: () => string
+    xl: () => string
+  }
+
+  interface BreakpointsDown {
+    xs: () => string
+    sm: () => string
+    md: () => string
+    lg: () => string
+    xl: () => string
+  }
+
   class Theme implements DefaultTheme {
     isDark: boolean
     palette: Palette
     transition(property?: string[] | string, duration?: number, easing?: string): string
     typography: StyledTypography
+    breakpoint: {
+      up: BreakpointsUp
+      down: BreakpointsDown
+    }
   }
 
   type Styled<T extends {} = {}> = T & {

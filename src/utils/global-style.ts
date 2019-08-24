@@ -92,20 +92,19 @@ const GlobalStyle = createGlobalStyle`
     background: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
     border-left: 2px solid;
     border-right: 2px solid;
+    line-height: ${({ theme }: Styled) => theme.typography.rhythm(1.1)};
+      letter-spacing: ${({ theme }: Styled) => theme.typography.rhythm(0.01)};
     border-image: linear-gradient(
         to bottom,
         ${({ theme }: Styled) => theme.palette.primary.color} 0%,
         ${({ theme }: Styled) => theme.palette.primary.opacity(0)} 70%
       )
       1 100%;
+    ${({ theme }: Styled) => theme.typography.scale(0.3)};
 
-    &.right,
+    ${({ theme }: Styled) => theme.breakpoint.up.sm()}{    &.right,
     &.left {
-      ${({ theme }: Styled) => theme.typography.scale(0.3)};
       max-width: ${({ theme }: Styled) => theme.typography.rhythm(10)};
-      line-height: ${({ theme }: Styled) => theme.typography.rhythm(1.3)};
-      word-spacing: ${({ theme }: Styled) => theme.typography.rhythm(0.1)};
-      letter-spacing: ${({ theme }: Styled) => theme.typography.rhythm(0.01)};
     }
 
     &.right {
@@ -114,7 +113,7 @@ const GlobalStyle = createGlobalStyle`
 
     &.left {
       float: left;
-    }
+    }}
 
     cite {
       ${({ theme }: Styled) => theme.typography.scale(0)};
