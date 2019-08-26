@@ -20,6 +20,9 @@ const H1 = styled.h1`
 `
 
 const H3 = styled.h3`
+  height: ${({ theme }: Styled) => theme.typography.rhythm(1.5)};
+  display: flex;
+  align-items: center;
   color: ${({ theme }: Styled) => theme.palette.secondary.color};
   ${heading}
 `
