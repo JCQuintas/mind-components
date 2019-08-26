@@ -11,7 +11,7 @@ export const codeStyle = css`
   pre[class*='language-'] {
     color: ${({ theme }: Styled) => theme.palette.code.foreground};
     background: none;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: 'Ubuntu Mono', Consolas, Monaco, 'Andale Mono', monospace;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
@@ -47,7 +47,7 @@ export const codeStyle = css`
 
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    background-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.05)};
+    background-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
   }
 
   /* Inline code */
