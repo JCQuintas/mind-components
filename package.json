@@ -22,6 +22,7 @@
     "url": "https://github.com/jcquintas/mind-components/issues"
   },
   "scripts": {
+    "prebuild": "node update-dates",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "prettier": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",

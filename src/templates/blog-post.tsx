@@ -56,7 +56,7 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: any; locatio
     <Layout location={location} title={siteTitle}>
       <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
       <Title>{post.frontmatter.title}</Title>
-      <Published>{post.frontmatter.date}</Published>
+      <Published>{post.frontmatter.created}</Published>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
       <Divider />
       <Bio />
@@ -98,7 +98,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        created(formatString: "MMMM DD, YYYY")
         description
       }
     }

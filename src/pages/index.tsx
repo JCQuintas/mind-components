@@ -40,7 +40,7 @@ const BlogIndex: FunctionComponent<{ data: any; location: Location }> = ({ data,
               <Link to={node.fields.slug}>{title}</Link>
             </Title>
             <div>{node.frontmatter.description || node.excerpt}</div>
-            <Published>{node.frontmatter.date}</Published>
+            <Published>{node.frontmatter.created}</Published>
           </Post>
         )
       })}
@@ -57,7 +57,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___created], order: DESC }) {
       edges {
         node {
           excerpt
@@ -65,7 +65,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            created(formatString: "MMMM DD, YYYY")
             title
             description
           }
