@@ -5,7 +5,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Read.Stream`,
+    title: `MindComponents`,
     author: `Jose Quintas`,
     description: `A personal blog and portfolio by Jose Quintas.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
@@ -80,8 +80,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Read.Stream a React Blog`,
-        short_name: `Read.Stream`,
+        name: `MindComponents a React Blog`,
+        short_name: `MindComponents`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#78bb1b`,

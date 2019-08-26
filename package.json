@@ -1,25 +1,25 @@
 {
-  "name": "read-stream",
+  "name": "mind-components",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A personal blog and portfolio by Jose Quintas.",
   "version": "0.1.0",
   "author": "Jose Quintas <juniorquintas@gmail.com>",
-  "homepage": "https://github.com/jcquintas/read-stream#readme",
+  "homepage": "https://github.com/jcquintas/mind-components#readme",
   "keywords": [
     "gatsby",
     "jose",
     "quintas",
-    "read",
-    "stream"
+    "mind components",
+    "blog"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jcquintas/read-stream.git"
+    "url": "git+https://github.com/jcquintas/mind-components.git"
   },
   "bugs": {
-    "url": "https://github.com/jcquintas/read-stream/issues"
+    "url": "https://github.com/jcquintas/mind-components/issues"
   },
   "scripts": {
     "build": "gatsby build",
