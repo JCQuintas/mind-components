@@ -1,5 +1,5 @@
 ---
-title: Blog init
+title: 'Blog init'
 date: '1970-01-01T00:00:00.000Z'
 edited: '1970-01-01T00:00:00.000Z'
 description: 'Why create this blog and the tech stack I used.'
