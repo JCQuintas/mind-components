@@ -3,6 +3,11 @@ const { join } = require('path')
 const prettier = require('prettier')
 const { execSync } = require('child_process')
 
+const getGitChangeDate = path =>
+  new Date(
+    parseInt(execSync(`echo "$(git log -1 --format="%ct" -- ${path})"`, { encoding: 'utf8' }), 10) * 1000
+  ).toISOString()
+
 const run = async () => {
   const prettierConfig = await prettier.resolveConfig(join(__dirname, 'prettier.config.js'))
   const editedRegex = /(edited: ')(?<edited>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z)(')/
@@ -17,9 +22,7 @@ const run = async () => {
     .filter(existsSync)
     .map(p => ({
       path: p,
-      edited: new Date(
-        parseInt(execSync(`echo "$(git log -1 --format="%ct" -- ${p})"`, { encoding: 'utf8' }), 10) * 1000
-      ).toISOString(),
+      edited: getGitChangeDate(p),
       reason: null,
       content: readFileSync(p, { encoding: 'utf8' }),
     }))

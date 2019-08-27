@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "alias": "mindcomponents.com",
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1",
+      "headers": { "cache-control": "public,max-age=31536000,immutable" }
+    },
+    {
+      "src": "/(.*\\.(js|json|css|ico|png|svg)$)",
+      "dest": "/$1",
+      "headers": { "cache-control": "public,max-age=31536000,immutable" }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1",
+      "headers": { "cache-control": "public, max-age=0, must-revalidate" }
+    }
+  ],
+  "build": {
+    "env": {
+      "GATSBY_PROJECT_ID": "READ_STREAM"
+    }
+  },
+  "builds": [{ "use": "@now/static-build", "src": "package.json", "config": { "distDir": "public" } }]
+}
