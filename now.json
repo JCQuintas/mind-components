@@ -20,7 +20,7 @@
   ],
   "build": {
     "env": {
-      "GATSBY_PROJECT_ID": "READ_STREAM"
+      "GATSBY_PROJECT_ID": "MIND_COMPONENTS"
     }
   },
   "builds": [{ "use": "@now/static-build", "src": "package.json", "config": { "distDir": "public" } }]
