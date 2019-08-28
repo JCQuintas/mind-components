@@ -63,20 +63,12 @@ const run = async () => {
     .map(e => ({ ...e, path: e.path.replace(blogFolder + '/', '').replace('/index.md', '') }))
 
   if (updatedFiles.some(Boolean)) {
+    const pathWithReasons = updatedFiles.map(v => `${v.path} - ${v.reason}`)
+    pathWithReasons.forEach(v => console.log(v))
     try {
-      execSync(
-        `git commit -m "Automatic - Markdown post dates\n\n${updatedFiles
-          .map(v => `${v.path} - ${v.reason}`)
-          .join('\n')}"`
-      )
+      execSync(`git commit -m "Automatic - Markdown post dates\n\n${pathWithReasons.join('\n')}"`)
     } catch (error) {
       console.log('Command failed: git commit')
-    }
-
-    try {
-      execSync(`git push`)
-    } catch (error) {
-      console.log('Command failed: git push')
     }
   }
 }

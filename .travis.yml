@@ -9,14 +9,21 @@ cache:
     - 'node_modules'
 
 script:
-  - npm install
   - npm run prettier:check
 
-deploy:
-  provider: script
-  script:
-    - npm run update-dates
-    - npm install -g now
-    - now --token $NOW_TOKEN
-  on:
-    branch: master
+jobs:
+  include:
+    - stage: deploy
+      if: branch = master
+      node_js: 'node'
+      script:
+        - echo 'Configuring git and updating post dates...'
+        - git config --global user.email "travis@travis-ci.org"
+        - git config --global user.name "Travis CI"
+        - npm run update-dates
+        - git remote rm origin
+        - git remote add origin https://git:${GITHUB_TOKEN}@github.com/JCQuintas/mind-components.git > /dev/null 2>&1
+        - git push origin master --quiet > /dev/null 2>&1
+        - echo 'Deploying to now ...'
+        - npm install -g now
+        - now --prod --token ${NOW_TOKEN}
