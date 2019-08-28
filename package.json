@@ -27,7 +27,6 @@
     "develop": "gatsby develop",
     "prettier": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "prettier:check": "prettier --list-different \"./**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "deploy": "now",
     "tsc": "tsc --noEmit",
     "tsc:clean": "tsc -b . --clean",
     "start": "npm run develop",
@@ -87,7 +86,6 @@
     "@types/styled-components": "^4.1.18",
     "@types/typography": "^0.16.2",
     "babel-preset-gatsby": "^0.2.11",
-    "now": "^16.1.2",
     "prettier": "^1.18.2"
   },
   "husky": {
