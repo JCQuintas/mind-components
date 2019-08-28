@@ -9,12 +9,14 @@ cache:
     - 'node_modules'
 
 script:
-  - npm install -g now
   - npm install
   - npm run prettier:check
 
 deploy:
   provider: script
-  script: now
+  script:
+    - npm run update-dates
+    - npm install -g now
+    - now --token $NOW_TOKEN
   on:
     branch: master

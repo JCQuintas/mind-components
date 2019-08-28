@@ -22,7 +22,7 @@
     "url": "https://github.com/jcquintas/mind-components/issues"
   },
   "scripts": {
-    "prebuild": "node update-dates",
+    "prebuild": "npm run update-dates",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "prettier": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
@@ -31,6 +31,7 @@
     "tsc:clean": "tsc -b . --clean",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "update-dates": "node update-dates",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
