@@ -11,3 +11,9 @@ cache:
 script:
   - npm install
   - npm run prettier:check
+
+deploy:
+  provider: script
+  script: npm run deploy
+  on:
+    branch: master

@@ -27,6 +27,7 @@
     "develop": "gatsby develop",
     "prettier": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "prettier:check": "prettier --list-different \"./**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "deploy": "now",
     "tsc": "tsc --noEmit",
     "tsc:clean": "tsc -b . --clean",
     "start": "npm run develop",
