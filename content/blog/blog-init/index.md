@@ -1,7 +1,7 @@
 ---
 title: 'Blog init'
-created: '1970-01-01T00:00:00.000Z'
-edited: '1970-01-01T00:00:00.000Z'
+created: '2019-08-29T00:15:09.000Z'
+edited: '2019-08-29T00:15:09.000Z'
 description: 'Why create this blog and the tech stack I used.'
 ---
 
