@@ -18,7 +18,7 @@ jobs:
       node_js: 'node'
       script:
         - echo 'Configuring git and updating post dates...'
-        - git config --global user.email "travis@travis-ci.org"
+        - git config --global user.email "contact@travis-ci.com"
         - git config --global user.name "Travis CI"
         - npm run update-dates
         - git push https://JCQuintas:${GITHUB_TOKEN}@github.com/JCQuintas/mind-components.git HEAD:master --quiet > /dev/null 2>&1
