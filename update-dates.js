@@ -66,7 +66,7 @@ const run = async () => {
     const pathWithReasons = updatedFiles.map(v => `${v.path} - ${v.reason}`)
     pathWithReasons.forEach(v => console.log(v))
     try {
-      execSync(`git commit -m "Automatic - Markdown post dates\n\n${pathWithReasons.join('\n')}"`)
+      execSync(`git commit -m "Automatic - Markdown post dates [ci skip]\n\n${pathWithReasons.join('\n')}"`)
     } catch (error) {
       console.log('Command failed: git commit')
     }

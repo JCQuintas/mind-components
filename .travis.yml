@@ -21,9 +21,7 @@ jobs:
         - git config --global user.email "travis@travis-ci.org"
         - git config --global user.name "Travis CI"
         - npm run update-dates
-        - git remote rm origin
-        - git remote add origin https://git:${GITHUB_TOKEN}@github.com/JCQuintas/mind-components.git > /dev/null 2>&1
-        - git push origin master --quiet > /dev/null 2>&1
+        - git push https://JCQuintas:${GITHUB_TOKEN}@github.com/JCQuintas/mind-components.git HEAD:master --quiet > /dev/null 2>&1
         - echo 'Deploying to now ...'
         - npm install -g now
         - now --prod --token ${NOW_TOKEN}
