@@ -32,6 +32,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "update-dates": "node update-dates",
+    "create": "node blog-template",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
@@ -87,6 +88,8 @@
     "@types/styled-components": "^4.1.18",
     "@types/typography": "^0.16.2",
     "babel-preset-gatsby": "^0.2.11",
+    "change-case": "^3.1.0",
+    "inquirer": "^7.0.0",
     "prettier": "^1.18.2"
   },
   "husky": {
