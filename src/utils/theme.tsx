@@ -136,7 +136,7 @@ export const ThemeModeProvider: FunctionComponent<{ children: any }> = ({ childr
             meta={[
               {
                 name: 'theme-color',
-                content: mode.theme.palette.secondary.color,
+                content: mode.theme.palette.primary.color,
               },
             ]}
           />
