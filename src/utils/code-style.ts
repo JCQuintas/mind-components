@@ -54,7 +54,7 @@ export const codeStyle = css`
   :not(pre) > code[class*='language-'] {
     ${({ theme }: Styled) => theme.typography.scale(0)};
     color: ${({ theme }: Styled) => theme.palette.foreground.color};
-    padding: 0.3em;
+    padding: 0.2em 0.3em;
     border-radius: 0.5em;
     white-space: normal;
   }
