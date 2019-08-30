@@ -40,7 +40,9 @@ const BlogIndex: FunctionComponent<{ data: any; location: Location }> = ({ data,
               <Link to={node.fields.slug}>{title}</Link>
             </Title>
             <div>{node.frontmatter.description || node.excerpt}</div>
-            <Published>{node.frontmatter.created}</Published>
+            <Published>
+              <time dateTime={node.frontmatter.created}>{node.frontmatter.created}</time>
+            </Published>
           </Post>
         )
       })}
@@ -65,7 +67,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            created(formatString: "MMMM DD, YYYY")
+            created(formatString: "DD MMMM YYYY")
             title
             description
           }
