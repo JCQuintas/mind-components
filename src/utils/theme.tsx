@@ -100,7 +100,7 @@ export const darkModeKey = `${process.env.GATSBY_PROJECT_ID}_IS_DARK_MODE`
 
 // Get dark mode setting from LocalStorage
 // We don't parse it into boolean because it's also important to know if it was not set
-const savedIsDarkMode = () => typeof window !== 'undefined' && `${localStorage.getItem(darkModeKey)}`
+const savedIsDarkMode = () => typeof window !== 'undefined' && localStorage.getItem(darkModeKey)
 
 // Check if browser prefers Dark Mode, default to dark in case window is undefined
 const prefersDarkMode = () =>

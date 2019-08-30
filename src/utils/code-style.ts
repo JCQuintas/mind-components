@@ -183,7 +183,8 @@ export const codeStyle = css`
   .gatsby-highlight {
     background-color: ${({ theme }: Styled) => theme.palette.code.background};
     border-radius: 0.3em;
-    margin: 0.5em 0;
+    margin: 0;
+    margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1)};
     padding: 1em;
     overflow: auto;
   }
