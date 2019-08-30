@@ -10,7 +10,7 @@ import { Icon } from '../components/icon'
 const Title = styled.h1`
   ${({ theme }: Styled) => theme.typography.scale(1.5)}
   margin-top: ${({ theme }: Styled) => theme.typography.rhythm(1)};
-  margin-bottom: 0;
+  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(0.5)};
 `
 
 const Published = styled.p`
@@ -18,6 +18,8 @@ const Published = styled.p`
   display: block;
   color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.5)};
   margin-bottom: 0;
+  border-left: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.5)} 1px solid;
+  padding-left: ${({ theme }: Styled) => theme.typography.rhythm(0.2)};
 
   &:last-of-type {
     margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1)};
@@ -61,13 +63,11 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: any; locatio
       <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
       <Title>{post.frontmatter.title}</Title>
       <Published>
-        {' '}
-        | <time dateTime={post.frontmatter.created}>{post.frontmatter.created}</time>
+        <time dateTime={post.frontmatter.created}>{post.frontmatter.created}</time>
       </Published>
       {post.frontmatter.created !== post.frontmatter.edited && (
         <Published>
-          {' '}
-          | <time dateTime={post.frontmatter.edited}>{post.frontmatter.edited}</time> (updated)
+          <time dateTime={post.frontmatter.edited}>{post.frontmatter.edited}</time> (updated)
         </Published>
       )}
       <div dangerouslySetInnerHTML={{ __html: post.html }} />

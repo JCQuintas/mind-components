@@ -86,7 +86,6 @@ const GlobalStyle = createGlobalStyle`
     padding: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2, 1)};
     border-bottom-left-radius: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2)};
     border-bottom-right-radius: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2)};
-    margin-left: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2)};
     margin-left: ${({ theme }: Styled) => theme.typography.rhythm(1)};
     margin-right: ${({ theme }: Styled) => theme.typography.rhythm(1)};
     background: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
@@ -128,6 +127,13 @@ const GlobalStyle = createGlobalStyle`
         left: -0.5em;
       }
     }
+  }
+
+  aside {
+    background: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
+    padding: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2, 1 / 2)};
+    border-radius: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2)};
+    margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1)};
   }
 
   ${codeStyle}
