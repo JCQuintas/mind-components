@@ -1,6 +1,6 @@
-import React, { useState, createContext, FunctionComponent, useEffect } from 'react'
+import React, { useState, createContext, FunctionComponent, useEffect, useContext } from 'react'
 import { rhythm, scale } from './typography'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider, ThemeContext } from 'styled-components'
 import Helmet from 'react-helmet'
 import { createBreakpoints } from './breakpoints'
 
@@ -114,31 +114,44 @@ export const getIsDarkMode = (): boolean =>
 
 // The ThemeModeContext can be imported and used on useContext
 // in order to use setIsDarkMode from within the app
-export const ThemeModeContext = createContext<{
-  theme: Theme
-  setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>
-}>({
-  theme: getIsDarkMode() ? darkTheme : lightTheme,
+const ThemeModeContext = createContext<{ setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>> }>({
   setIsDarkMode: () => {},
 })
 
+export const useThemeModeContext = () => {
+  const context = useContext(ThemeModeContext)
+  return context
+}
+
+export const useThemeContext = () => {
+  const context = useContext<Theme>(ThemeContext)
+  return context
+}
+
 export const ThemeModeProvider: FunctionComponent<{ children: any }> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(getIsDarkMode())
+  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [rendered, setRendered] = useState(false)
 
   useEffect(() => {
-    localStorage.setItem(darkModeKey, JSON.stringify(isDarkMode))
+    setIsDarkMode(getIsDarkMode())
+    setRendered(true)
+  }, [])
+
+  useEffect(() => {
+    rendered && localStorage.setItem(darkModeKey, JSON.stringify(isDarkMode))
   }, [isDarkMode])
 
-  const mode = { theme: isDarkMode ? darkTheme : lightTheme, setIsDarkMode }
+  const theme = isDarkMode ? darkTheme : lightTheme
+
   return (
-    <ThemeModeContext.Provider value={mode}>
-      <ThemeProvider theme={mode.theme}>
+    <ThemeModeContext.Provider value={{ setIsDarkMode }}>
+      <ThemeProvider theme={theme}>
         <>
           <Helmet
             meta={[
               {
                 name: 'theme-color',
-                content: mode.theme.palette.primary.color,
+                content: theme.palette.primary.color,
               },
             ]}
           />
