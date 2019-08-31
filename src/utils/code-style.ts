@@ -178,6 +178,10 @@ export const codeStyle = css`
     padding-right: 1em;
     padding-left: 0.75em;
     border-left: 0.25em solid ${({ theme }: Styled) => theme.palette.primary.color};
+
+    ${({ theme }: Styled) => theme.breakpoint.down.xs()} {
+      margin-right: -2em;
+    }
   }
 
   .gatsby-highlight {
@@ -196,5 +200,9 @@ export const codeStyle = css`
     overflow: initial;
     float: left;
     min-width: 100%;
+
+    ${({ theme }: Styled) => theme.breakpoint.down.xs()} {
+      padding-right: 1em;
+    }
   }
 `
