@@ -1,17 +1,8 @@
-import React, { useState, createContext, FunctionComponent, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { rhythm, scale } from './typography'
-import { ThemeProvider, ThemeContext } from 'styled-components'
-import Helmet from 'react-helmet'
-import { createBreakpoints } from './breakpoints'
-
-const transition = (
-  property: string[] | string = 'all',
-  duration: number = 250,
-  easing: string = 'cubic-bezier(0.4,0,0.2,1)'
-) => {
-  if (typeof property === 'string') return `${property} ${duration}ms ${easing}`
-  return property.map(v => `${v} ${duration}ms ${easing}`).join(', ')
-}
+import { ThemeContext } from 'styled-components'
+import { createBreakpoints } from './create-breakpoints'
+import { transition } from './transition'
 
 const defaultTheme: Omit<Theme, 'isDark' | 'palette'> = {
   transition,
@@ -95,69 +86,7 @@ export const lightTheme: Theme = {
   },
 }
 
-// Key used to save into LocalStorage
-export const darkModeKey = `${process.env.GATSBY_PROJECT_ID}_IS_DARK_MODE`
-
-// Get dark mode setting from LocalStorage
-// We don't parse it into boolean because it's also important to know if it was not set
-const savedIsDarkMode = () => typeof window !== 'undefined' && localStorage.getItem(darkModeKey)
-
-// Check if browser prefers Dark Mode, default to dark in case window is undefined
-const prefersDarkMode = () =>
-  typeof window !== 'undefined' ? matchMedia('(prefers-color-scheme: dark)').matches : true
-
-// Get usable isDarkMode
-export const getIsDarkMode = (): boolean =>
-  // Checks if user has a preference already set and use it
-  // If not set, then try to select mode by detecting system preference
-  savedIsDarkMode() === 'true' ? true : savedIsDarkMode() === 'false' ? false : prefersDarkMode()
-
-// The ThemeModeContext can be imported and used on useContext
-// in order to use setIsDarkMode from within the app
-const ThemeModeContext = createContext<{ setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>> }>({
-  setIsDarkMode: () => {},
-})
-
-export const useThemeModeContext = () => {
-  const context = useContext(ThemeModeContext)
-  return context
-}
-
 export const useThemeContext = () => {
   const context = useContext<Theme>(ThemeContext)
   return context
-}
-
-export const ThemeModeProvider: FunctionComponent<{ children: any }> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true)
-  const [rendered, setRendered] = useState(false)
-
-  useEffect(() => {
-    setIsDarkMode(getIsDarkMode())
-    setRendered(true)
-  }, [])
-
-  useEffect(() => {
-    rendered && localStorage.setItem(darkModeKey, JSON.stringify(isDarkMode))
-  }, [isDarkMode])
-
-  const theme = isDarkMode ? darkTheme : lightTheme
-
-  return (
-    <ThemeModeContext.Provider value={{ setIsDarkMode }}>
-      <ThemeProvider theme={theme}>
-        <>
-          <Helmet
-            meta={[
-              {
-                name: 'theme-color',
-                content: theme.palette.primary.color,
-              },
-            ]}
-          />
-          {children}
-        </>
-      </ThemeProvider>
-    </ThemeModeContext.Provider>
-  )
 }

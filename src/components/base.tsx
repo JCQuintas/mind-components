@@ -1,8 +1,8 @@
 // import React, { FunctionComponent } from 'react'
 import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
-import { ThemeModeProvider } from '../utils/theme'
 import { GlobalStylesComponent } from '../utils/global-style'
+import { ThemeProvider } from '../utils/theme-provider'
 
 const StyledRoot = styled.div`
   height: 100%;
@@ -10,11 +10,11 @@ const StyledRoot = styled.div`
 
 export const Base: FunctionComponent = props => {
   return (
-    <ThemeModeProvider>
+    <ThemeProvider>
       <StyledRoot>
         <GlobalStylesComponent />
         {props.children}
       </StyledRoot>
-    </ThemeModeProvider>
+    </ThemeProvider>
   )
 }
