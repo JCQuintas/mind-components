@@ -12,6 +12,7 @@ module.exports = {
     social: {
       facebook: `jcquintas`,
       github: `JCQuintas`,
+      linkedin: `jcquintas`,
     },
   },
   plugins: [

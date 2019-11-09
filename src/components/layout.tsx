@@ -48,6 +48,11 @@ const Link = styled(GatsbyLink)`
   color: inherit;
 `
 
+const Author = styled.small`
+  color: ${({ theme }) => theme.palette.foreground.color};
+  opacity: 0.4;
+`
+
 interface QueryData {
   site: {
     siteMetadata: Pick<SiteMetadata, 'title' | 'author'>
@@ -75,21 +80,19 @@ export const Layout: FunctionComponent = ({ children }) => {
     <LayoutRoot>
       <Header>
         <Location>
-          {({ location: { pathname } }) => (
-            <>
-              {pathname === rootPath ? (
-                <H1>
-                  <Link to={`/`}>{`${author}'s ${title}`}</Link>
-                </H1>
-              ) : (
-                <H3>
-                  <Link to={`/`}>{`${author}'s ${title}`}</Link>
-                </H3>
-              )}
-            </>
-          )}
+          {({ location: { pathname } }) => {
+            const Heading = pathname === rootPath ? H1 : H3
+            return (
+              <Heading>
+                <Link to={`/`}>
+                  <Author>{`${author}'s `}</Author>
+                  <br />
+                  {title}
+                </Link>
+              </Heading>
+            )
+          }}
         </Location>
-
         <ThemeToggle />
       </Header>
       <main>{children}</main>

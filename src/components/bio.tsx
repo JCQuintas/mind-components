@@ -7,7 +7,6 @@ import styled from 'styled-components'
 const Container = styled.div`
   display: flex;
   margin-bottom: ${({ theme }) => theme.spacing(2.5)};
-  transition: ${({ theme }) => theme.transition(['color'])};
 `
 
 const Image = styled(GImage)`
@@ -16,10 +15,6 @@ const Image = styled(GImage)`
   min-width: ${({ theme }) => theme.spacing(2)};
   min-height: ${({ theme }) => theme.spacing(2)};
   border-radius: 100%;
-`
-
-const Subtitle = styled.div`
-  line-height: 1.1em;
 `
 
 export const Bio: FunctionComponent = () => {
@@ -38,13 +33,14 @@ export const Bio: FunctionComponent = () => {
           social {
             facebook
             github
+            linkedin
           }
         }
       }
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const { author, social } = data.site.siteMetadata as SiteMetadata
   return (
     <Container>
       <Image
@@ -55,13 +51,17 @@ export const Bio: FunctionComponent = () => {
         }}
       />
       <div>
+        <div>Hi there, this is my personal website and blog.</div>
         <div>
+          You can find me on{' '}
           <a href={`https://github.com/${social.github}`} target="_blank">
-            <strong>{author}</strong>
+            Github
+          </a>{' '}
+          and{' '}
+          <a href={`https://linkedin.com/in/${social.linkedin}`} target="_blank">
+            LinkedIn
           </a>
-          ' personal blog
         </div>
-        <Subtitle>This is where I work on my ideas</Subtitle>
       </div>
     </Container>
   )
