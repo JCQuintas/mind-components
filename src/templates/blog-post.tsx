@@ -70,18 +70,17 @@ interface BlogPost {
     }
   }
   pageContext: {
-    previous: PostEdge['node']
-    next: PostEdge['node']
+    previous: PostData
+    next: PostData
   }
 }
 
 const BlogPostTemplate: FunctionComponent<BlogPost> = ({ data, pageContext }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
       <Title>{post.frontmatter.title}</Title>
       <Published>
@@ -121,12 +120,6 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)

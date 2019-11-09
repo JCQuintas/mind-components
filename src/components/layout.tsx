@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Link as GatsbyLink } from 'gatsby'
+import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { ThemeToggle } from './theme-toggle'
 import { Location } from '@reach/router'
@@ -48,12 +48,28 @@ const Link = styled(GatsbyLink)`
   color: inherit;
 `
 
-interface LayoutProps {
-  title: string
+interface QueryData {
+  site: {
+    siteMetadata: Pick<SiteMetadata, 'title' | 'author'>
+  }
 }
 
-export const Layout: FunctionComponent<LayoutProps> = ({ title, children }) => {
+export const Layout: FunctionComponent = ({ children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
+  const {
+    site: {
+      siteMetadata: { title, author },
+    },
+  }: QueryData = useStaticQuery(graphql`
+    query LayoutQuery {
+      site {
+        siteMetadata {
+          title
+          author
+        }
+      }
+    }
+  `)
 
   return (
     <LayoutRoot>
@@ -63,11 +79,11 @@ export const Layout: FunctionComponent<LayoutProps> = ({ title, children }) => {
             <>
               {pathname === rootPath ? (
                 <H1>
-                  <Link to={`/`}>{title}</Link>
+                  <Link to={`/`}>{`${author}'s ${title}`}</Link>
                 </H1>
               ) : (
                 <H3>
-                  <Link to={`/`}>{title}</Link>
+                  <Link to={`/`}>{`${author}'s ${title}`}</Link>
                 </H3>
               )}
             </>

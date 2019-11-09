@@ -1,22 +1,10 @@
 declare interface PostEdge {
-  node: {
-    excerpt: string
-    fields: {
-      slug: string
-    }
-    frontmatter: {
-      created: string
-      title: string
-      description: string
-    }
-  }
+  node: PostData
 }
 
 declare interface PageData {
   site: {
-    siteMetadata: {
-      title: string
-    }
+    siteMetadata: SiteMetadata
   }
   allMarkdownRemark: {
     edges: PostEdge[]
