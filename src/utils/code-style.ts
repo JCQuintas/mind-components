@@ -9,7 +9,7 @@ export const codeStyle = css`
 
   code[class*='language-'],
   pre[class*='language-'] {
-    color: ${({ theme }: Styled) => theme.palette.code.foreground};
+    color: ${({ theme }) => theme.palette.code.foreground};
     background: none;
     font-family: 'Ubuntu Mono', Consolas, Monaco, 'Andale Mono', monospace;
     text-align: left;
@@ -29,7 +29,7 @@ export const codeStyle = css`
   code[class*='language-']::selection,
   code[class*='language-'] ::selection {
     text-shadow: none;
-    background: ${({ theme }: Styled) => theme.palette.code.selection};
+    background: ${({ theme }) => theme.palette.code.selection};
   }
 
   @media print {
@@ -47,13 +47,13 @@ export const codeStyle = css`
 
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    background-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
+    background-color: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.1 })};
   }
 
   /* Inline code */
   :not(pre) > code[class*='language-'] {
-    ${({ theme }: Styled) => theme.typography.scale(0)};
-    color: ${({ theme }: Styled) => theme.palette.foreground.color};
+    ${({ theme }) => theme.scale(0)};
+    color: ${({ theme }) => theme.palette.foreground.color};
     padding: 0.2em 0.3em;
     border-radius: 0.5em;
     white-space: normal;
@@ -63,16 +63,16 @@ export const codeStyle = css`
   .token.prolog,
   .token.doctype,
   .token.cdata {
-    color: ${({ theme }: Styled) => theme.palette.code.comment};
+    color: ${({ theme }) => theme.palette.code.comment};
   }
 
   .token.punctuation {
-    color: ${({ theme }: Styled) => theme.palette.code.punctuation};
+    color: ${({ theme }) => theme.palette.code.punctuation};
   }
 
   .token.selector,
   .token.tag {
-    color: ${({ theme }: Styled) => theme.palette.code.selector};
+    color: ${({ theme }) => theme.palette.code.selector};
   }
 
   .token.property,
@@ -82,7 +82,7 @@ export const codeStyle = css`
   .token.symbol,
   .token.attr-name,
   .token.deleted {
-    color: ${({ theme }: Styled) => theme.palette.code.number};
+    color: ${({ theme }) => theme.palette.code.number};
   }
 
   .token.string,
@@ -90,7 +90,7 @@ export const codeStyle = css`
   .token.attr-value,
   .token.builtin,
   .token.inserted {
-    color: ${({ theme }: Styled) => theme.palette.code.string};
+    color: ${({ theme }) => theme.palette.code.string};
   }
 
   .token.operator,
@@ -98,26 +98,26 @@ export const codeStyle = css`
   .token.url,
   .language-css .token.string,
   .style .token.string {
-    color: ${({ theme }: Styled) => theme.palette.code.operator};
+    color: ${({ theme }) => theme.palette.code.operator};
   }
 
   .token.atrule,
   .token.keyword {
-    color: ${({ theme }: Styled) => theme.palette.code.keyword};
+    color: ${({ theme }) => theme.palette.code.keyword};
   }
 
   .token.function {
-    color: ${({ theme }: Styled) => theme.palette.code.function};
+    color: ${({ theme }) => theme.palette.code.function};
   }
 
   .token.class-name {
-    color: ${({ theme }: Styled) => theme.palette.code.class};
+    color: ${({ theme }) => theme.palette.code.class};
   }
 
   .token.regex,
   .token.important,
   .token.variable {
-    color: ${({ theme }: Styled) => theme.palette.code.keyword};
+    color: ${({ theme }) => theme.palette.code.keyword};
   }
 
   .token.important,
@@ -164,31 +164,31 @@ export const codeStyle = css`
 
   .line-numbers-rows > span:before {
     content: counter(linenumber);
-    color: ${({ theme }: Styled) => theme.palette.code.comment};
+    color: ${({ theme }) => theme.palette.code.comment};
     display: block;
     padding-right: 0.8em;
     text-align: right;
   }
 
   .gatsby-highlight-code-line {
-    background-color: ${({ theme }: Styled) => theme.palette.code.highlight};
+    background-color: ${({ theme }) => theme.palette.code.highlight};
     display: block;
     margin-right: -1em;
     margin-left: -1em;
     padding-right: 1em;
     padding-left: 0.75em;
-    border-left: 0.25em solid ${({ theme }: Styled) => theme.palette.primary.color};
+    border-left: 0.25em solid ${({ theme }) => theme.palette.primary.color};
 
-    ${({ theme }: Styled) => theme.breakpoint.down.xs()} {
+    ${({ theme }) => theme.breakpoint.down.xs} {
       margin-right: -2em;
     }
   }
 
   .gatsby-highlight {
-    background-color: ${({ theme }: Styled) => theme.palette.code.background};
+    background-color: ${({ theme }) => theme.palette.code.background};
     border-radius: 0.3em;
     margin: 0;
-    margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1)};
+    margin-bottom: ${({ theme }) => theme.spacing(1)};
     padding: 1em;
     overflow: auto;
   }
@@ -201,7 +201,7 @@ export const codeStyle = css`
     float: left;
     min-width: 100%;
 
-    ${({ theme }: Styled) => theme.breakpoint.down.xs()} {
+    ${({ theme }) => theme.breakpoint.down.xs} {
       padding-right: 1em;
     }
   }

@@ -9,15 +9,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }: Styled) => theme.palette.background.color};
-    color: ${({ theme }: Styled) => theme.palette.foreground.color};
-    transition: ${({ theme }: Styled) => theme.transition(['color', 'background-color'])};
-    font-weight: ${({ theme }: Styled) => (theme.isDark ? 400 : 500)};
+    background-color: ${({ theme }) => theme.palette.background.color};
+    color: ${({ theme }) => theme.palette.foreground.color};
+    transition: ${({ theme }) => theme.transition(['color', 'background-color'])};
+    font-weight: ${({ theme }) => (theme.isDark ? 400 : 500)};
   }
 
   a {
-    color: ${({ theme }: Styled) => theme.palette.secondary.color};
-    transition: ${({ theme }: Styled) => theme.transition('color')};
+    color: ${({ theme }) => theme.palette.secondary.color};
+    transition: ${({ theme }) => theme.transition('color')};
     text-decoration: none;
     box-shadow: 0 1px 0 0 currentColor;
 
@@ -27,28 +27,28 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a.anchor {
-    fill: ${({ theme }: Styled) => theme.palette.foreground.color};
+    fill: ${({ theme }) => theme.palette.foreground.color};
     box-shadow: none;
 
     &:hover {
-      fill: ${({ theme }: Styled) => theme.palette.primary.color};
+      fill: ${({ theme }) => theme.palette.primary.color};
     }
   }
 
   a:hover {
-    color: ${({ theme }: Styled) => theme.palette.secondary.color};
+    color: ${({ theme }) => theme.palette.secondary.color};
   }
 
   h1 {
-    color: ${({ theme }: Styled) => theme.palette.primary.color};
+    color: ${({ theme }) => theme.palette.primary.color};
   }
 
   h2,
   h3,
   h4,
   h5 {
-    color: ${({ theme }: Styled) => theme.palette.foreground.color};
-    margin-top: ${({ theme }: Styled) => theme.typography.rhythm(2)};
+    color: ${({ theme }) => theme.palette.foreground.color};
+    margin-top: ${({ theme }) => theme.spacing(2)};
   }
 
   h1,
@@ -56,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
   h3,
   h4,
   h5 {
-    transition: ${({ theme }: Styled) => theme.transition('color')};
+    transition: ${({ theme }) => theme.transition('color')};
 
     a {
       color: inherit;
@@ -69,12 +69,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   hr {
-    background-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
+    background-color: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.1 })};
   }
 
   th,
   td {
-    border-color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
+    border-color: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.1 })};
   }
 
   strong {
@@ -83,27 +83,27 @@ const GlobalStyle = createGlobalStyle`
 
   blockquote {
     position: relative;
-    padding: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2, 1)};
-    border-bottom-left-radius: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2)};
-    border-bottom-right-radius: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2)};
-    margin-left: ${({ theme }: Styled) => theme.typography.rhythm(1)};
-    margin-right: ${({ theme }: Styled) => theme.typography.rhythm(1)};
-    background: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
+    padding: ${({ theme }) => theme.spacing(1 / 2, 1)};
+    border-bottom-left-radius: ${({ theme }) => theme.spacing(1 / 2)};
+    border-bottom-right-radius: ${({ theme }) => theme.spacing(1 / 2)};
+    margin-left: ${({ theme }) => theme.spacing(1)};
+    margin-right: ${({ theme }) => theme.spacing(1)};
+    background: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.1 })};
     border-left: 2px solid;
     border-right: 2px solid;
-    line-height: ${({ theme }: Styled) => theme.typography.rhythm(1.1)};
-      letter-spacing: ${({ theme }: Styled) => theme.typography.rhythm(0.01)};
+    line-height: ${({ theme }) => theme.spacing(1.1)};
+      letter-spacing: ${({ theme }) => theme.spacing(0.01)};
     border-image: linear-gradient(
         to bottom,
-        ${({ theme }: Styled) => theme.palette.primary.color} 0%,
-        ${({ theme }: Styled) => theme.palette.primary.opacity(0)} 70%
+        ${({ theme }) => theme.palette.primary.color} 0%,
+        ${({ theme }) => theme.palette.primary.manipulate({ opacity: 0 })} 70%
       )
       1 100%;
-    ${({ theme }: Styled) => theme.typography.scale(0.3)};
+    ${({ theme }) => theme.scale(0.3)};
 
-    ${({ theme }: Styled) => theme.breakpoint.up.sm()}{    &.right,
+    ${({ theme }) => theme.breakpoint.up.sm}{    &.right,
     &.left {
-      max-width: ${({ theme }: Styled) => theme.typography.rhythm(10)};
+      max-width: ${({ theme }) => theme.spacing(10)};
     }
 
     &.right {
@@ -115,11 +115,11 @@ const GlobalStyle = createGlobalStyle`
     }}
 
     cite {
-      ${({ theme }: Styled) => theme.typography.scale(0)};
+      ${({ theme }) => theme.scale(0)};
       position: absolute;
-      color: ${({ theme }: Styled) => theme.palette.primary.color};
+      color: ${({ theme }) => theme.palette.primary.color};
       bottom: -1em;
-      right: ${({ theme }: Styled) => theme.typography.rhythm(1)};
+      right: ${({ theme }) => theme.spacing(1)};
 
       &:before {
         content: '-';
@@ -130,13 +130,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   aside {
-    background: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.1)};
-    padding: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2, 1 / 2)};
-    border-radius: ${({ theme }: Styled) => theme.typography.rhythm(1 / 2)};
-    margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1)};
+    background: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.1 })};
+    padding: ${({ theme }) => theme.spacing(1 / 2, 1 / 2)};
+    border-radius: ${({ theme }) => theme.spacing(1 / 2)};
+    margin-bottom: ${({ theme }) => theme.spacing(1)};
   }
 
   ${codeStyle}
 `
 
-export const GlobalStylesComponent = withTheme(({ theme }: Styled) => createElement(GlobalStyle, { theme }))
+export const GlobalStylesComponent = withTheme(({ theme }) => createElement(GlobalStyle, { theme }))

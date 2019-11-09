@@ -6,14 +6,14 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   display: flex;
-  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(2.5)};
+  margin-bottom: ${({ theme }) => theme.spacing(2.5)};
 `
 
 const Image = styled(GImage)`
-  margin-right: ${({ theme }: Styled) => theme.typography.rhythm(0.5)};
+  margin-right: ${({ theme }) => theme.spacing(0.5)};
   margin-bottom: 0;
-  min-width: ${({ theme }: Styled) => theme.typography.rhythm(2)};
-  min-height: ${({ theme }: Styled) => theme.typography.rhythm(2)};
+  min-width: ${({ theme }) => theme.spacing(2)};
+  min-height: ${({ theme }) => theme.spacing(2)};
   border-radius: 100%;
 `
 

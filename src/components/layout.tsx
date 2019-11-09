@@ -13,32 +13,32 @@ const heading = css`
 `
 
 const H1 = styled.h1`
-  ${({ theme }: Styled) => theme.typography.scale(1)}
-  color: ${({ theme }: Styled) => theme.palette.primary.color};
+  ${({ theme }) => theme.scale(1)}
+  color: ${({ theme }) => theme.palette.primary.color};
 
   ${heading}
 `
 
 const H3 = styled.h3`
-  height: ${({ theme }: Styled) => theme.typography.rhythm(1.5)};
+  height: ${({ theme }) => theme.spacing(1.5)};
   display: flex;
   align-items: center;
-  color: ${({ theme }: Styled) => theme.palette.secondary.color};
+  color: ${({ theme }) => theme.palette.secondary.color};
   ${heading}
 `
 
 const LayoutRoot = styled.div`
   margin-left: auto;
   margin-right: auto;
-  max-width: ${({ theme }: Styled) => theme.typography.rhythm(24)};
-  padding: ${({ theme }: Styled) => theme.typography.rhythm(1.5, 3 / 4)};
+  max-width: ${({ theme }) => theme.spacing(24)};
+  padding: ${({ theme }) => theme.spacing(1.5, 3 / 4)};
 `
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1.5)};
+  margin-bottom: ${({ theme }) => theme.spacing(1.5)};
 `
 
 const Link = styled(GatsbyLink)`

@@ -8,26 +8,26 @@ import styled from 'styled-components'
 import { Icon } from '../components/icon'
 
 const Title = styled.h1`
-  ${({ theme }: Styled) => theme.typography.scale(1.5)}
-  margin-top: ${({ theme }: Styled) => theme.typography.rhythm(1)};
-  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(0.5)};
+  ${({ theme }) => theme.scale(1.5)}
+  margin-top: ${({ theme }) => theme.spacing(1)};
+  margin-bottom: ${({ theme }) => theme.spacing(0.5)};
 `
 
 const Published = styled.p`
-  ${({ theme }: Styled) => theme.typography.scale(-1 / 5)}
+  ${({ theme }) => theme.scale(-1 / 5)}
   display: block;
-  color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.5)};
+  color: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.5 })};
   margin-bottom: 0;
-  border-left: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.5)} 1px solid;
-  padding-left: ${({ theme }: Styled) => theme.typography.rhythm(0.2)};
+  border-left: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.5 })} 1px solid;
+  padding-left: ${({ theme }) => theme.spacing(0.2)};
 
   &:last-of-type {
-    margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1)};
+    margin-bottom: ${({ theme }) => theme.spacing(1)};
   }
 `
 
 const Divider = styled.hr`
-  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(1)};
+  margin-bottom: ${({ theme }) => theme.spacing(1)};
 `
 
 const PaginationList = styled.ul`
@@ -45,7 +45,7 @@ const Link = styled(GLink)`
   align-items: center;
 
   & > *:first-child {
-    margin-right: ${({ theme }: Styled) => theme.typography.rhythm(1 / 4)};
+    margin-right: ${({ theme }) => theme.spacing(1 / 4)};
   }
 `
 

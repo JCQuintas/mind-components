@@ -11,13 +11,12 @@ const build = (v: any) => styled(v)`
   height: 1em;
   display: inline-block;
   font-size: 1em;
-  transition: ${({ theme }: Styled) => theme.transition(['color', 'fill'], 200)};
+  transition: ${({ theme }) => theme.transition(['color', 'fill'], 200)};
   user-select: none;
   flex-shrink: 0;
 `
 
 export const Icon = {
-  // Location: build(LocationSvg),
   Back: build(BackSvg),
   Forward: build(ForwardSvg),
   Moon: build(MoonSvg),

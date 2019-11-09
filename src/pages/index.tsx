@@ -7,13 +7,13 @@ import { SEO } from '../components/seo'
 import styled from 'styled-components'
 
 const Post = styled.div`
-  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(2)};
+  margin-bottom: ${({ theme }) => theme.spacing(2)};
 `
 
 const Title = styled.h3`
-  ${({ theme }: Styled) => theme.typography.scale(0.8)}
-  margin-bottom: ${({ theme }: Styled) => theme.typography.rhythm(0.1)};
-  color: ${({ theme }: Styled) => theme.palette.secondary.color};
+  ${({ theme }) => theme.scale(0.8)}
+  margin-bottom: ${({ theme }) => theme.spacing(0.1)};
+  color: ${({ theme }) => theme.palette.secondary.color};
 
   a {
     box-shadow: none;
@@ -21,7 +21,7 @@ const Title = styled.h3`
 `
 
 const Published = styled.small`
-  color: ${({ theme }: Styled) => theme.palette.foreground.opacity(0.5)};
+  color: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.5 })};
 `
 
 const BlogIndex: FunctionComponent<{ data: any; location: Location }> = ({ data, location }) => {

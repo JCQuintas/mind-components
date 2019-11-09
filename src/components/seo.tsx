@@ -2,12 +2,14 @@ import React, { FunctionComponent } from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-export const SEO: FunctionComponent<{ description?: string; lang?: string; meta?: any[]; title: string }> = ({
-  description = ``,
-  lang = 'en',
-  meta = [],
-  title,
-}) => {
+interface SEOProps {
+  description?: string
+  lang?: string
+  meta?: any[]
+  title: string
+}
+
+export const SEO: FunctionComponent<SEOProps> = ({ description = ``, lang = 'en', meta = [], title }) => {
   const { site } = useStaticQuery(
     graphql`
       query {

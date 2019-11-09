@@ -59,7 +59,7 @@ const ToggleContainer = styled.div<{ hasFocus: boolean }>`
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
 
-  .screenreader-only {
+  .screen-reader-only {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -76,9 +76,9 @@ const ToggleContainer = styled.div<{ hasFocus: boolean }>`
     height: 24px;
     padding: 0;
     border-radius: 24px;
-    background-color: ${({ theme }: Styled) => theme.palette.background.color};
-    border: 2px solid ${({ theme }: Styled) => theme.palette.foreground.color};
-    transition: ${({ theme }: Styled) => theme.transition(['border', 'background-color'])};
+    background-color: ${({ theme }) => theme.palette.background.color};
+    border: 2px solid ${({ theme }) => theme.palette.foreground.color};
+    transition: ${({ theme }) => theme.transition(['border', 'background-color'])};
   }
 
   .track-icon {
@@ -90,18 +90,18 @@ const ToggleContainer = styled.div<{ hasFocus: boolean }>`
     margin-top: auto;
     margin-bottom: auto;
     line-height: 0;
-    transition: ${({ theme }: Styled) => theme.transition('opacity', 250)};
+    transition: ${({ theme }) => theme.transition('opacity', 250)};
   }
 
   .track-check {
-    opacity: ${({ theme }: Styled) => (theme.isDark ? 1 : 0)};
-    color: ${({ theme }: Styled) => theme.palette.secondary.color};
+    opacity: ${({ theme }) => (theme.isDark ? 1 : 0)};
+    color: ${({ theme }) => theme.palette.secondary.color};
     left: 2px;
   }
 
   .track-x {
-    opacity: ${({ theme }: Styled) => (theme.isDark ? 0 : 1)};
-    color: ${({ theme }: Styled) => theme.palette.primary.color};
+    opacity: ${({ theme }) => (theme.isDark ? 0 : 1)};
+    color: ${({ theme }) => theme.palette.primary.color};
     right: 2px;
   }
 
@@ -112,11 +112,11 @@ const ToggleContainer = styled.div<{ hasFocus: boolean }>`
     left: 4px;
     top: 4px;
     border-radius: 50%;
-    background-color: ${({ theme }: Styled) => theme.palette.foreground.color};
+    background-color: ${({ theme }) => theme.palette.foreground.color};
     box-sizing: border-box;
-    transition: ${({ theme }: Styled) => theme.transition(['transform', 'box-shadow'], 500)},
-      ${({ theme }: Styled) => theme.transition('background-color', 250)};
-    transform: ${({ theme }: Styled) => (theme.isDark ? `translateX(26px)` : 'translateX(0)')};
+    transition: ${({ theme }) => theme.transition(['transform', 'box-shadow'], 500)},
+      ${({ theme }) => theme.transition('background-color', 250)};
+    transform: ${({ theme }) => (theme.isDark ? `translateX(26px)` : 'translateX(0)')};
     ${({ hasFocus, theme }) => hasFocus && `box-shadow: 0px 0px 2px 3px ${theme.palette.primary.color};`}
   }
 
@@ -126,7 +126,7 @@ const ToggleContainer = styled.div<{ hasFocus: boolean }>`
   }
 
   &:active .thumb {
-    box-shadow: 0px 0px 5px 5px ${({ theme }: Styled) => theme.palette.primary.color};
+    box-shadow: 0px 0px 5px 5px ${({ theme }) => theme.palette.primary.color};
   }
 `
 
@@ -229,7 +229,7 @@ export const Toggle: FunctionComponent<ToggleInterface> = ({ checked, onFocus, o
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={onChange}
-        className="screenreader-only"
+        className="screen-reader-only"
         type="checkbox"
         aria-label="Switch between Dark and Light mode"
       />
