@@ -60,7 +60,7 @@ export const Bio: FunctionComponent = () => {
           </a>
           ' personal blog
         </div>
-        <Subtitle>This is where I tinker with new ideas</Subtitle>
+        <Subtitle>This is where I work on my ideas</Subtitle>
       </div>
     </Container>
   )

@@ -49,17 +49,39 @@ const Link = styled(GLink)`
   }
 `
 
-const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: any; location: Location }> = ({
-  data,
-  pageContext,
-  location,
-}) => {
+interface BlogPost {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+        author: string
+      }
+    }
+    markdownRemark: {
+      id: string
+      excerpt: string
+      html: string
+      frontmatter: {
+        title: string
+        created: string
+        edited: string
+        description: string
+      }
+    }
+  }
+  pageContext: {
+    previous: PostEdge['node']
+    next: PostEdge['node']
+  }
+}
+
+const BlogPostTemplate: FunctionComponent<BlogPost> = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
       <Title>{post.frontmatter.title}</Title>
       <Published>

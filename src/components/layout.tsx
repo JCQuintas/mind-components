@@ -47,11 +47,11 @@ const Link = styled(GatsbyLink)`
   color: inherit;
 `
 
-export const Layout: FunctionComponent<{ location: Location; title: string }> = ({ location, title, children }) => {
+export const Layout: FunctionComponent<{ title: string }> = ({ title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
-  if (location.pathname === rootPath) {
+  if (window.location.pathname === rootPath) {
     header = (
       <H1>
         <Link to={`/`}>{title}</Link>

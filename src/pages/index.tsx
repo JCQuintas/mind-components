@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react'
 import { Link, graphql } from 'gatsby'
-
 import { Bio } from '../components/bio'
 import { Layout } from '../components/layout'
 import { SEO } from '../components/seo'
@@ -20,26 +19,34 @@ const Title = styled.h3`
   }
 `
 
+const Description = styled.p`
+  margin: 0;
+`
+
 const Published = styled.small`
   color: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.5 })};
 `
 
-const BlogIndex: FunctionComponent<{ data: any; location: Location }> = ({ data, location }) => {
+interface BlogIndexProps {
+  data: PageData
+}
+
+const BlogIndex: FunctionComponent<BlogIndexProps> = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
-      {posts.map(({ node }: { node: any }) => {
+      {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <Post key={node.fields.slug}>
             <Title>
               <Link to={node.fields.slug}>{title}</Link>
             </Title>
-            <div>{node.frontmatter.description || node.excerpt}</div>
+            <Description>{node.frontmatter.description || node.excerpt}</Description>
             <Published>
               <time dateTime={node.frontmatter.created}>{node.frontmatter.created}</time>
             </Published>

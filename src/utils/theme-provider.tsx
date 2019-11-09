@@ -4,7 +4,7 @@ import { darkTheme, lightTheme } from './theme'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
 
-export const ThemeProvider: FunctionComponent<{ children: any }> = ({ children }) => {
+export const ThemeProvider: FunctionComponent = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(true)
   const [rendered, setRendered] = useState(false)
 

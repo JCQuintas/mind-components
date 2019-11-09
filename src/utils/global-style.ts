@@ -11,8 +11,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.palette.background.color};
     color: ${({ theme }) => theme.palette.foreground.color};
-    transition: ${({ theme }) => theme.transition(['color', 'background-color'])};
+    transition: ${({ theme }) => theme.transition(['background-color'])};
     font-weight: ${({ theme }) => (theme.isDark ? 400 : 500)};
+    ${({ theme }) => theme.isDark && { letterSpacing: '0.006em' }};
   }
 
   a {
@@ -23,20 +24,17 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover {
       box-shadow: none;
+      color: ${({ theme }) => theme.palette.secondary.color};
     }
-  }
 
-  a.anchor {
-    fill: ${({ theme }) => theme.palette.foreground.color};
-    box-shadow: none;
+    &.anchor {
+      fill: ${({ theme }) => theme.palette.foreground.color};
+      box-shadow: none;
 
-    &:hover {
-      fill: ${({ theme }) => theme.palette.primary.color};
+      &:hover {
+        fill: ${({ theme }) => theme.palette.primary.color};
+      }
     }
-  }
-
-  a:hover {
-    color: ${({ theme }) => theme.palette.secondary.color};
   }
 
   h1 {
@@ -57,15 +55,21 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5 {
     transition: ${({ theme }) => theme.transition('color')};
+    ${({ theme }) => theme.isDark && { letterSpacing: 'normal' }};
 
     a {
       color: inherit;
       transition: none;
+      ${({ theme }) => theme.isDark && { letterSpacing: 'normal' }};
 
       &:hover {
         color: inherit;
       }
     }
+  }
+
+  small, p, code, aside {
+    transition: ${({ theme }) => theme.transition(['color', 'border-color', 'background-color'])};
   }
 
   hr {
