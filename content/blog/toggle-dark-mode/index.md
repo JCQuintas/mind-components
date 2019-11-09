@@ -10,7 +10,7 @@ So you are creating your own website and you decide to have a dark and light the
 In this blog post I intend on clarifying how I used `Context` and `useContext` to store the current state of this website's theme toggle.
 
 <aside>
-  <b>Note:</b> I use <code class="language-text">window.localStorage</code> to persist the user's choice. If you are using Gatsby, you will want to make some changes to the code bellow to ensure that it only runs when <code class="language-text">window</code> is present. You can check how I implemented it <a href="https://github.com/JCQuintas/mind-components/blob/master/src/utils/theme.tsx#L102" target="_blank" rel="noopener noreferrer">here</a>.
+  <b>Note:</b> I use <code class="language-text">window.localStorage</code> to persist the user's choice. If you are using Gatsby, you will want to make some changes to the code bellow to ensure that it only runs when <code class="language-text">window</code> is present. You can check how I implemented it <a href="https://github.com/JCQuintas/mind-components/blob/e2ae0a78f8c0f93591555b7d19e9c34b4413671f/src/utils/theme-mode.ts#L11" target="_blank" rel="noopener noreferrer">here</a>.
 </aside>
 
 To achieve our goal we will use `styled-components` and `react`. You may switch styled-components to vanilla `css` and dynamically assign **css-variables** in order to effectively change your theme, some adjustments are required, but the main `Context` concept will be the same.
