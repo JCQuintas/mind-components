@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { ThemeToggle } from './theme-toggle'
+import { Location } from '@reach/router'
 
 const heading = css`
   margin-bottom: 0;
@@ -47,27 +48,32 @@ const Link = styled(GatsbyLink)`
   color: inherit;
 `
 
-export const Layout: FunctionComponent<{ title: string }> = ({ title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
+interface LayoutProps {
+  title: string
+}
 
-  if (window.location.pathname === rootPath) {
-    header = (
-      <H1>
-        <Link to={`/`}>{title}</Link>
-      </H1>
-    )
-  } else {
-    header = (
-      <H3>
-        <Link to={`/`}>{title}</Link>
-      </H3>
-    )
-  }
+export const Layout: FunctionComponent<LayoutProps> = ({ title, children }) => {
+  const rootPath = `${__PATH_PREFIX__}/`
+
   return (
     <LayoutRoot>
       <Header>
-        {header}
+        <Location>
+          {({ location: { pathname } }) => (
+            <>
+              {pathname === rootPath ? (
+                <H1>
+                  <Link to={`/`}>{title}</Link>
+                </H1>
+              ) : (
+                <H3>
+                  <Link to={`/`}>{title}</Link>
+                </H3>
+              )}
+            </>
+          )}
+        </Location>
+
         <ThemeToggle />
       </Header>
       <main>{children}</main>
