@@ -18,27 +18,7 @@ const Image = styled(GImage)`
 `
 
 export const Bio: FunctionComponent = () => {
-  const data = useStaticQuery(graphql`
-    query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile.png/" }) {
-        childImageSharp {
-          fixed(width: 56, height: 56) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      site {
-        siteMetadata {
-          author
-          social {
-            facebook
-            github
-            linkedin
-          }
-        }
-      }
-    }
-  `)
+  const data = useStaticQuery(query)
 
   const { author, social } = data.site.siteMetadata as SiteMetadata
   return (
@@ -54,11 +34,11 @@ export const Bio: FunctionComponent = () => {
         <div>Hi there, this is my personal website and blog.</div>
         <div>
           You can find me on{' '}
-          <a href={`https://github.com/${social.github}`} target="_blank">
+          <a href={`https://github.com/${social.github}`} target="_blank" rel="noopener noreferrer">
             Github
           </a>{' '}
           and{' '}
-          <a href={`https://linkedin.com/in/${social.linkedin}`} target="_blank">
+          <a href={`https://linkedin.com/in/${social.linkedin}`} target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
         </div>
@@ -66,3 +46,25 @@ export const Bio: FunctionComponent = () => {
     </Container>
   )
 }
+
+const query = graphql`
+  query BioQuery {
+    avatar: file(absolutePath: { regex: "/profile.png/" }) {
+      childImageSharp {
+        fixed(width: 56, height: 56) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        author
+        social {
+          facebook
+          github
+          linkedin
+        }
+      }
+    }
+  }
+`

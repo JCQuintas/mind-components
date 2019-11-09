@@ -3,6 +3,11 @@ import { createElement } from 'react'
 import { codeStyle } from './code-style'
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    overflow-y: auto;
+  }
+
+
   html,
   body {
     height: 100%;
@@ -14,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     transition: ${({ theme }) => theme.transition(['background-color'])};
     font-weight: ${({ theme }) => (theme.isDark ? 400 : 500)};
     ${({ theme }) => theme.isDark && { letterSpacing: '0.006em' }};
+    margin-left: calc(100vw - 100%);
   }
 
   a {
@@ -68,8 +74,12 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  abbr[title] {
+    border-bottom: 1px dotted ${({ theme }) => theme.palette.foreground.color};
+  }
+
   small, p, code, aside, footer  {
-    transition: ${({ theme }) => theme.transition(['color', 'border-color', 'background-color'])};
+    transition: ${({ theme }) => theme.transition(['color', 'border-color'])};
   }
 
   hr {

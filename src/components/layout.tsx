@@ -3,6 +3,7 @@ import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { ThemeToggle } from './theme-toggle'
 import { Location } from '@reach/router'
+import { Navigation } from './navigation'
 
 const heading = css`
   margin-bottom: 0;
@@ -39,7 +40,7 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: ${({ theme }) => theme.spacing(1.5)};
+  margin-bottom: ${({ theme }) => theme.spacing(1 / 2)};
 `
 
 const Link = styled(GatsbyLink)`
@@ -50,7 +51,7 @@ const Link = styled(GatsbyLink)`
 
 const Author = styled.small`
   color: ${({ theme }) => theme.palette.foreground.color};
-  opacity: 0.4;
+  opacity: 0.5;
 `
 
 interface QueryData {
@@ -95,6 +96,7 @@ export const Layout: FunctionComponent = ({ children }) => {
         </Location>
         <ThemeToggle />
       </Header>
+      <Navigation />
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with

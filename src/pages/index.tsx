@@ -32,11 +32,10 @@ interface BlogIndexProps {
 }
 
 const BlogIndex: FunctionComponent<BlogIndexProps> = ({ data }) => {
-  const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO title="All posts" />
       <Bio />
       {posts.map(({ node }) => {
@@ -61,11 +60,6 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(sort: { fields: [frontmatter___created], order: DESC }) {
       edges {
         node {
