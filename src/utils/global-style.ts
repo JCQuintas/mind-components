@@ -68,7 +68,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  small, p, code, aside {
+  small, p, code, aside, footer  {
     transition: ${({ theme }) => theme.transition(['color', 'border-color', 'background-color'])};
   }
 

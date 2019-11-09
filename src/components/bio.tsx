@@ -7,6 +7,7 @@ import styled from 'styled-components'
 const Container = styled.div`
   display: flex;
   margin-bottom: ${({ theme }) => theme.spacing(2.5)};
+  transition: ${({ theme }) => theme.transition(['color'])};
 `
 
 const Image = styled(GImage)`
