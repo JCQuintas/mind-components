@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const CompanyContainer = styled.div`
   padding: ${({ theme }) => theme.spacing(1 / 2, 2.5, 1 / 2, 1 / 2)};
@@ -29,34 +29,32 @@ const Position = styled.div`
   grid-column: 1 / -1;
 `
 
-const Place = styled.div`
-  font-size: ${({ theme }) => theme.scale(-0.5).fontSize};
-  opacity: 0.5;
+const small = css`
+  font-size: ${({ theme }) => theme.scale(-0.3).fontSize};
+  opacity: 0.6;
 `
 
-const TimePeriod = styled(Place)`
+const Place = styled.a.attrs({
+  target: '_blank',
+  rel: 'noopener noreferrer',
+})`
+  ${small}
+
+  color: ${({ theme }) => theme.palette.foreground.color};
+
+  &:hover {
+    color: ${({ theme }) => theme.palette.foreground.color};
+  }
+`
+
+const TimePeriod = styled.div`
+  ${small}
+
   ${({ theme }) => theme.breakpoint.up.sm} {
     margin-left: ${({ theme }) => theme.spacing(1 / 2)};
     padding-left: ${({ theme }) => theme.spacing(1 / 2)};
     border-left: 1px solid ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.2 })};
   }
-`
-
-const Link = styled.a.attrs({
-  target: '_blank',
-  rel: 'noopener noreferrer',
-})`
-  box-shadow: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: ${({ theme }) => theme.spacing(1 / 2)};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  ${({ theme }) => theme.scale(-0.5)};
 `
 
 interface CompanyProps {
@@ -70,9 +68,8 @@ export const Company: FunctionComponent<CompanyProps> = ({ position, company, pe
   return (
     <CompanyContainer>
       <Position>{position}</Position>
-      <Place>{company}</Place>
+      <Place href={website}>{company}</Place>
       <TimePeriod>{period}</TimePeriod>
-      <Link href={website}>Website</Link>
     </CompanyContainer>
   )
 }
