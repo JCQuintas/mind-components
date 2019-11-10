@@ -6,8 +6,6 @@ const CompanyContainer = styled.div`
   transition: ${({ theme }) => theme.transition(['border-left', 'background-color'])};
   border-left: 3px solid ${({ theme }) => theme.palette.primary.color};
   background-color: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.05 })};
-  margin-left: ${({ theme }) => theme.spacing(-1 / 2)};
-  margin-right: ${({ theme }) => theme.spacing(-1 / 2)};
   position: relative;
 
   display: grid;
@@ -17,6 +15,8 @@ const CompanyContainer = styled.div`
   row-gap: ${({ theme }) => theme.spacing(1 / 5)};
 
   ${({ theme }) => theme.breakpoint.up.sm} {
+    margin-left: ${({ theme }) => theme.spacing(-1 / 2)};
+    margin-right: ${({ theme }) => theme.spacing(-1 / 2)};
     grid-template-columns: max-content max-content;
     grid-template-rows: auto auto;
   }
@@ -39,6 +39,8 @@ const Place = styled.a.attrs({
   rel: 'noopener noreferrer',
 })`
   ${small}
+
+  justify-self: start;
 
   color: ${({ theme }) => theme.palette.foreground.color};
 

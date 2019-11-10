@@ -27,7 +27,7 @@ export const ThemeProvider: FunctionComponent = ({ children }) => {
             meta={[
               {
                 name: 'theme-color',
-                content: theme.palette.primary.color,
+                content: theme.palette.background.color,
               },
             ]}
           />

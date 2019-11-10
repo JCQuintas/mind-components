@@ -35,9 +35,12 @@ const H3 = styled.h3`
 const Description = styled.p`
   padding: ${({ theme }) => theme.spacing(1 / 2, 0, 1 / 2, 1 / 2)};
   border-left: 3px solid ${({ theme }) => theme.palette.primary.color};
-  margin-left: ${({ theme }) => theme.spacing(-1 / 2)};
   transition: ${({ theme }) => theme.transition(['border-left', 'background-color'])};
   margin-bottom: ${({ theme }) => theme.spacing(2)};
+
+  ${({ theme }) => theme.breakpoint.up.sm} {
+    margin-left: ${({ theme }) => theme.spacing(-1 / 2)};
+  }
 `
 
 const A = styled.a.attrs({
