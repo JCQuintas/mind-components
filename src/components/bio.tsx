@@ -17,30 +17,23 @@ const Image = styled(GImage)`
   border-radius: 100%;
 `
 
+const Link = styled.a.attrs({
+  target: '_blank',
+  rel: 'noopener noreferrer',
+})``
+
 export const Bio: FunctionComponent = () => {
   const data = useStaticQuery(query)
 
   const { author, social } = data.site.siteMetadata as SiteMetadata
   return (
     <Container>
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
+      <Image fixed={data.avatar.childImageSharp.fixed} alt={author} />
       <div>
-        <div>Hi there, this is my personal website and blog.</div>
+        <div>Hi, this is my personal website and blog.</div>
         <div>
-          You can find me on{' '}
-          <a href={`https://github.com/${social.github}`} target="_blank" rel="noopener noreferrer">
-            Github
-          </a>{' '}
-          and{' '}
-          <a href={`https://linkedin.com/in/${social.linkedin}`} target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
+          Find me on <Link href={`https://github.com/${social.github}`}>Github</Link> or{' '}
+          <Link href={`https://linkedin.com/in/${social.linkedin}`}>LinkedIn</Link>
         </div>
       </div>
     </Container>
