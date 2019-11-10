@@ -4,9 +4,7 @@ const prettier = require('prettier')
 const { execSync } = require('child_process')
 
 const getGitChangeDate = path =>
-  new Date(
-    parseInt(execSync(`echo "$(git log -1 --format="%ct" -- ${path})"`, { encoding: 'utf8' }), 10) * 1000
-  ).toISOString()
+  parseInt(execSync(`echo "$(git log -1 --format="%ct" -- ${path})"`, { encoding: 'utf8' }), 10) * 1000
 
 const run = async () => {
   const prettierConfig = await prettier.resolveConfig(join(__dirname, 'prettier.config.js'))
@@ -39,13 +37,16 @@ const run = async () => {
 
       if (!editedRegexExecuted) return p
 
-      const markdownEdited = new Date(editedRegexExecuted.groups.edited).toISOString()
+      const markdownEdited = Math.floor(new Date(editedRegexExecuted.groups.edited).getTime() / 1000) * 1000
 
       if (markdownEdited !== p.edited)
         return {
           ...p,
           reason: 'edited',
-          content: p.content.replace(editedRegex, `$1${p.edited}$3`),
+          content: p.content.replace(
+            editedRegex,
+            `$1${new Date(Math.floor(Date.now() / 1000) * 1000).toISOString()}$3`
+          ),
         }
 
       return p
