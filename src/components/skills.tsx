@@ -5,12 +5,14 @@ import { Icon } from './icon'
 const SkillsContainer = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(${({ theme }) => theme.spacing(3)}, 1fr));
-  gap: ${({ theme }) => theme.spacing(1)};
+  gap: ${({ theme }) => theme.spacing(2 / 3)};
   margin: 0;
   margin-bottom: ${({ theme }) => theme.spacing(3)};
+  text-align: center;
 
   ${({ theme }) => theme.breakpoint.up.sm} {
     grid-template-columns: repeat(auto-fill, minmax(${({ theme }) => theme.spacing(4)}, 1fr));
+    gap: ${({ theme }) => theme.spacing(1)};
   }
 `
 
