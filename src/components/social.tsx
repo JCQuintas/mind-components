@@ -22,7 +22,7 @@ const Platforms = styled.div`
 `
 
 const Location = styled.div`
-  background-color: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.1 })};
+  background-color: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.05 })};
   padding: ${({ theme }) => theme.spacing(1 / 2)};
   display: flex;
   justify-content: flex-start;
