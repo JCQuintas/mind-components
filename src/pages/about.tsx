@@ -6,6 +6,7 @@ import GImage from 'gatsby-image'
 import styled from 'styled-components'
 import { Company } from '../components/company'
 import { Social } from '../components/social'
+import { Skills } from '../components/skills'
 
 const Image = styled(GImage)`
   margin-right: ${({ theme }) => theme.spacing(1)};
@@ -41,17 +42,6 @@ const H3 = styled.h3`
   opacity: 0.7;
 `
 
-const Description = styled.p`
-  padding: ${({ theme }) => theme.spacing(1 / 2, 0, 1 / 2, 1 / 2)};
-  border-left: 3px solid ${({ theme }) => theme.palette.primary.color};
-  transition: ${({ theme }) => theme.transition(['border-left', 'background-color'])};
-  margin-bottom: ${({ theme }) => theme.spacing(2)};
-
-  ${({ theme }) => theme.breakpoint.up.sm} {
-    margin-left: ${({ theme }) => theme.spacing(-1 / 2)};
-  }
-`
-
 const A = styled.a.attrs(() => ({
   target: '_blank',
   rel: 'noopener noreferrer',
@@ -85,6 +75,7 @@ const About: FunctionComponent = () => {
         <Abbr title="Objectives and Key Results">OKRs</Abbr>, sprints and scrum techniques in general. Personally I am a
         friendly person, who likes video games and loves to cook, always testing new recipes and ingredients.
       </p>
+
       <h2>Experience</h2>
 
       <Company
@@ -92,8 +83,7 @@ const About: FunctionComponent = () => {
         company="Scrambled BV"
         period="December 2018 - Present"
         website="https://www.scrambled.com"
-      />
-      <Description>
+      >
         At Scrambled I work on two main projects, <A href="https://www.creassist.com">Creassist</A> and{' '}
         <A href="https://www.fromsam.com">FromSam</A>. The first is an experimental platform to prototype{' '}
         <b>Google Assistant</b> applications. One of the goals of this project is to create a{' '}
@@ -102,50 +92,50 @@ const About: FunctionComponent = () => {
         is to collect data from users in order to build a database and use that information to develop targeted sampling
         campaigns with cosmetics brands. Our tech stack is <b>Typescript</b>, <b>NodeJS</b>, <b>React</b> and{' '}
         <b>Kubernetes</b>.
-      </Description>
+      </Company>
 
       <Company
         position="Fullstack Developer"
         company="Winnin Brasil"
         period="April 2017 - November 2018"
         website="https://winnin.com"
-      />
-      <Description>
+      >
         Winnin is one of the fastest growing brazilian startups, its objective is to understand online video consumption
         and create video strategies for big brands. Partners included were Coca-Cola, Budweiser, Globosat, Stella Artois
         and Corona Extra. My main task was to develop the interface of a SaaS solution that is intended to make video
         audience analysis faster and more precise. <b>ReactJS</b>, <b>Mobx</b> and <b>Jest</b> were used for the
         website. I also developed <b>NodeJS</b> and <b>Python</b> backend APIs, crawlers and <b>AWS</b> integrations.
-      </Description>
+      </Company>
 
       <Company
         position="Frontend Developer"
         company="Núcleo Multiprojetos de Tecnologia Educacional"
         period="April 2016 - April 2017"
         website="https://plataformaintegrada.mec.gov.br"
-      />
-      <Description>
+      >
         <Abbr title="Núcleo Multiprojetos de Tecnologia Educacional">NUTE</Abbr> is a technology focused lab at{' '}
         <Abbr title="Federal University of Santa Catarina">UFSC</Abbr>. There we developed a{' '}
         <A href="https://plataformaintegrada.mec.gov.br">web platform</A> for MEC, Brazilian Ministry of Education. Our
         primary objective was to unify the many platforms being used by basic education teachers at the time. I worked
         within a multidisciplinary team composed by teachers, designers, developers and anthropologists where I was in
         charge of developing the website using <b>AngularJS</b>.
-      </Description>
+      </Company>
 
       <Company
         position="Android Development Internship"
         company="MediaLab Amsterdam"
         period="January 2015 - July 2015"
         website="https://medialabamsterdam.com/students"
-      />
-      <Description>
+      >
         During a 7-month internship, I and two other students had the goal of solving the problem of managing the public
         area of the <b>Port of Amsterdam</b> in an innovative way. To manage this area, the maintainers used several
         apps and paper lists for each of hundreds of small areas inside the 1.900 hectares of the port. Our solution was{' '}
         <A href="https://medialabamsterdam.com/blog/project/smart-eyewear/">Gradr</A>, an unified application for{' '}
         <b>Google Glass</b> and a web platform in order to simplify the management chores.
-      </Description>
+      </Company>
+
+      <h2>Skills</h2>
+      <Skills />
     </Layout>
   )
 }

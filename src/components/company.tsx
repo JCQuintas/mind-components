@@ -59,6 +59,17 @@ const TimePeriod = styled.div`
   }
 `
 
+const Description = styled.p`
+  padding: ${({ theme }) => theme.spacing(1 / 2, 0, 1 / 2, 1 / 2)};
+  border-left: 3px solid ${({ theme }) => theme.palette.primary.color};
+  transition: ${({ theme }) => theme.transition(['border-left', 'background-color'])};
+  margin-bottom: ${({ theme }) => theme.spacing(2)};
+
+  ${({ theme }) => theme.breakpoint.up.sm} {
+    margin-left: ${({ theme }) => theme.spacing(-1 / 2)};
+  }
+`
+
 interface CompanyProps {
   position: string
   company: string
@@ -66,12 +77,15 @@ interface CompanyProps {
   website: string
 }
 
-export const Company: FunctionComponent<CompanyProps> = ({ position, company, period, website }) => {
+export const Company: FunctionComponent<CompanyProps> = ({ position, company, period, website, children }) => {
   return (
-    <CompanyContainer>
-      <Position>{position}</Position>
-      <Place href={website}>{company}</Place>
-      <TimePeriod>{period}</TimePeriod>
-    </CompanyContainer>
+    <>
+      <CompanyContainer>
+        <Position>{position}</Position>
+        <Place href={website}>{company}</Place>
+        <TimePeriod>{period}</TimePeriod>
+      </CompanyContainer>
+      <Description>{children}</Description>
+    </>
   )
 }
