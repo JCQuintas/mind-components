@@ -1,6 +1,6 @@
 import { SVGProps, FunctionComponent } from 'react'
 import styled, { AnyStyledComponent } from 'styled-components'
-// import LocationSvg from '../../content/svg/location.svg'
+import Location from '../../content/svg/location.svg'
 import Back from '../../content/svg/back.svg'
 import Forward from '../../content/svg/forward.svg'
 import Moon from '../../content/svg/moon.svg'
@@ -11,7 +11,7 @@ import Linkedin from '../../content/svg/linkedin.svg'
 import Web from '../../content/svg/web.svg'
 
 const build = (v: AnyStyledComponent) =>
-  styled(v).attrs({ 'aria-hidden': true })`
+  styled(v).attrs(() => ({ 'aria-hidden': true }))`
     fill: currentColor;
     width: 1em;
     height: 1em;
@@ -31,4 +31,5 @@ export const Icon = {
   Github: build(Github),
   Linkedin: build(Linkedin),
   Web: build(Web),
+  Location: build(Location),
 }

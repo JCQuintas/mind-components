@@ -7,5 +7,6 @@ declare interface SiteMetadata {
     facebook: string
     github: string
     linkedin: string
+    email: string
   }
 }

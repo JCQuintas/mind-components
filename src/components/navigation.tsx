@@ -23,7 +23,7 @@ const ListItem = styled.li`
   }
 `
 
-const Link = styled(GatsbyLink).attrs({ activeClassName: 'active' })`
+const Link = styled(GatsbyLink).attrs(() => ({ activeClassName: 'active' }))`
   color: ${({ theme }) => theme.palette.foreground.color};
 
   box-shadow: none;

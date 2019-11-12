@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import GImage from 'gatsby-image'
 import styled from 'styled-components'
 import { Company } from '../components/company'
+import { Social } from '../components/social'
 
 const Image = styled(GImage)`
   margin-right: ${({ theme }) => theme.spacing(1)};
@@ -14,12 +15,20 @@ const Image = styled(GImage)`
   border-radius: 5%;
 `
 
-const Contact = styled.div`
+const BigBio = styled.div`
   display: flex;
 `
 
+const BioText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+`
+
 const H1 = styled.h1`
-  ${({ theme }) => theme.scale(1)}
+  ${({ theme }) => theme.scale(0.8)}
+  margin: 0;
   margin-bottom: ${({ theme }) => theme.spacing(0.3)};
 
   ${({ theme }) => theme.breakpoint.up.sm} {
@@ -43,10 +52,10 @@ const Description = styled.p`
   }
 `
 
-const A = styled.a.attrs({
+const A = styled.a.attrs(() => ({
   target: '_blank',
   rel: 'noopener noreferrer',
-})``
+}))``
 
 const Abbr = styled.abbr`
   font-weight: 600;
@@ -58,13 +67,16 @@ const About: FunctionComponent = () => {
   return (
     <Layout>
       <SEO title="About" description="A about" />
-      <Contact>
+      <BigBio>
         <Image fixed={data.avatar.childImageSharp.fixed} alt={author} />
-        <div>
-          <H1>{author}</H1>
-          <H3>Developer</H3>
-        </div>
-      </Contact>
+        <BioText>
+          <div>
+            <H1>{author}</H1>
+            <H3>Developer</H3>
+          </div>
+        </BioText>
+      </BigBio>
+      <Social />
       <h2>About</h2>
       <p>
         I am a fast learning professional, who loves problem solving and likes to keep an eye out for new technologies
@@ -163,11 +175,6 @@ const query = graphql`
     site {
       siteMetadata {
         author
-        social {
-          facebook
-          github
-          linkedin
-        }
       }
     }
   }

@@ -8,11 +8,12 @@ module.exports = {
     title: `MindComponents`,
     author: `Jose Quintas`,
     description: `A personal blog and portfolio by Jose Quintas.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://mindcomponents.com/`,
     social: {
       facebook: `jcquintas`,
       github: `JCQuintas`,
       linkedin: `jcquintas`,
+      email: `juniorquintas@gmail.com`,
     },
   },
   plugins: [

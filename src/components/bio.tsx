@@ -17,10 +17,10 @@ const Image = styled(GImage)`
   border-radius: 100%;
 `
 
-const Link = styled.a.attrs({
+const Link = styled.a.attrs(() => ({
   target: '_blank',
   rel: 'noopener noreferrer',
-})``
+}))``
 
 export const Bio: FunctionComponent = () => {
   const data = useStaticQuery(query)

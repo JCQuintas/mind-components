@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import styled, { css } from 'styled-components'
 
 const CompanyContainer = styled.div`
-  padding: ${({ theme }) => theme.spacing(1 / 2, 2.5, 1 / 2, 1 / 2)};
+  padding: ${({ theme }) => theme.spacing(1 / 2)};
   transition: ${({ theme }) => theme.transition(['border-left', 'background-color'])};
   border-left: 3px solid ${({ theme }) => theme.palette.primary.color};
   background-color: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.05 })};
@@ -34,10 +34,10 @@ const small = css`
   opacity: 0.6;
 `
 
-const Place = styled.a.attrs({
+const Place = styled.a.attrs(() => ({
   target: '_blank',
   rel: 'noopener noreferrer',
-})`
+}))`
   ${small}
 
   justify-self: start;
