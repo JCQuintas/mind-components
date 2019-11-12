@@ -43,7 +43,7 @@ export const Navigation: FunctionComponent = () => {
           <Link to="/">Blog</Link>
         </ListItem>
         <ListItem>
-          <Link to="/about">About</Link>
+          <Link to="/about/">About</Link>
         </ListItem>
       </List>
     </NavigationContainer>
