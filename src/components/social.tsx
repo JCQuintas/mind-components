@@ -47,6 +47,11 @@ const Link = styled.a.attrs(
     color: ${({ theme }) => theme.palette.foreground.color};
     opacity: 1;
   }
+
+  svg {
+    height: ${({ theme }) => theme.spacing(1 / 1.3)};
+    width: ${({ theme }) => theme.spacing(1 / 1.3)};
+  }
 `
 
 export const Social: FunctionComponent = () => {
