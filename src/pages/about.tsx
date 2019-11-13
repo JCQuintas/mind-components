@@ -70,10 +70,10 @@ const About: FunctionComponent = () => {
       <h2>About</h2>
       <p>
         I am a fast learning professional, who loves problem solving and likes to keep an eye out for new technologies
-        and solutions. During my experiences I worked with multidisciplinary teams which made me understand how every
-        individual can contribute to the whole with their skills and knowledge. I’m also acquainted with{' '}
-        <Abbr title="Objectives and Key Results">OKRs</Abbr>, sprints and scrum techniques in general. Personally I am a
-        friendly person, who likes video games and loves to cook, always testing new recipes and ingredients.
+        and solutions. Over the course of my career I have worked in many multidisciplinary teams, this allowed me to
+        understand how every individual can contribute to the whole with their skills and knowledge. I’m also acquainted
+        with <Abbr title="Objectives and Key Results">OKRs</Abbr>, sprints and scrum techniques in general. Personally I
+        am a friendly person, who likes video games and loves to cook, always testing new recipes and ingredients.
       </p>
 
       <h2>Experience</h2>
@@ -100,10 +100,10 @@ const About: FunctionComponent = () => {
         period="April 2017 - November 2018"
         website="https://winnin.com"
       >
-        Winnin is one of the fastest growing brazilian startups, its objective is to understand online video consumption
-        and create video strategies for big brands. Partners included were Coca-Cola, Budweiser, Globosat, Stella Artois
-        and Corona Extra. My main task was to develop the interface of a SaaS solution that is intended to make video
-        audience analysis faster and more precise. <b>ReactJS</b>, <b>Mobx</b> and <b>Jest</b> were used for the
+        Winnin is one of the fastest growing brazilian startups. Its objective is to understand online video consumption
+        and create video strategies for big brands. Some of the partners were Coca-Cola, Budweiser, Globosat, Stella
+        Artois and Corona Extra. My main task was to develop the interface of a SaaS solution that is intended to make
+        video audience analysis faster and more precise. <b>ReactJS</b>, <b>Mobx</b> and <b>Jest</b> were used for the
         website. I also developed <b>NodeJS</b> and <b>Python</b> backend APIs, crawlers and <b>AWS</b> integrations.
       </Company>
 
@@ -117,7 +117,7 @@ const About: FunctionComponent = () => {
         <Abbr title="Federal University of Santa Catarina">UFSC</Abbr>. There we developed a{' '}
         <A href="https://plataformaintegrada.mec.gov.br">web platform</A> for MEC, Brazilian Ministry of Education. Our
         primary objective was to unify the many platforms being used by basic education teachers at the time. I worked
-        within a multidisciplinary team composed by teachers, designers, developers and anthropologists where I was in
+        within a multidisciplinary team composed of teachers, designers, developers and anthropologists where I was in
         charge of developing the website using <b>AngularJS</b>.
       </Company>
 
