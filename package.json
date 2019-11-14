@@ -35,6 +35,7 @@
     "serve": "gatsby serve",
     "update-dates": "node update-dates",
     "create": "node blog-template",
+    "check-links": "npx linkinator http://mindcomponents.com -r -s linkedin.com --silent",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {

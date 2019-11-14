@@ -27,7 +27,7 @@ I had my eye on gatsby for quite a while now. The idea to pre-render [react](htt
 
 Gatsby also has over [1209 plugins](https://www.gatsbyjs.org/plugins/). Wow! I'm using 24 of them as of now, though I'm always adding new ones. The best thing about adding plugins or packages to a Gatsby website is that plenty of them won't impact the site's speed for the end user, as you are pre-rendering the website before deploying. 👍
 
-I'm also using [gatsby-starter-blog](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/), since this is a blog and this starter simplifies a lot of the boilerplate needed to parse `.md` files and image loading. It's also what [Dan Abramov](https://github.com/gaearon) uses in his blog [overreacted](https://overreacted.io/). Which was an inspiration to create my own.
+I'm also using [gatsby-starter-blog](https://github.com/gatsbyjs/gatsby-starter-blog), since this is a blog and this starter simplifies a lot of the boilerplate needed to parse `.md` files and image loading. It's also what [Dan Abramov](https://github.com/gaearon) uses in his blog [overreacted](https://overreacted.io/). Which was an inspiration to create my own.
 
 ## Styling
 

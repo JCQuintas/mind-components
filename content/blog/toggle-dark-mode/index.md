@@ -2,7 +2,7 @@
 title: 'Toggle Dark Mode'
 created: '2019-08-31T20:22:37.000Z'
 edited: '2019-11-10T20:22:32.000Z'
-description: 'How to create your own Context to toggle dark mode using styled-components, or how I made the toggle above ↗ work'
+description: 'How to create your own Context to toggle dark mode using styled-components, or how I made the toggle above ↗ work.'
 ---
 
 So you are creating your own website and you decide to have a dark and light theme, there might be a few questions that pop on your mind. How do I switch between them? Do I need to store them in a global state manager like Redux or MobX? How to integrate it with my styling solution?
