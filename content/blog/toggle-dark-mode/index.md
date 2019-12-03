@@ -1,7 +1,7 @@
 ---
 title: 'Toggle Dark Mode'
 created: '2019-08-31T20:22:37.000Z'
-edited: '2019-11-14T21:03:09.000Z'
+edited: '2019-12-03T23:57:16.000Z'
 description: 'How to create your own Context to toggle dark mode using styled-components, or how I made the toggle above ↗ work.'
 ---
 
