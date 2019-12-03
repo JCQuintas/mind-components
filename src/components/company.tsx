@@ -31,7 +31,7 @@ const Position = styled.div`
 
 const small = css`
   font-size: ${({ theme }) => theme.scale(-0.3).fontSize};
-  opacity: 0.6;
+  opacity: 0.7;
 `
 
 const Place = styled.a.attrs(() => ({

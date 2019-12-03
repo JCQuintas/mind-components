@@ -34,7 +34,7 @@ const Link = styled.a.attrs(
       rel: 'noopener noreferrer',
     }
 )`
-  opacity: 0.6;
+  opacity: 0.7;
   display: grid;
   grid-template: 1fr / min-content min-content;
   gap: ${({ theme }) => theme.spacing(1 / 3)};

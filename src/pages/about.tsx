@@ -7,6 +7,8 @@ import styled from 'styled-components'
 import { Company } from '../components/company'
 import { Social } from '../components/social'
 import { Skills } from '../components/skills'
+import { Education } from '../components/education'
+import { Language } from '../components/language'
 
 const Image = styled(GImage)`
   margin-right: ${({ theme }) => theme.spacing(1)};
@@ -49,6 +51,10 @@ const A = styled.a.attrs(() => ({
 
 const Abbr = styled.abbr`
   font-weight: 600;
+`
+
+const FooterSpacing = styled.div`
+  margin-bottom: ${({ theme }) => theme.spacing(3)};
 `
 
 const About: FunctionComponent = () => {
@@ -136,6 +142,28 @@ const About: FunctionComponent = () => {
 
       <h2>Skills</h2>
       <Skills />
+
+      <h2>Education</h2>
+      <Education
+        institution="UFSC - Federal University of Santa Catarina"
+        course="Bachelor's degree in Design"
+        start={2010}
+        end={2016}
+      />
+      <Education institution="HvA - Hogeschool van Amsterdam" course="Exchange Program" start={2014} end={2015} />
+      <Education
+        institution="IFSC - Federal Institute of Santa Catarina"
+        course="Associate's degree in Information Technology"
+        start={2008}
+        end={2010}
+      />
+
+      <h2>Languages</h2>
+      <Language name="Portuguese" level="native" />
+      <Language name="English" level="fluent" />
+      <Language name="Spanish" level="conversational" />
+
+      <FooterSpacing />
     </Layout>
   )
 }
