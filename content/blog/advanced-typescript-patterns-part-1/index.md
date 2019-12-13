@@ -1,5 +1,5 @@
 ---
-title: 'Advanced Typescript Patterns Part 1'
+title: 'Advanced Typescript Patterns - Part 1'
 created: '2019-12-13T18:19:57.809Z'
 edited: '2019-12-13T18:19:57.809Z'
 description: 'The basics of Typescript are very straight forward, but the likes of generic types and conditional types can be challenging. This post tries to demystify these patterns.'
@@ -9,14 +9,14 @@ From experience, most developers grasp the basics of typescript within weeks. Bu
 
 For the content of this post I will start with more basic patterns and progressively advance to the more complex ones.
 
-<!-- <aside>
+<aside>
   <b>Note:</b> This is part 1 of 2 in the Advanced Typescript Pattern series, you can find the other parts on the links bellow.
   <br/>
   <br/>
   Part 1
   <br/>
   <a href="/advanced-typescript-patterns-part-2">Part 2</a>
-</aside> -->
+</aside>
 
 ## Extending Types
 
@@ -236,3 +236,7 @@ const userWithAddress: User<{ address: string }> = {
 ```
 
 Phew! We covered a lot today, in the next part we will talk about type inference, which looks very similar to generic types, but with added functionalities.
+
+<aside style="text-align: center;">
+Continue reading this series on <a href="/advanced-typescript-patterns-part-2">Part 2</a>.
+</aside>
