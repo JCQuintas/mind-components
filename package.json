@@ -34,6 +34,7 @@
     "serve": "gatsby serve",
     "create": "node blog-template",
     "check-links": "npx linkinator http://mindcomponents.com -r -s linkedin.com --silent",
+    "check-dates": "ts-node check-dates",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
@@ -96,7 +97,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "pretty-quick --staged",
+      "pre-push": "npm run check-dates"
     }
   }
 }
