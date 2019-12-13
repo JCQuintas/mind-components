@@ -92,7 +92,7 @@ type Link = Common & ((To & Neverify<Url>) | (Url & Neverify<To>))
 
 We can verify that it works by assigning the variables bellow.
 
-```typescript {18}
+```typescript {19}
 const toProps: Link = {
   to: '',
   className: '',
