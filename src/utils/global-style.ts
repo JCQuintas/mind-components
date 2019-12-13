@@ -148,6 +148,10 @@ const GlobalStyle = createGlobalStyle`
     padding: ${({ theme }) => theme.spacing(1 / 2, 1 / 2)};
     border-radius: ${({ theme }) => theme.spacing(1 / 2)};
     margin-bottom: ${({ theme }) => theme.spacing(1)};
+
+    & p:last-child {
+      margin-bottom: 0;
+    }
   }
 
   ${codeStyle}

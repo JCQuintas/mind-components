@@ -1,7 +1,7 @@
 const { existsSync, mkdirSync, readFileSync, writeFileSync } = require('fs')
 const { join } = require('path')
 const inquirer = require('inquirer')
-const { paramCase, titleCase, upperCaseFirst } = require('change-case')
+const { paramCase, capitalCase, sentenceCase } = require('change-case')
 
 const red = '\x1b[31m'
 const reset = '\x1b[0m'
@@ -45,8 +45,8 @@ const start = async () => {
   await writeFileSync(
     join(directoryPath, 'index.md'),
     file
-      .replace(TITLE_REPLACE, titleCase(postData.title))
-      .replace(DESCRIPTION_REPLACE, upperCaseFirst(postData.description))
+      .replace(TITLE_REPLACE, capitalCase(postData.title))
+      .replace(DESCRIPTION_REPLACE, sentenceCase(postData.description))
   )
 
   console.log(green + '✔' + reset + ' Everything done!')
