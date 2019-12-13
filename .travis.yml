@@ -20,8 +20,6 @@ jobs:
         - echo 'Configuring git and updating post dates...'
         - git config --global user.email "contact@travis-ci.com"
         - git config --global user.name "Travis CI"
-        - npm run update-dates
-        - git push https://JCQuintas:${GITHUB_TOKEN}@github.com/JCQuintas/mind-components.git HEAD:master --quiet > /dev/null 2>&1
         - echo 'Deploying to now ...'
         - npm install -g now
         - now --prod --token ${NOW_TOKEN}
