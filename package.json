@@ -38,7 +38,6 @@
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
-    "@types/dotenv": "^8.2.0",
     "babel-plugin-styled-components": "^1.10.6",
     "dotenv": "^8.2.0",
     "gatsby": "^2.18.11",
