@@ -22,5 +22,11 @@
       "GATSBY_PROJECT_ID": "MIND_COMPONENTS"
     }
   },
-  "builds": [{ "use": "@now/static-build", "src": "package.json", "config": { "distDir": "public" } }]
+  "builds": [
+    {
+      "use": "@now/static-build",
+      "src": "package.json",
+      "config": { "distDir": "public" }
+    }
+  ]
 }

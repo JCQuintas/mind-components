@@ -132,7 +132,12 @@ const ToggleContainer = styled.div<{ hasFocus: boolean }>`
 
 export const Toggle: FunctionComponent<ToggleInterface> = ({ checked, onFocus, onBlur, className, onChange }) => {
   const inputRef = useRef<HTMLInputElement | null>(null)
-  const touch = useRef<Touch>({ moved: false, startX: null, started: false, hadFocusAtStart: false })
+  const touch = useRef<Touch>({
+    moved: false,
+    startX: null,
+    started: false,
+    hadFocusAtStart: false,
+  })
   const [hasFocus, setHasFocus] = useState(false)
 
   const handleClick = (event: MouseEvent) => {
@@ -146,7 +151,12 @@ export const Toggle: FunctionComponent<ToggleInterface> = ({ checked, onFocus, o
   }
 
   const handleTouchStart = (event: MouseEvent | TouchEvent) => {
-    touch.current = { ...touch.current, startX: pointerCoord(event as any).x, started: true, hadFocusAtStart: hasFocus }
+    touch.current = {
+      ...touch.current,
+      startX: pointerCoord(event as any).x,
+      started: true,
+      hadFocusAtStart: hasFocus,
+    }
     setHasFocus(true)
   }
 
@@ -170,7 +180,12 @@ export const Toggle: FunctionComponent<ToggleInterface> = ({ checked, onFocus, o
 
     if (touch.current.startX !== null) {
       input.click()
-      touch.current = { ...touch.current, started: false, startX: null, moved: false }
+      touch.current = {
+        ...touch.current,
+        started: false,
+        startX: null,
+        moved: false,
+      }
     }
 
     if (!touch.current.hadFocusAtStart) {
@@ -180,7 +195,12 @@ export const Toggle: FunctionComponent<ToggleInterface> = ({ checked, onFocus, o
 
   const handleTouchCancel = (event: MouseEvent | TouchEvent) => {
     if (touch.current.startX !== null) {
-      touch.current = { ...touch.current, started: false, startX: null, moved: false }
+      touch.current = {
+        ...touch.current,
+        started: false,
+        startX: null,
+        moved: false,
+      }
     }
 
     if (!touch.current.hadFocusAtStart) {

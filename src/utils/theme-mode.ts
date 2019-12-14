@@ -22,7 +22,9 @@ export const getIsDarkMode = (): boolean =>
 
 // The ThemeModeContext can be imported and used on useContext
 // in order to use setIsDarkMode from within the app
-export const ThemeModeContext = createContext<{ setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>> }>({
+export const ThemeModeContext = createContext<{
+  setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>
+}>({
   setIsDarkMode: () => {},
 })
 
