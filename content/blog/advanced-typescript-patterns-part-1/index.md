@@ -3,20 +3,13 @@ title: 'Advanced Typescript Patterns - Part 1'
 created: '2019-12-13T18:19:57.809Z'
 edited: '2019-12-13T18:19:57.809Z'
 description: 'The basics of Typescript are very straight forward, but the likes of generic types and conditional types can be challenging. This post tries to demystify these patterns.'
+series: 'Advanced Typescript Patterns'
+part: 1
 ---
 
 From experience, most developers grasp the basics of typescript within weeks. But, while typescript infer a lot of types for us, sometimes you need to intervene, and when that happens **all hell breaks loose**.
 
 For the content of this post I will start with more basic patterns and progressively advance to the more complex ones.
-
-<aside>
-  <b>Note:</b> This is part 1 of 2 in the Advanced Typescript Pattern series, you can find the other parts on the links bellow.
-  <br/>
-  <br/>
-  Part 1
-  <br/>
-  <a href="/advanced-typescript-patterns-part-2">Part 2</a>
-</aside>
 
 ## Extending Types
 
