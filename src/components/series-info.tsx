@@ -44,6 +44,7 @@ interface SeriesInfoProps {
 }
 
 export const SeriesInfo: FunctionComponent<SeriesInfoProps> = ({ series, part, posts, ...props }) => {
+  if (posts.length === 1) return null
   return (
     <SeriesContainer>
       <p>
