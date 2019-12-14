@@ -9,22 +9,36 @@ const blogFolder = join(__dirname, 'content', 'blog')
 const isFileTracked = (path: string) => execSync(`git ls-files ${path}`, { encoding: 'utf8' })
 
 const run = async () => {
-  readdirSync(blogFolder)
-    .map(p => join(blogFolder, p))
-    .filter(p => statSync(p).isDirectory())
-    .map(p => join(p, 'index.md'))
-    .filter(existsSync)
-    .filter(p => !!isFileTracked(p))
-    .map(p => readFileSync(p, { encoding: 'utf8' }))
-    .forEach(p => {
-      if (!!editedRegex.exec(p) || !!createdRegex.exec(p)) {
-        process.exit(1)
-      }
-    })
+  try {
+    const files = readdirSync(blogFolder)
+      .map(p => join(blogFolder, p))
+      .filter(p => statSync(p).isDirectory())
+      .map(p => join(p, 'index.md'))
+      .filter(existsSync)
+      .filter(p => !!isFileTracked(p))
+
+    const filesWithEmptyDates = files
+      .map(p => readFileSync(p, { encoding: 'utf8' }))
+      .map((p, i) => (!!editedRegex.exec(p) || !!createdRegex.exec(p) ? files[i] : null))
+      .filter(p => p !== null)
+
+    if (filesWithEmptyDates.length > 0) {
+      throw new Error(
+        `Posts without dates were encountered.
+Files related are:
+
+${filesWithEmptyDates.join('\n')}
+`
+      )
+    }
+  } catch (error) {
+    console.error(error.message)
+    process.exit(1)
+  }
 }
 
 try {
   run()
 } catch (error) {
-  console.log(error.message)
+  console.error(error.message)
 }
