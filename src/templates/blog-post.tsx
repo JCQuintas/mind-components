@@ -6,6 +6,7 @@ import { Layout } from '../components/layout'
 import { SEO } from '../components/seo'
 import styled from 'styled-components'
 import { Icon } from '../components/icon'
+import { SeriesInfo } from '../components/series-info'
 
 const Title = styled.h1`
   ${({ theme }) => theme.scale(1.5)}
@@ -49,6 +50,18 @@ const Link = styled(GLink)`
   }
 `
 
+interface PostNode {
+  node: {
+    fields: {
+      slug: string
+    }
+    frontmatter: {
+      series?: string
+      part?: number
+    }
+  }
+}
+
 interface BlogPost {
   data: {
     site: {
@@ -66,7 +79,12 @@ interface BlogPost {
         created: string
         edited: string
         description: string
+        series?: string
+        part?: number
       }
+    }
+    allMarkdownRemark: {
+      edges: PostNode[]
     }
   }
   pageContext: {
@@ -79,6 +97,8 @@ const BlogPostTemplate: FunctionComponent<BlogPost> = ({ data, pageContext }) =>
   const post = data.markdownRemark
   const { previous, next } = pageContext
 
+  const isPartOfSeries = !!post.frontmatter.series
+
   return (
     <Layout>
       <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
@@ -90,6 +110,15 @@ const BlogPostTemplate: FunctionComponent<BlogPost> = ({ data, pageContext }) =>
         <Published>
           <time dateTime={post.frontmatter.edited}>{post.frontmatter.edited}</time> (updated)
         </Published>
+      )}
+      {isPartOfSeries && (
+        <SeriesInfo
+          series={post.frontmatter.series!}
+          part={post.frontmatter.part!}
+          posts={data.allMarkdownRemark.edges
+            .filter(v => v.node.frontmatter.series === post.frontmatter.series)
+            .map(v => v.node.fields.slug)}
+        />
       )}
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
       <Divider />
@@ -129,6 +158,21 @@ export const pageQuery = graphql`
         created(formatString: "DD MMM YYYY, HH:mm")
         edited(formatString: "DD MMM YYYY, HH:mm")
         description
+        series
+        part
+      }
+    }
+    allMarkdownRemark {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            series
+            part
+          }
+        }
       }
     }
   }
