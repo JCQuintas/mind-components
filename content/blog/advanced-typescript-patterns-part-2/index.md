@@ -1,13 +1,13 @@
 ---
 title: 'Advanced Typescript Patterns - Part 2'
-created: '1970-01-01T00:00:00.000Z'
-edited: '1970-01-01T00:00:00.000Z'
+created: '2019-12-15T16:23:57.813Z'
+edited: '2019-12-15T16:23:57.813Z'
 description: 'This part focuses on type inference, getting a type from a function argument can be challenging at first, but after you understand what is happening it should become a breeze.'
 series: 'Advanced Typescript Patterns'
 part: 2
 ---
 
-Previously we started our journey into the advanced typescript patterns and dealt with **type extension**, types with **strict conditional properties** and **generic types**. On this part we will focus on type inference and how it can be used to help you.
+Previously we started our journey into the advanced typescript patterns and dealt with **type extension**, types with **strict conditional properties** and **generic types**. On this part we will focus on **type inference** and how it can be used to help you, as well as **argument pattern matching**.
 
 Type inference is a way to **deduce** the type of an argument value and allow you to use it in any way you want, without previously having to know the type beforehand. This also means that you don't need to actively declare some of the types.
 
@@ -76,6 +76,8 @@ interface Return {
 
 And not only that, the keys inside `positive` and `negative` will be exactly those of the input object, with **IDE autocompletion** and all. So lets start coding.
 
+  <!-- prettier-ignore-start -->
+
 ```typescript
 interface Input {
   [key: string]: number
@@ -104,6 +106,8 @@ const pixelize = <T extends Input>(entries: T): Return<T> => {
 }
 ```
 
+<!-- prettier-ignore-end -->
+
 This is the bulk of the function and typings. As you can see, it requires very little effort, but can be very powerful. I will also provide a `pixelizeDefault` in CodeSandbox, it will be exactly as the `pixelize` function but without most of the `typings`, so it will use the default typescript inference and you can see that the IDE won't autocomplete the properties of the input object.
 
 <iframe
@@ -114,11 +118,68 @@ This is the bulk of the function and typings. As you can see, it requires very l
      sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
    ></iframe>
 
-This concludes our current dive on `inferred types`, the next and last section of this post could be thought of as inferred, but I prefer to think of it as more of a **pattern matching** than inference.
+This concludes our current dive on `inferred types`, the next section of this post could be thought of as inferred, but I prefer to think of it as more of a **pattern matching** than inference.
 
-## Function Return Based on Argument Number or Order
+## Function Signature Overload
 
-As it turns out, we can also return the exact type based on how many arguments were used or what are the argument's types. This uses a pattern named **function signature overload**, in which you give more than one type to a function. But how we do that?
+A function can have plenty of return types and arguments, but you can't always declare them directly. To do that you need to use a pattern named **function overload**, in which you give more than one type to a function. But how we do that?
 
-<!-- Show how to do function overload -->
-<!-- continue with order/argument user spacing function as example -->
+First you need to know that it is not possible to **directly** overload a function. But there are two ways to do it. One is to overload it on a `.d.ts` file, the other, which is simpler, is by just creating an interface full of functions, as depicted below.
+
+```typescript
+interface FunctionTypeOverload {
+  (): null
+  (value: string): null
+}
+
+// And we can use it on any function
+const DoSomething: FunctionTypeOverload = () => { ... }
+```
+
+This pattern can prove useful when you have a function with **modifiers** that will change the return value type, for example, as we will see bellow, a function that returns a string, but will return a number if `boolean` argument is present.
+
+## Function Return Based on Arguments
+
+As it turns out, we can also return an exact type based on how many arguments were used or what are the argument's types. We do this by having one overload for each of the possible argument patterns.
+
+For this part we will create a function that will receive one of the following combination of arguments and return values:
+
+| arguments              | return   |
+| ---------------------- | -------- |
+| no argument            | `null`   |
+| a `string`             | `string` |
+| a `string` and `false` | `string` |
+| a `string` and `true`  | `number` |
+
+Now that we have the combinations we want, it's just a game of matching the right typescript pieces together. Note that we merge option 2 and 3, since for the purpose of this function `undefined === false`.
+
+```typescript {1-5}
+interface Overload {
+  (): null
+  (value: string, asNumber?: false): string
+  (value: string, asNumber: true): number
+}
+
+// You type the actual function with the correct optional values when possible.
+// Though on more complex structures you might need to have the arguments
+// as (...args: any[]).
+const doSomething: Overload = (value?: string, asNumber?: boolean) => {
+  if (!value) return null
+  if (asNumber) return parseInt(value, 10)
+  return value
+}
+
+const a = doSomething()
+// typeof a === 'null'
+
+const b = doSomething('b')
+// typeof b === 'string'
+
+const c = doSomething('c', false)
+// typeof c === 'string'
+
+const d = doSomething('1', true)
+// typeof d === 'number'
+```
+
+With this we conclude this post on typescript patterns. We focused on inferences and manipulation of function arguments and output. This may look simple to some and difficult to others, but ultimately they should help you create more powerful typings for your applications.
