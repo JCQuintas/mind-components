@@ -2,7 +2,7 @@
 title: 'Advanced Typescript Patterns - Part 1'
 created: '2019-12-13T18:19:57.809Z'
 edited: '2019-12-15T16:23:57.813Z'
-description: 'The basics of Typescript are very straight forward, but the likes of generic types and conditional types can be challenging. This post tries to demystify these patterns.'
+description: 'The basics of Typescript are very straight forward, but the likes of generic types and conditional types can be challenging. This post on Advanced Typescript Patterns tries to demystify them.'
 series: 'Advanced Typescript Patterns'
 part: 1
 ---

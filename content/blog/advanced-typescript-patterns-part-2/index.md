@@ -2,7 +2,7 @@
 title: 'Advanced Typescript Patterns - Part 2'
 created: '2019-12-15T16:23:57.813Z'
 edited: '2019-12-15T16:23:57.813Z'
-description: 'This part focuses on type inference, getting a type from a function argument can be challenging at first, but after you understand what is happening it should become a breeze.'
+description: 'This part of Advanced Typescript Patterns focuses on type inference, getting a type from a function argument can be challenging at first, but after you understand what is happening it should become a breeze.'
 series: 'Advanced Typescript Patterns'
 part: 2
 ---
