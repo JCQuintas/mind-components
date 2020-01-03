@@ -9,7 +9,7 @@ interface SEOProps {
   title: string
 }
 
-export const SEO: FunctionComponent<SEOProps> = ({ description = ``, lang = 'en', meta = [], title }) => {
+export const SEO: FunctionComponent<SEOProps> = ({ description, lang, meta, title }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,6 +18,7 @@ export const SEO: FunctionComponent<SEOProps> = ({ description = ``, lang = 'en'
             title
             description
             author
+            keywords
           }
         }
       }
@@ -29,7 +30,7 @@ export const SEO: FunctionComponent<SEOProps> = ({ description = ``, lang = 'en'
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: lang || 'en',
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
@@ -37,6 +38,10 @@ export const SEO: FunctionComponent<SEOProps> = ({ description = ``, lang = 'en'
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `keywords`,
+          content: site.siteMetadata.keywords.join(','),
         },
         {
           property: `og:site_name`,
@@ -70,7 +75,7 @@ export const SEO: FunctionComponent<SEOProps> = ({ description = ``, lang = 'en'
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ].concat(meta || [])}
     />
   )
 }

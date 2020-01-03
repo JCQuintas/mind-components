@@ -8,6 +8,7 @@ module.exports = {
     title: `MindComponents`,
     author: `Jose Quintas`,
     description: `A personal blog and portfolio by Jose Quintas.`,
+    keywords: ['jose quintas', 'mindcomponents', 'blog', 'portfolio', 'curriculum'],
     siteUrl: `https://mindcomponents.com/`,
     social: {
       facebook: `jcquintas`,
