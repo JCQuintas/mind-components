@@ -76,7 +76,7 @@ interface Return {
 
 And not only that, the keys inside `positive` and `negative` will be exactly those of the input object, with **IDE autocompletion** and all. So lets start coding.
 
-  <!-- prettier-ignore-start -->
+<!-- prettier-ignore-start -->
 
 ```typescript
 interface Input {
@@ -94,8 +94,16 @@ interface Return<T extends Input> {
 
 const pixelize = <T extends Input>(entries: T): Return<T> => {
   // This is just to convert the values
-  const positive = Object.entries(entries).reduce((acc, [k, v]) => ({ ...acc, [k]: `${v}px` }), {})
-  const negative = Object.entries(entries).reduce((acc, [k, v]) => ({ ...acc, [k]: `-${v}px` }), {})
+  const positive = Object.entries(entries)
+    .reduce((acc, [k, v]) => ({
+      ...acc,
+      [k]: `${v}px`
+    }), {})
+  const negative = Object.entries(entries)
+    .reduce((acc, [k, v]) => ({
+      ...acc,
+      [k]: `-${v}px`
+    }), {})
 
   // We then return everything, the type at the end is because
   // .reduce messes with typing so we just restore it
