@@ -22,12 +22,5 @@
       "GATSBY_PROJECT_ID": "MIND_COMPONENTS"
     }
   },
-  "cleanUrls": true,
-  "builds": [
-    {
-      "use": "@now/static-build",
-      "src": "package.json",
-      "config": { "distDir": "public" }
-    }
-  ]
+  "cleanUrls": true
 }
