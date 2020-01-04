@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { ThemeToggle } from './theme-toggle'
 import { Location } from '@reach/router'
 import { Navigation } from './navigation'
 
@@ -94,7 +93,6 @@ export const Layout: FunctionComponent = ({ children }) => {
             )
           }}
         </Location>
-        <ThemeToggle />
       </Header>
       <Navigation />
       <main>{children}</main>

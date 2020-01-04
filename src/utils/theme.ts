@@ -46,36 +46,6 @@ export const darkTheme: DefaultTheme = {
   },
 }
 
-const lightPalette: Omit<DefaultTheme['palette'], 'code'> = {
-  primary: generateColor([255, 83, 112]),
-  secondary: generateColor([120, 187, 27]),
-  background: lightColor,
-  foreground: darkColor,
-}
-
-export const lightTheme: DefaultTheme = {
-  ...defaultTheme,
-  isDark: false,
-  palette: {
-    ...lightPalette,
-    code: {
-      background: 'hsla(0, 0%, 0%, 0.05)',
-      foreground: lightPalette.foreground.manipulate({ opacity: 0.8 }),
-      keyword: 'hsla(286, 70%, 47%, 1)',
-      string: 'hsla(95, 48%, 42%, 1)',
-      class: 'hsla(60, 100%, 29%, 1)',
-      function: 'hsla(207, 92%, 46%, 1)',
-      operator: 'hsla(187, 57%, 35%, 1)',
-      number: 'hsla(25, 80%, 61%, 1)',
-      comment: 'hsla(219, 20%, 20%, 1)',
-      selection: 'hsla(219, 23%, 90%, 1)',
-      punctuation: 'hsla(219, 24%, 51%, 1)',
-      selector: 'hsla(355, 75%, 45%, 1)',
-      highlight: 'hsla(0, 0%, 0%, 0.05)',
-    },
-  },
-}
-
 export const useThemeContext = () => {
   const context = useContext<DefaultTheme>(ThemeContext)
   return context
