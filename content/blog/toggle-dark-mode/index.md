@@ -1,8 +1,8 @@
 ---
 title: 'Toggle Dark Mode'
 created: '2019-08-31T20:22:37.000Z'
-edited: '2019-11-14T21:03:09.000Z'
-description: 'How to create your own Context to toggle dark mode using styled-components, or how I made the toggle above ↗ work.'
+edited: '2020-01-04T18:15:14.202Z'
+description: 'How to create your own Context to toggle dark mode using styled-components.'
 ---
 
 So you are creating your own website and you decide to have a dark and light theme, there might be a few questions that pop on your mind. How do I switch between them? Do I need to store them in a global state manager like Redux or MobX? How to integrate it with my styling solution?
@@ -10,7 +10,7 @@ So you are creating your own website and you decide to have a dark and light the
 In this blog post I intend on clarifying how I used `Context` and `useContext` to store the current state of this website's theme toggle.
 
 <aside>
-  <b>Note:</b> I use <code class="language-text">window.localStorage</code> to persist the user's choice. If you are using Gatsby, you will want to make some changes to the code bellow to ensure that it only runs when <code class="language-text">window</code> is present. You can check how I implemented it <a href="https://github.com/JCQuintas/mind-components/blob/e2ae0a78f8c0f93591555b7d19e9c34b4413671f/src/utils/theme-mode.ts#L11" target="_blank" rel="noopener noreferrer">here</a>.
+  <b>Note:</b> I use <code class="language-text">window.localStorage</code> to persist the user's choice. If you are using Gatsby, you will want to make some changes to the code bellow to ensure that it only runs when <code class="language-text">window</code> is present. You can check how I implemented it <a href="https://github.com/JCQuintas/mind-components/blob/e2ae0a78f8c0f93591555b7d19e9c34b4413671f/src/utils/theme-mode.ts#L11" target="_blank" rel="noopener noreferrer">here</a>, though it is no longer used on this website.
 </aside>
 
 To achieve our goal we will use `styled-components` and `react`. You may switch styled-components to vanilla `css` and dynamically assign **css-variables** in order to effectively change your theme, some adjustments are required, but the main `Context` concept will be the same.
@@ -166,6 +166,6 @@ export const Buttons = () => {
 }
 ```
 
-These are all the parts needed to create a fairly simple dark mode toggle. You can, of course, improve and simplify steps as you see fit. To check an actual usage of the code you can check this [blog's repository](https://github.com/JCQuintas/mind-components) or the **Code Sandbox** bellow.
+These are all the parts needed to create a fairly simple dark mode toggle. You can, of course, improve and simplify steps as you see fit. To check an actual usage of the code you can check the **Code Sandbox** bellow.
 
 <iframe src="https://codesandbox.io/embed/heuristic-frog-u6px3?autoresize=1&fontsize=14&hidenavigation=1&view=preview" title="mindcomponents/toggle-dark-mode" style="width:100%; height:500px; border: solid 1px; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
