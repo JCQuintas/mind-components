@@ -4,6 +4,11 @@ node_js:
   - 'node'
   - 'lts/*'
 
+matrix:
+  include:
+    - node_js: 'node'
+    - node_js: 'lts/*'
+
 cache:
   directories:
     - 'node_modules'
