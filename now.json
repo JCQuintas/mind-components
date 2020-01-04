@@ -21,6 +21,5 @@
     "env": {
       "GATSBY_PROJECT_ID": "MIND_COMPONENTS"
     }
-  },
-  "cleanUrls": true
+  }
 }
