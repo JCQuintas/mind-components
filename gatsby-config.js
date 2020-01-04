@@ -3,12 +3,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const getPriority = path => {
-  if (path === '/') return 1
-  if (path === '/about/') return 0.9
-  return 0.5
-}
-
 module.exports = {
   siteMetadata: {
     title: `MindComponents`,
@@ -110,11 +104,17 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         serialize: ({ site, allSitePage }) =>
-          allSitePage.edges.map(edge => ({
-            url: site.siteMetadata.siteUrl + edge.node.path,
-            changefreq: `daily`,
-            priority: getPriority(edge.node.path),
-          })),
+          allSitePage.edges.map(edge => {
+            return {
+              url: site.siteMetadata.siteUrl + edge.node.path,
+              changefreq: `daily`,
+              priority: (() => {
+                if (edge.node.path === '/') return 1
+                if (edge.node.path === '/about/') return 0.9
+                return 0.5
+              })(),
+            }
+          }),
       },
     },
     `gatsby-plugin-typescript`,

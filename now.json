@@ -16,10 +16,5 @@
       "dest": "/$1",
       "headers": { "cache-control": "public, max-age=0, must-revalidate" }
     }
-  ],
-  "build": {
-    "env": {
-      "GATSBY_PROJECT_ID": "MIND_COMPONENTS"
-    }
-  }
+  ]
 }
