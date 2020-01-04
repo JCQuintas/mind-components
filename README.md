@@ -14,7 +14,6 @@ My objective with this is to create content based on the technologies or methodo
 | [Gatsby](https://www.gatsbyjs.org/)                      | Frontend Framework        |
 | [Zeit Now](https://zeit.co/dashboard)                    | Static Website Deployment |
 | [Style Genie](https://jcquintas.gitbook.io/style-genie/) | Style Utilities           |
-| [Travis CI](https://travis-ci.org/)                      | CI/CD                     |
 
 ## Contributing
 

@@ -22,7 +22,7 @@
     "url": "https://github.com/jcquintas/mind-components/issues"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm run prettier:check && gatsby build",
     "develop": "gatsby develop",
     "prettier": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,css,scss,md,yml}\"",
     "prettier:check": "prettier --list-different \"./**/*.{js,jsx,ts,tsx,json,css,scss,md,yml}\"",
