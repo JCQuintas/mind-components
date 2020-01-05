@@ -1,6 +1,6 @@
 import { createGlobalStyle, withTheme } from 'styled-components'
 import { createElement } from 'react'
-import { codeStyle } from './code-style'
+import { vscodeStyle } from './vscode-style'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -154,7 +154,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  ${codeStyle}
+  ${vscodeStyle}
 `
 
 export const GlobalStylesComponent = withTheme(({ theme }) => createElement(GlobalStyle, { theme }))

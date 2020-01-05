@@ -57,7 +57,21 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-vscode`,
+            // All options are optional. Defaults shown here.
+            options: {
+              wrapperClassName: 'vscode-block',
+              injectStyles: true,
+              colorTheme: 'OneDark-Pro',
+              extensions: [
+                {
+                  identifier: 'zhuangtongfa.Material-theme',
+                  version: '3.2.1',
+                },
+              ],
+            },
+          },
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
