@@ -1,7 +1,7 @@
 ---
 title: 'Toggle Dark Mode'
 created: '2019-08-31T20:22:37.000Z'
-edited: '2020-01-04T18:15:14.202Z'
+edited: '2020-01-13T22:36:19.110Z'
 description: 'How to create your own Context to toggle dark mode using styled-components.'
 ---
 
@@ -122,7 +122,7 @@ useEffect(() => {
 
 What we are saying with the above code is: When `isDarkMode` changes, set the `localStorage` value to the new `isDarkMode` value. This ensures that the user preference is always updated.
 
-Lastly we have the `Context.Provider` itself. As it's name implies, it is used to provide `Context.Consumer`'s with a value. `<ThemeModeContext.Consumer>` and `useContext(ThemeModeContext)` will only have a value if the the provider is present in the tree **above the consumer**. `ThemeProvider` is used to enable custom styled-components themes and mostly works like any other context.
+Lastly we have the `Context.Provider` itself. As its name implies, it is used to provide `Context.Consumer`'s with a value. `<ThemeModeContext.Consumer>` and `useContext(ThemeModeContext)` will only have a value if the the provider is present in the tree **above the consumer**. `ThemeProvider` is used to enable custom styled-components themes and mostly works like any other context.
 
 ```jsx
 <ThemeModeContext.Provider value={mode}>
