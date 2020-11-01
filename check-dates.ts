@@ -11,16 +11,16 @@ const isFileTracked = (path: string) => execSync(`git ls-files ${path}`, { encod
 const run = async () => {
   try {
     const files = readdirSync(blogFolder)
-      .map(p => join(blogFolder, p))
-      .filter(p => statSync(p).isDirectory())
-      .map(p => join(p, 'index.md'))
+      .map((p) => join(blogFolder, p))
+      .filter((p) => statSync(p).isDirectory())
+      .map((p) => join(p, 'index.md'))
       .filter(existsSync)
-      .filter(p => !!isFileTracked(p))
+      .filter((p) => !!isFileTracked(p))
 
     const filesWithEmptyDates = files
-      .map(p => readFileSync(p, { encoding: 'utf8' }))
+      .map((p) => readFileSync(p, { encoding: 'utf8' }))
       .map((p, i) => (!!editedRegex.exec(p) || !!createdRegex.exec(p) ? files[i] : null))
-      .filter(p => p !== null)
+      .filter((p) => p !== null)
 
     if (filesWithEmptyDates.length > 0) {
       throw new Error(

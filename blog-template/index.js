@@ -7,7 +7,7 @@ const red = '\x1b[31m'
 const reset = '\x1b[0m'
 const green = '\x1b[32m'
 
-const createDirectoryIfNotExists = dir => {
+const createDirectoryIfNotExists = (dir) => {
   if (!existsSync(dir)) {
     mkdirSync(dir)
   }

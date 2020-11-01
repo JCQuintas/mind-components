@@ -63,13 +63,8 @@ module.exports = {
             options: {
               wrapperClassName: 'vscode-block',
               injectStyles: true,
-              colorTheme: 'OneDark-Pro',
-              extensions: [
-                {
-                  identifier: 'zhuangtongfa.Material-theme',
-                  version: '3.2.1',
-                },
-              ],
+              theme: 'material-theme',
+              extensions: ['material-theme'],
             },
           },
           `gatsby-remark-autolink-headers`,
@@ -118,7 +113,7 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         serialize: ({ site, allSitePage }) =>
-          allSitePage.edges.map(edge => {
+          allSitePage.edges.map((edge) => {
             return {
               url: site.siteMetadata.siteUrl + edge.node.path,
               changefreq: `daily`,

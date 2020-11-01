@@ -8,7 +8,7 @@ const StyledRoot = styled.div`
   height: 100%;
 `
 
-export const Base: FunctionComponent = props => {
+export const Base: FunctionComponent = (props) => {
   return (
     <ThemeProvider>
       <StyledRoot>

@@ -116,8 +116,8 @@ const BlogPostTemplate: FunctionComponent<BlogPost> = ({ data, pageContext }) =>
           series={post.frontmatter.series!}
           part={post.frontmatter.part!}
           posts={data.allMarkdownRemark.edges
-            .filter(v => v.node.frontmatter.series === post.frontmatter.series)
-            .map(v => v.node.fields.slug)}
+            .filter((v) => v.node.frontmatter.series === post.frontmatter.series)
+            .map((v) => v.node.fields.slug)}
         />
       )}
       <div dangerouslySetInnerHTML={{ __html: post.html }} />

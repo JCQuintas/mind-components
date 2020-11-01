@@ -155,7 +155,7 @@ export const Buttons = () => {
   const { setIsDarkMode } = useContext(ThemeModeContext)
   const setDark = () => setIsDarkMode(true)
   const setLight = () => setIsDarkMode(false)
-  const toggleMode = () => setIsDarkMode(s => !s)
+  const toggleMode = () => setIsDarkMode((s) => !s)
   return (
     <>
       <button onClick={setDark}>set dark</button>

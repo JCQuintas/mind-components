@@ -1,14 +1,14 @@
 import { css } from 'styled-components'
 
 export const vscodeStyle = css`
-  .vscode-highlight {
-    --vscode-highlight-line-highlighted-background-color: ${({ theme }) => theme.palette.code.highlight};
-    --vscode-highlight-line-highlighted-border-color: ${({ theme }) => theme.palette.primary.color};
-    --vscode-highlight-padding-left: 1rem;
-    --vscode-highlight-padding-right: 1rem;
+  .grvsc-container {
+    --grvsc-line-highlighted-background-color: ${({ theme }) => theme.palette.code.highlight};
+    --grvsc-line-highlighted-border-color: ${({ theme }) => theme.palette.primary.color};
+    --grvsc-padding-left: 1rem;
+    --grvsc-padding-right: 1rem;
   }
 
-  .vscode-highlight.vscode-block {
+  .grvsc-container.vscode-block {
     background-color: ${({ theme }) => theme.palette.code.background};
 
     code {
