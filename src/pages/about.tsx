@@ -86,8 +86,22 @@ const About: FunctionComponent = () => {
 
       <Company
         position="Senior Fullstack Developer"
+        company="Rodeo"
+        period="May 2020 - Present"
+        website="https://www.getrodeo.io"
+      >
+        Rodeo's product is a <b>Project Management Tool</b> for creatives and companies that deal with freelancers and
+        external contractors and need to organize payments and invoices. My work mainly revolves around modernizing our
+        stack and creating new microservices in order to decouple a big legacy monolithic application written in{' '}
+        <b>NodeJS</b> and <b>MongoDB</b>. Frontend work focuses mostly on improving the current UI that is built in{' '}
+        <b>React</b>. For backend we use <Abbr title="Google Cloud Platform">GCP's</Abbr> AppEngine and <b>NodeJS</b>,
+        but we are starting to migrate into <b>Go</b>.
+      </Company>
+
+      <Company
+        position="Senior Fullstack Developer"
         company="Scrambled BV"
-        period="December 2018 - Present"
+        period="December 2018 - February 2020"
         website="https://www.scrambled.com"
       >
         At Scrambled I work on two main projects, <A href="https://www.creassist.com">Creassist</A> and{' '}
@@ -127,7 +141,7 @@ const About: FunctionComponent = () => {
         charge of developing the website using <b>AngularJS</b>.
       </Company>
 
-      <Company
+      {/* <Company
         position="Android Development Internship"
         company="MediaLab Amsterdam"
         period="January 2015 - July 2015"
@@ -138,7 +152,7 @@ const About: FunctionComponent = () => {
         apps and paper lists for each of hundreds of small areas inside the 1.900 hectares of the port. Our solution was{' '}
         <A href="https://medialabamsterdam.com/blog/project/smart-eyewear/">Gradr</A>, an unified application for{' '}
         <b>Google Glass</b> and a web platform in order to simplify the management chores.
-      </Company>
+      </Company> */}
 
       <h2>Skills</h2>
       <Skills />

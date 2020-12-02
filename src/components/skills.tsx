@@ -51,10 +51,6 @@ export const Skills: FunctionComponent = () => {
         NodeJS
       </Skill>
       <Skill>
-        <Icon.Python />
-        Python
-      </Skill>
-      <Skill>
         <Icon.Figma />
         Figma
       </Skill>
@@ -71,20 +67,24 @@ export const Skills: FunctionComponent = () => {
         Framer Motion
       </Skill>
       <Skill>
-        <Icon.Aws />
-        AWS
-      </Skill>
-      <Skill>
-        <Icon.Git />
-        Git
-      </Skill>
-      <Skill>
         <Icon.Html5 />
         HTML 5
       </Skill>
       <Skill>
         <Icon.Css3 />
         CSS 3
+      </Skill>
+      <Skill>
+        <Icon.Gcp />
+        GCP
+      </Skill>
+      <Skill>
+        <Icon.Aws />
+        AWS
+      </Skill>
+      <Skill>
+        <Icon.Git />
+        Git
       </Skill>
     </SkillsContainer>
   )

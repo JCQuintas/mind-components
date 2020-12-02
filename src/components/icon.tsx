@@ -11,6 +11,7 @@ import Linkedin from '../../content/svg/linkedin.svg'
 import Web from '../../content/svg/web.svg'
 import Aws from '../../content/svg/aws.svg'
 import Css3 from '../../content/svg/css-3.svg'
+import Gcp from '../../content/svg/gcp.svg'
 import Git from '../../content/svg/git.svg'
 import Html5 from '../../content/svg/html-5.svg'
 import Jest from '../../content/svg/jest.svg'
@@ -46,6 +47,7 @@ export const Icon = {
   Location: build(Location),
   Aws: build(Aws),
   Css3: build(Css3),
+  Gcp: build(Gcp),
   Git: build(Git),
   Html5: build(Html5),
   Jest: build(Jest),
