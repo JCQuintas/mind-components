@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     margin-left: calc(100vw - 100%);
   }
 
-  a {
+  a:not(.gatsby-resp-image-link) {
     color: ${({ theme }) => theme.palette.secondary.color};
     transition: ${({ theme }) => theme.transition(['color', 'box-shadow'])};
     text-decoration: none;
