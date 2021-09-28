@@ -1,7 +1,7 @@
 ---
 title: 'Home Assistant Zigbee2mqtt Setup With RaspBee II on RaspberryPi'
 created: '2021-05-16T16:27:10.548Z'
-edited: '2021-05-16T16:27:10.548Z'
+edited: '2021-09-28T14:48:26.124Z'
 description: 'How to properly setup your Home Assistant instance to connect to your Zigbee devices using RaspBee II.'
 ---
 
@@ -23,8 +23,10 @@ The changes you want to make are pretty simple, but keep in mind if you are usin
 
 ```conf
 enable_uart=1
-dtoverlay=miniuart-bt # use pi3-miniuart-bt if on rp3
+dtoverlay=miniuart-bt
 ```
+
+<blockquote class="right">You might need to use `pi3-miniuart-bt` if on rp3 but readers also reported that it only worked with `miniuart-bt` so make sure to try both.</blockquote>
 
 ## SSH Access & Certificates
 
