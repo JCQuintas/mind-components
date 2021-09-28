@@ -26,7 +26,7 @@ enable_uart=1
 dtoverlay=miniuart-bt
 ```
 
-<blockquote class="right">You might need to use `pi3-miniuart-bt` if on rp3 but readers also reported that it only worked with `miniuart-bt` so make sure to try both.</blockquote>
+<blockquote>You might need to use <code>pi3-miniuart-bt</code> if on rp3 but readers also reported that it only worked with <code>miniuart-bt</code> so make sure to try both.</blockquote>
 
 ## SSH Access & Certificates
 
