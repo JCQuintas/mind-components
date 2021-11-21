@@ -85,9 +85,21 @@ const About: FunctionComponent = () => {
       <h2>Experience</h2>
 
       <Company
+        position="Full-Stack Engineer (Team Lead)"
+        company="Lepaya"
+        period="July 2021 - Present"
+        website="https://lepaya.com/en/"
+      >
+        At Lepaya we are at the forefront of mixing <b>automated assignments</b> with <b>physical or virtual classes</b>{' '}
+        lectured by a trainer. We have a highly monolithic <b>NodeJS</b> application in the backend, but we aim on
+        making it more decentralized. The frontend is done in <b>Vue</b> and database layer is <b>PostgreSQL</b>. My
+        current team is focused on modernizing our user-facing apps, be it web or mobile.
+      </Company>
+
+      <Company
         position="Senior Fullstack Developer"
         company="Rodeo"
-        period="May 2020 - Present"
+        period="May 2020 - June 2021"
         website="https://www.getrodeo.io"
       >
         Rodeo's product is a <b>Project Management Tool</b> for creatives and companies that deal with freelancers and
@@ -127,7 +139,7 @@ const About: FunctionComponent = () => {
         website. I also developed <b>NodeJS</b> and <b>Python</b> backend APIs, crawlers and <b>AWS</b> integrations.
       </Company>
 
-      <Company
+      {/* <Company
         position="Frontend Developer"
         company="Núcleo Multiprojetos de Tecnologia Educacional"
         period="April 2016 - April 2017"
@@ -139,7 +151,7 @@ const About: FunctionComponent = () => {
         primary objective was to unify the many platforms being used by basic education teachers at the time. I worked
         within a multidisciplinary team composed of teachers, designers, developers and anthropologists where I was in
         charge of developing the website using <b>AngularJS</b>.
-      </Company>
+      </Company> */}
 
       {/* <Company
         position="Android Development Internship"
