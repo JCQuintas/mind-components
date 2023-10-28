@@ -1,11 +1,11 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { Company } from '../../components/company'
 import { Navigation } from '../../components/navigation'
 import { PageHeader } from '../../components/page-header'
-import { Social } from '../../components/social'
 import { siteData } from '../../site-data'
 import styles from './about.module.css'
+import { Company } from './components/company'
+import { Social } from './components/social'
 import profilePic from './profile.png'
 
 export const metadata: Metadata = {
