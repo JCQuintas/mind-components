@@ -1,30 +1,30 @@
-nav {
+.navigation {
   padding-top: var(--spacing-0-2);
   margin-bottom: var(--spacing-1-5);
   border-top: 1px solid rgba(var(--foreground-rgb), 0.2);
 }
 
-nav ul {
+.navigation ul {
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-nav li {
+.navigation li {
   list-style: none;
   margin: 0;
 }
 
-nav li:not(:first-child) {
+.navigation li:not(:first-child) {
   margin-left: var(--spacing-1);
 }
 
-nav .link {
+.link {
   color: rgb(var(--primary-rgb));
 
   font-weight: 600;
 }
 
-nav .link.active {
+.active {
   color: rgb(var(--accent-rgb));
 }

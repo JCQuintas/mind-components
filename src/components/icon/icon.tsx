@@ -1,6 +1,7 @@
 import { FunctionComponent, SVGProps } from 'react'
 import styles from './icon.module.css'
 
+import clsx from 'clsx'
 import Aws from './aws'
 import Back from './back'
 import Css3 from './css-3'
@@ -30,7 +31,7 @@ const build =
     v({
       'aria-hidden': true,
       ...props,
-      className: `${styles.icon} ${props.className || ''}`,
+      className: clsx(styles.icon, props.className),
     })
 
 export const Icon = {

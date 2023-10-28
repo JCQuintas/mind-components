@@ -1,37 +1,41 @@
-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--spacing-0-5);
 }
 
-header .heading {
+.heading {
   margin-bottom: 0;
   margin-top: 0;
 }
 
-header .heading a:hover {
+.heading a:hover {
   color: inherit;
 }
 
-header h1 {
+.header h1 {
   color: rgb(var(--primary-rgb));
 }
 
-header h3 {
+.header h3 {
   height: var(--spacing-1-5);
   display: flex;
   align-items: center;
   color: rgb(var(--primary-rgb));
 }
 
-header .link {
+.link {
   box-shadow: none;
   text-decoration: none;
   color: inherit;
 }
 
-header .author {
+.link:hover {
+  box-shadow: none;
+}
+
+.author {
   color: rgb(var(--foreground-rgb));
   opacity: 0.5;
 }

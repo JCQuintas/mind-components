@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 const NotFoundPage: FunctionComponent = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
+    <div className="">
       <h1>Not Found</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
     </div>

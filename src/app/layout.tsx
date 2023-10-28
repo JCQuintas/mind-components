@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { Poppins, Raleway } from 'next/font/google'
 import { siteData } from '../site-data'
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} ${poppins.variable}`}>
+      <body className={clsx(raleway.variable, poppins.variable)}>
         {children}
         <footer>
           © {new Date().getFullYear()}, Built by {siteData.author}
