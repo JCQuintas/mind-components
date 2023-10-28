@@ -1,54 +1,10 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { Company } from '../../components/company'
 import { Navigation } from '../../components/navigation'
 import { PageHeader } from '../../components/page-header'
-
-// const Image = styled(GImage)`
-//   margin-right: ${({ theme }) => theme.spacing(1)};
-//   margin-bottom: 0;
-//   min-width: ${({ theme }) => theme.spacing(4.57)};
-//   min-height: ${({ theme }) => theme.spacing(4.57)};
-//   border-radius: 5%;
-// `
-
-// const BigBio = styled.div`
-//   display: flex;
-// `
-
-// const BioText = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-start;
-//   justify-content: space-between;
-// `
-
-// const H1 = styled.h1`
-//   ${({ theme }) => theme.scale(0.8)}
-//   margin: 0;
-//   margin-bottom: ${({ theme }) => theme.spacing(0.3)};
-
-//   ${({ theme }) => theme.breakpoint.up.sm} {
-//     ${({ theme }) => theme.scale(1.5)}
-//   }
-// `
-
-// const H3 = styled.h3`
-//   margin: 0;
-//   opacity: 0.7;
-// `
-
-// const A = styled.a.attrs(() => ({
-//   target: '_blank',
-//   rel: 'noopener noreferrer',
-// }))``
-
-// const abbr = styled.abbr`
-//   font-weight: 600;
-// `
-
-// const FooterSpacing = styled.div`
-//   margin-bottom: ${({ theme }) => theme.spacing(3)};
-// `
+import './about.css'
+import profilePic from './profile.png'
 
 export const metadata: Metadata = {
   title: 'About | MindComponents',
@@ -63,10 +19,10 @@ export default function About() {
     <>
       <PageHeader />
       <Navigation activePath="/about" />
-      <main>
+      <main className="about">
         <div className="bio">
-          <img src="./jose" alt={author} />
-          <div className="text">
+          <Image src={profilePic} alt={author} className="bio-image" height={128} width={128} />
+          <div className="bio-text">
             <div>
               <h1>{author}</h1>
               <h3>Developer</h3>
