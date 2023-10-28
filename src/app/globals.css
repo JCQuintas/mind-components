@@ -9,7 +9,6 @@
   --spacing-0-5: 0.875rem;
   --spacing-0-75: 1.3125rem;
   --spacing-1: 1.75rem;
-  --spacing-1-1: 1.925rem;
   --spacing-1-5: 2.625rem;
   --spacing-2: 3.5rem;
   --spacing-10: 17.5rem;
@@ -139,7 +138,7 @@ blockquote {
   background: rgba(var(--foreground-rgb), 0.1);
   border-left: 2px solid;
   border-right: 2px solid;
-  line-height: var(--spacing-1-1);
+  line-height: 1.1;
   letter-spacing: var(--spacing-0-1);
   border-image: linear-gradient(to bottom, rgb(var(--primary-rgb), 1) 0%, rgba(var(--primary-rgb), 0) 70%) 1 100%;
 }
