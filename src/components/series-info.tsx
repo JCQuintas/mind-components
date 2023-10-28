@@ -1,6 +1,4 @@
-import React, { FunctionComponent } from 'react'
-import styled from 'styled-components'
-import { Link as GatsbyLink } from 'gatsby'
+import { FunctionComponent } from 'react'
 
 const SeriesContainer = styled.div`
   background-color: ${({ theme }) => theme.palette.foreground.manipulate({ opacity: 0.05 })};

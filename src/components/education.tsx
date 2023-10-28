@@ -1,5 +1,4 @@
-import React, { FunctionComponent } from 'react'
-import styled from 'styled-components'
+import { FunctionComponent } from 'react'
 
 const EducationContainer = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing(1)};

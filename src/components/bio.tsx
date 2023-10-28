@@ -1,8 +1,4 @@
-import React, { FunctionComponent } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import GImage from 'gatsby-image'
-
-import styled from 'styled-components'
+import { FunctionComponent } from 'react'
 
 const Container = styled.div`
   display: flex;

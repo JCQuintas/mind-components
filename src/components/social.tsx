@@ -1,6 +1,4 @@
-import React, { FunctionComponent } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import styled from 'styled-components'
+import { FunctionComponent } from 'react'
 import { Icon } from './icon'
 
 const SocialContainer = styled.div`

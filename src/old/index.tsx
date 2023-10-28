@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react'
 import { Link, graphql } from 'gatsby'
-import { Bio } from '../components/bio'
-import { Layout } from '../components/layout'
-import { SEO } from '../components/seo'
+import { FunctionComponent } from 'react'
 import styled from 'styled-components'
+import { Bio } from '../components/bio'
+import { Layout } from '../components/page-header'
+import { SEO } from '../components/seo'
 
 const Post = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing(2)};

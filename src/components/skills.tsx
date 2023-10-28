@@ -1,5 +1,4 @@
-import React, { FunctionComponent } from 'react'
-import styled from 'styled-components'
+import { FunctionComponent } from 'react'
 import { Icon } from './icon'
 
 const SkillsContainer = styled.ul`
