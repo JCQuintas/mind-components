@@ -1,0 +1,21 @@
+.education {
+  margin-bottom: var(--spacing-1);
+}
+
+.institution {
+  opacity: 0.9;
+}
+
+.course {
+  opacity: 0.7;
+  margin-right: var(--spacing-0-5);
+}
+
+.glyph {
+  color: rgb(var(--accent-rgb));
+  margin-right: var(--spacing-0-5);
+}
+
+.year {
+  opacity: 0.5;
+}

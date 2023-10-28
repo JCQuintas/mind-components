@@ -13,6 +13,7 @@
   margin: 0;
   margin-bottom: var(--spacing-0-3);
   font-size: var(--spacing-1-5);
+  color: rgb(var(--accent-rgb));
 }
 
 .bioText h3 {

@@ -1,0 +1,16 @@
+.language {
+  margin-bottom: var(--spacing-0-5);
+}
+
+.language b {
+  opacity: 0.9;
+}
+
+.glyph {
+  color: rgb(var(--accent-rgb));
+  margin-right: var(--spacing-0-5);
+}
+
+.level {
+  text-transform: capitalize;
+}

@@ -5,6 +5,8 @@ import { PageHeader } from '../../components/page-header'
 import { siteData } from '../../site-data'
 import styles from './about.module.css'
 import { Company } from './components/company'
+import { Education } from './components/education'
+import { Language } from './components/language'
 import { Social } from './components/social'
 import profilePic from './profile.png'
 
@@ -128,24 +130,24 @@ export default function About() {
         {/* <Skills /> */}
 
         <h2>Education</h2>
-        {/* <Education
-        institution="UFSC - Federal University of Santa Catarina"
-        course="Bachelor's degree in Design"
-        start={2010}
-        end={2016}
-      />
-      <Education institution="HvA - Hogeschool van Amsterdam" course="Exchange Program" start={2014} end={2015} />
-      <Education
-        institution="IFSC - Federal Institute of Santa Catarina"
-        course="Associate's degree in Information Technology"
-        start={2008}
-        end={2010}
-      /> */}
+        <Education
+          institution="UFSC - Federal University of Santa Catarina"
+          course="Bachelor's degree in Design"
+          start={2010}
+          end={2016}
+        />
+        <Education institution="HvA - Hogeschool van Amsterdam" course="Exchange Program" start={2014} end={2015} />
+        <Education
+          institution="IFSC - Federal Institute of Santa Catarina"
+          course="Associate's degree in Information Technology"
+          start={2008}
+          end={2010}
+        />
 
         <h2>Languages</h2>
-        {/* <Language name="Portuguese" level="native" />
-      <Language name="English" level="fluent" />
-      <Language name="Spanish" level="conversational" /> */}
+        <Language name="Portuguese" level="native" />
+        <Language name="English" level="fluent" />
+        <Language name="Spanish" level="conversational" />
 
         <div className={styles.spacing} />
       </main>
