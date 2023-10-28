@@ -3,8 +3,9 @@ import Image from 'next/image'
 import { Company } from '../../components/company'
 import { Navigation } from '../../components/navigation'
 import { PageHeader } from '../../components/page-header'
+import { Social } from '../../components/social'
 import { siteData } from '../../site-data'
-import './about.css'
+import styles from './about.module.css'
 import profilePic from './profile.png'
 
 export const metadata: Metadata = {
@@ -17,17 +18,17 @@ export default function About() {
     <>
       <PageHeader />
       <Navigation activePath="/about" />
-      <main className="about">
-        <div className="bio">
-          <Image src={profilePic} alt={siteData.author} className="bio-image" height={128} width={128} />
-          <div className="bio-text">
+      <main className={styles.about}>
+        <div className={styles.bio}>
+          <Image src={profilePic} alt={siteData.author} className={styles.bioImage} height={128} width={128} />
+          <div className={styles.bioText}>
             <div>
               <h1>{siteData.author}</h1>
               <h3>Developer</h3>
             </div>
           </div>
         </div>
-        {/* <Social /> */}
+        <Social />
         <h2>About</h2>
         <p>
           I am a fast learning professional, who loves problem solving and likes to keep an eye out for new technologies
@@ -146,7 +147,7 @@ export default function About() {
       <Language name="English" level="fluent" />
       <Language name="Spanish" level="conversational" /> */}
 
-        <div className="spacing" />
+        <div className={styles.spacing} />
       </main>
     </>
   )
