@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Poppins, Raleway } from 'next/font/google'
-import 'normalize.css'
 import './globals.css'
 
 const poppins = Poppins({ weight: '800', subsets: ['latin', 'latin-ext'], variable: '--font-heading' })

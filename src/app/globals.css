@@ -31,13 +31,16 @@
 
 html {
   overflow-y: scroll;
+  line-height: 1.75;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   font-family: var(--font-body);
+  font-weight: 400;
 
+  margin: 0;
   margin-left: auto;
   margin-right: auto;
   max-width: var(--spacing-24);
@@ -86,6 +89,16 @@ h4 a,
 h5 a,
 h6 a {
   color: inherit;
+}
+
+p {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
 }
 
 abbr[title] {

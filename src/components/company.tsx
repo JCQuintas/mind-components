@@ -19,7 +19,7 @@ export const Company: FunctionComponent<CompanyProps> = ({ position, company, pe
         </a>
         <div className="time-period small">{period}</div>
       </div>
-      <p className="description">{children}</p>
+      <p className="company-description">{children}</p>
     </>
   )
 }
