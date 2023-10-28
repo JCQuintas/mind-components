@@ -3,28 +3,26 @@ import Image from 'next/image'
 import { Company } from '../../components/company'
 import { Navigation } from '../../components/navigation'
 import { PageHeader } from '../../components/page-header'
+import { siteData } from '../../site-data'
 import './about.css'
 import profilePic from './profile.png'
 
 export const metadata: Metadata = {
-  title: 'About | MindComponents',
+  title: `About | ${siteData.title}`,
   description: 'The full curriculum of Jose Quintas.',
-  keywords: ['jose quintas', 'mindcomponents', 'blog', 'portfolio', 'curriculum'],
-  robots: 'index, follow',
 }
 
 export default function About() {
-  const author = 'Jose Quintas'
   return (
     <>
       <PageHeader />
       <Navigation activePath="/about" />
       <main className="about">
         <div className="bio">
-          <Image src={profilePic} alt={author} className="bio-image" height={128} width={128} />
+          <Image src={profilePic} alt={siteData.author} className="bio-image" height={128} width={128} />
           <div className="bio-text">
             <div>
-              <h1>{author}</h1>
+              <h1>{siteData.author}</h1>
               <h3>Developer</h3>
             </div>
           </div>

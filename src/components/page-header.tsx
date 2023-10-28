@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { FunctionComponent } from 'react'
+import { siteData } from '../site-data'
 import './page-header.css'
 
 export type PageHeaderProps = {
@@ -7,18 +8,15 @@ export type PageHeaderProps = {
 }
 
 export const PageHeader: FunctionComponent<PageHeaderProps> = ({ isRoot }) => {
-  const title = 'MindComponents'
-  const author = 'Jose Quintas'
-
   const Heading = isRoot ? 'h1' : 'h3'
 
   return (
     <header>
       <Heading className="heading">
         <Link className="link" href={`/`}>
-          <small className="author">{`${author}'s `}</small>
+          <small className="author">{`${siteData.author}'s `}</small>
           <br />
-          {title}
+          {siteData.title}
         </Link>
       </Heading>
     </header>
