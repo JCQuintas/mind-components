@@ -1,5 +1,6 @@
+import clsx from 'clsx'
 import { FunctionComponent, ReactNode } from 'react'
-import './company.css'
+import styles from './company.module.css'
 
 interface CompanyProps {
   position: string
@@ -12,14 +13,14 @@ interface CompanyProps {
 export const Company: FunctionComponent<CompanyProps> = ({ position, company, period, website, children }) => {
   return (
     <>
-      <div className="company">
-        <div className="position">{position}</div>
-        <a href={website} className="small place" target="_blank" rel="noopener noreferrer">
+      <div className={styles.company}>
+        <div className={styles.position}>{position}</div>
+        <a href={website} className={clsx(styles.place, styles.small)} target="_blank" rel="noopener noreferrer">
           {company}
         </a>
-        <div className="time-period small">{period}</div>
+        <div className={clsx(styles.timePeriod, styles.small)}>{period}</div>
       </div>
-      <p className="company-description">{children}</p>
+      <p className={styles.description}>{children}</p>
     </>
   )
 }

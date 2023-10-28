@@ -11,25 +11,25 @@
   row-gap: var(--spacing-0-2);
 }
 
-.company .position {
+.position {
   font-weight: 600;
   opacity: 0.9;
 
   grid-column: 1 / -1;
 }
 
-.company .small {
+.small {
   font-size: var(--spacing-0-5);
   opacity: 0.7;
 }
 
-.company .place {
+.place {
   justify-self: start;
 
   color: rgb(var(--foreground-rgb));
 }
 
-.company-description {
+.description {
   padding: var(--spacing-0-5);
   padding-right: 0;
   border-left: 3px solid rgb(var(--primary-rgb));
@@ -44,13 +44,13 @@
     grid-template-rows: auto auto;
   }
 
-  .company .time-period {
+  .timePeriod {
     margin-left: var(--spacing-0-5);
     padding-left: var(--spacing-0-5);
     border-left: 1px solid rgba(var(--foreground-rgb), 0.2);
   }
 
-  .company-description {
+  .description {
     margin-left: calc(var(--spacing-0-5) * -1);
   }
 }
