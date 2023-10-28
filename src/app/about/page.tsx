@@ -7,6 +7,7 @@ import styles from './about.module.css'
 import { Company } from './components/company'
 import { Education } from './components/education'
 import { Language } from './components/language'
+import { Skills } from './components/skills'
 import { Social } from './components/social'
 import profilePic from './profile.png'
 
@@ -127,7 +128,7 @@ export default function About() {
       </Company> */}
 
         <h2>Skills</h2>
-        {/* <Skills /> */}
+        <Skills />
 
         <h2>Education</h2>
         <Education

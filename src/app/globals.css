@@ -14,6 +14,7 @@
   --spacing-1-5: 2.625rem;
   --spacing-2: 3.5rem;
   --spacing-3: 5.25rem;
+  --spacing-4: 7rem;
   --spacing-4-8: 8.4rem;
   --spacing-10: 17.5rem;
   --spacing-24: 42rem;
@@ -179,4 +180,10 @@ blockquote {
   blockquote.left {
     float: left;
   }
+}
+
+footer {
+  opacity: 0.5;
+  font-size: var(--spacing-0-5);
+  text-align: center;
 }

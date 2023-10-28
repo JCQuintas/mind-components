@@ -1,0 +1,36 @@
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--spacing-3), 1fr));
+  gap: var(--spacing-0-75);
+  margin: 0;
+  margin-bottom: var(--spacing-3);
+  text-align: center;
+  padding: 0;
+  cursor: default;
+}
+
+.skills li {
+  display: grid;
+  grid-template-rows: 1fr min-content;
+  justify-items: center;
+  align-items: center;
+  margin: 0;
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.skills li:hover {
+  opacity: 1;
+}
+
+.skills svg {
+  height: var(--spacing-2);
+  width: var(--spacing-2);
+}
+
+@media (min-width: 600px) {
+  .skills {
+    grid-template-columns: repeat(auto-fill, minmax(var(--spacing-4), 1fr));
+    gap: var(--spacing-1);
+  }
+}

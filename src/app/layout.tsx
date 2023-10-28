@@ -19,9 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={clsx(raleway.variable, poppins.variable)}>
         {children}
-        <footer>
-          © {new Date().getFullYear()}, Built by {siteData.author}
-        </footer>
+        <footer>Last migrated to a new JS framework on Oct/2023, may I never have to do this again.</footer>
       </body>
     </html>
   )
