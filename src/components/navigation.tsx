@@ -24,13 +24,9 @@ export const Navigation: FunctionComponent<NavigationProps> = ({ activePath }) =
       <ul>
         {navigation.map((item) => (
           <li key={item.path}>
-            {activePath === item.path ? (
-              <span className={clsx(styles.link, styles.active)}>{item.label}</span>
-            ) : (
-              <Link href={item.path} className={styles.link}>
-                {item.label}
-              </Link>
-            )}
+            <Link href={item.path} className={clsx(styles.link, { [styles.active]: activePath === item.path })}>
+              {item.label}
+            </Link>
           </li>
         ))}
       </ul>

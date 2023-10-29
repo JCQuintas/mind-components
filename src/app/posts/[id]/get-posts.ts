@@ -8,29 +8,27 @@ import { remove } from 'unist-util-remove'
 import { visit } from 'unist-util-visit'
 import { matter } from 'vfile-matter'
 
-type PostData = {
+export type PostData = {
   id: string
-  metadata: {
-    title: string
-    created: string
-    description: string
-    keywords: string
-    edited?: string
-    series?: string
-    part?: string
-  }
+  slug: string
+  title: string
+  created: string
+  description: string
+  keywords: string
+  edited?: string
+  series?: string
+  part?: string
   markdownContent: string
-  next?: {
-    id: string
-    title: string
-  }
-  previous?: {
-    id: string
-    title: string
-  }
+  next?: Pick<PostData, 'slug' | 'title'>
+  previous?: Pick<PostData, 'slug' | 'title'>
+  postsInSeries: Pick<PostData, 'slug' | 'title' | 'part'>[]
 }
 
+type PostMetadata = Pick<PostData, 'title' | 'created' | 'description' | 'keywords' | 'edited' | 'series' | 'part'>
+
 const postsDirectory = path.join(process.cwd(), 'public', 'posts')
+
+const createSlug = (id: string): string => `/posts/${id}`
 
 export const getSortedPostsData = async (): Promise<PostData[]> => {
   const fileNames = await readdir(postsDirectory)
@@ -61,9 +59,12 @@ export const getSortedPostsData = async (): Promise<PostData[]> => {
         .use(remarkStringify)
         .process(fileContents)
 
+      const metadata = file.data.matter as PostMetadata
+
       return {
         id,
-        metadata: file.data.matter as PostData['metadata'],
+        slug: createSlug(id),
+        ...metadata,
         markdownContent: file.value.toString(),
       }
     })
@@ -71,7 +72,7 @@ export const getSortedPostsData = async (): Promise<PostData[]> => {
 
   return allPostsData
     .sort((a, b) => {
-      if (a.metadata.created < b.metadata.created) {
+      if (a.created < b.created) {
         return 1
       } else {
         return -1
@@ -80,11 +81,24 @@ export const getSortedPostsData = async (): Promise<PostData[]> => {
     .map((post, index, array) => {
       const next = array[index - 1]
       const previous = array[index + 1]
+      const postsInSeries = array
+        .filter((related) => related.series === post.series)
+        .sort((a, b) => {
+          if (!a.part || !b.part) return 0
+          if (a.part > b.part) return 1
+          return -1
+        })
+        .map((post) => ({
+          slug: post.slug,
+          title: post.title,
+          part: post.part,
+        }))
 
       return {
         ...post,
-        next: next ? { id: next.id, title: next.metadata.title } : undefined,
-        previous: previous ? { id: previous.id, title: previous.metadata.title } : undefined,
+        next: next ? { slug: next.slug, title: next.title } : undefined,
+        previous: previous ? { slug: previous.slug, title: previous.title } : undefined,
+        postsInSeries,
       }
     })
 }

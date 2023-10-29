@@ -26,5 +26,8 @@
 }
 
 .active {
-  color: rgb(var(--accent-rgb));
+  color: rgb(var(--foreground-rgb));
+  box-shadow: none;
+  pointer-events: none;
+  cursor: text;
 }

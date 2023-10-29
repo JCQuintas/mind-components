@@ -1,0 +1,32 @@
+.seriesInfo {
+  background-color: rgba(var(--foreground-rgb), 0.05);
+  margin-bottom: var(--spacing-1-5);
+}
+
+.seriesInfo p {
+  background-color: rgba(var(--foreground-rgb), 0.05);
+  padding: var(--spacing-0-5);
+}
+
+.seriesInfo ul {
+  padding: var(--spacing-0-5);
+  list-style-type: none;
+}
+
+.seriesInfo ul,
+.seriesInfo li,
+.seriesInfo p {
+  margin: 0;
+}
+
+.glyph {
+  color: rgb(var(--accent-rgb));
+  margin-right: var(--spacing-0-25);
+}
+
+.seriesInfo a:global(.active) {
+  color: rgb(var(--foreground-rgb));
+  box-shadow: none;
+  pointer-events: none;
+  cursor: text;
+}

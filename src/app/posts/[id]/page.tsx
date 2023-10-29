@@ -5,6 +5,7 @@ import Markdown from 'react-markdown'
 import { Icon } from '../../../components/icon/icon'
 import { Navigation } from '../../../components/navigation'
 import { PageHeader } from '../../../components/page-header'
+import { SeriesInfo } from './components/series-info'
 import { getPostData } from './get-posts'
 import styles from './posts.module.css'
 
@@ -22,9 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: post.metadata.title,
-    description: post.metadata.description,
-    keywords: post.metadata.keywords,
+    title: post.title,
+    description: post.description,
+    keywords: post.keywords,
   }
 }
 
@@ -35,38 +36,30 @@ export default async function Post({ params }: Props) {
     return notFound()
   }
 
-  // const isPartOfSeries = post.metadata.series && post.metadata.part
-
   return (
     <>
       <PageHeader />
       <Navigation activePath="/posts" />
       <main className={styles.posts}>
-        <h1 className={styles.title}>{post.metadata.title}</h1>
+        <h1 className={styles.title}>{post.title}</h1>
         <p className={styles.published}>
-          <time dateTime={post.metadata.created}>{post.metadata.created}</time>
+          <time dateTime={post.created}>{post.created}</time>
         </p>
-        {post.metadata.created !== post.metadata.edited && (
+        {post.created !== post.edited && (
           <p className={styles.published}>
-            <time dateTime={post.metadata.edited}>{post.metadata.edited}</time> (updated)
+            <time dateTime={post.edited}>{post.edited}</time> (updated)
           </p>
         )}
-        {/* {isPartOfSeries && (
-        <SeriesInfo
-          series={post.metadata.series!}
-          part={post.metadata.part!}
-          posts={data.allMarkdownRemark.edges
-            .filter((v) => v.node.frontmatter.series === post.metadata.series)
-            .map((v) => v.node.fields.slug)}
-        />
-      )} */}
+        {post.series && post.part && (
+          <SeriesInfo series={post.series} part={post.part} postsInSeries={post.postsInSeries} />
+        )}
         <Markdown>{post.markdownContent}</Markdown>
         <hr className={styles.divider} />
         {/* <Bio /> */}
         <ul className={styles.pagination}>
           <li>
             {post.previous && (
-              <Link href={`/posts/${post.previous.id}`}>
+              <Link href={post.previous.slug}>
                 <Icon.Back />
                 <span>{post.previous.title}</span>
               </Link>
@@ -74,7 +67,7 @@ export default async function Post({ params }: Props) {
           </li>
           <li>
             {post.next && (
-              <Link href={`/posts/${post.next.id}`}>
+              <Link href={post.next.slug}>
                 <span>{post.next.title}</span>
                 <Icon.Forward />
               </Link>
