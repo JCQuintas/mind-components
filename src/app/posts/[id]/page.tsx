@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Markdown from 'react-markdown'
 import { Navigation } from '../../../components/navigation'
 import { PageHeader } from '../../../components/page-header'
 import { getPostData } from './get-posts'
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Post({ params }: Props) {
-  const { metadata, htmlContent } = await getPostData(params.id)
+  const { metadata, markdownContent } = await getPostData(params.id)
 
   return (
     <>
@@ -46,7 +47,7 @@ export default async function Post({ params }: Props) {
             .map((v) => v.node.fields.slug)}
         />
       )} */}
-        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+        <Markdown>{markdownContent}</Markdown>
         <hr className={styles.divider} />
         {/* <Bio /> */}
         <ul className={styles.pagination}>

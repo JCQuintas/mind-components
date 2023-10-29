@@ -1,12 +1,10 @@
 import { readFile, readdir } from 'fs/promises'
 import path from 'path'
-import rehypeHighlight from 'rehype-highlight'
-import rehypeSanitize from 'rehype-sanitize'
-import rehypeStringify from 'rehype-stringify'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
+import remarkStringify from 'remark-stringify'
 import { unified } from 'unified'
+import { remove } from 'unist-util-remove'
 import { visit } from 'unist-util-visit'
 import { matter } from 'vfile-matter'
 
@@ -21,7 +19,7 @@ type PostData = {
     series?: string
     part?: string
   }
-  htmlContent: string
+  markdownContent: string
 }
 
 const postsDirectory = path.join(process.cwd(), 'public', 'posts')
@@ -84,19 +82,17 @@ export const getPostData = async (id: string): Promise<PostData> => {
         const isLocal = image.url?.startsWith('/') || image.url?.startsWith('./')
 
         if (isLocal) {
-          image.url = path.join('posts', id, image.url as string)
+          image.url = path.join('/posts', id, image.url as string)
         }
       })
     })
-    .use(remarkRehype)
-    .use(rehypeHighlight)
-    .use(rehypeSanitize)
-    .use(rehypeStringify)
+    .use(() => (tree) => remove(tree, null, ['yaml', 'toml']))
+    .use(remarkStringify)
     .process(fileContents)
 
   return {
     id,
     metadata: data.data.matter as PostData['metadata'],
-    htmlContent: data.value.toString(),
+    markdownContent: data.value.toString(),
   }
 }
