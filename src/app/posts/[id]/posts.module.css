@@ -42,3 +42,7 @@
 .pagination > li > a > *:first-child {
   margin-right: var(--spacing-0-25);
 }
+
+.nextPart {
+  text-align: center;
+}

@@ -6,7 +6,7 @@ import styles from './series-info.module.css'
 
 interface SeriesInfoProps {
   series: string
-  part: string
+  part: number
   postsInSeries: PostData['postsInSeries']
 }
 

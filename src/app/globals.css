@@ -196,6 +196,7 @@ footer {
   opacity: 0.5;
   font-size: var(--spacing-0-5);
   text-align: center;
+  margin-top: var(--spacing-4);
 }
 
 code,

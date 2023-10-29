@@ -17,7 +17,7 @@ export type PostData = {
   edited: Date
   keywords: string
   series?: string
-  part?: string
+  part?: number
   markdownContent: string
   next?: Pick<PostData, 'slug' | 'title'>
   previous?: Pick<PostData, 'slug' | 'title'>
@@ -65,6 +65,7 @@ export const getSortedPostsData = async (): Promise<PostData[]> => {
         id,
         slug: createSlug(id),
         ...metadata,
+        part: metadata.part ? parseInt(metadata.part.toString(), 10) : undefined,
         created: new Date(metadata.created),
         edited: new Date(metadata.edited),
         markdownContent: file.value.toString(),

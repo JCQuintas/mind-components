@@ -53,6 +53,8 @@ export default async function Post({ params }: Props) {
   const formattedCreated = dateTimeFormat.format(post.created)
   const formattedEdited = dateTimeFormat.format(post.edited)
 
+  const nextPostInSeries = post.series && post.part && post.postsInSeries.find((p) => p.part === (post.part ?? -1) + 1)
+
   return (
     <>
       <PageHeader />
@@ -100,6 +102,11 @@ export default async function Post({ params }: Props) {
         >
           {post.markdownContent}
         </Markdown>
+        {nextPostInSeries && (
+          <aside className={styles.nextPart}>
+            Continue reading this series on <a href={nextPostInSeries.slug}>Part {nextPostInSeries.part}</a>.
+          </aside>
+        )}
         <hr className={styles.divider} />
         {/* <Bio /> */}
         <ul className={styles.pagination}>

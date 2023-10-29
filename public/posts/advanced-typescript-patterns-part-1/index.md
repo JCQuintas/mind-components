@@ -229,7 +229,3 @@ const userWithAddress: User<{ address: string }> = {
 ```
 
 Phew! We covered a lot today, in the next part we will talk about type inference, which looks very similar to generic types, but with added functionalities.
-
-<aside style="text-align: center;">
-Continue reading this series on <a href="/advanced-typescript-patterns-part-2">Part 2</a>.
-</aside>
