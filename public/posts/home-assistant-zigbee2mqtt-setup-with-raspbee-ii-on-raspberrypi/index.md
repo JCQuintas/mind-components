@@ -21,7 +21,7 @@ In order for the RaspberryPi to use the correct addresses for the RaspBee device
 
 The changes you want to make are pretty simple, but keep in mind if you are using a `RaspberryPi 3` you should use `pi3-miniuart-bt` instead of `miniuart-bt` on the example below.
 
-```
+```bash
 enable_uart=1
 dtoverlay=miniuart-bt
 ```

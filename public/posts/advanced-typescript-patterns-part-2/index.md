@@ -76,8 +76,6 @@ interface Return {
 
 And not only that, the keys inside `positive` and `negative` will be exactly those of the input object, with **IDE autocompletion** and all. So lets start coding.
 
-<!-- prettier-ignore-start -->
-
 ```typescript
 interface Input {
   [key: string]: number
@@ -113,8 +111,6 @@ const pixelize = <T extends Input>(entries: T): Return<T> => {
   } as Return<T>
 }
 ```
-
-<!-- prettier-ignore-end -->
 
 This is the bulk of the function and typings. As you can see, it requires very little effort, but can be very powerful. I will also provide a `pixelizeDefault` in CodeSandbox, it will be exactly as the `pixelize` function but without most of the `typings`, so it will use the default typescript inference and you can see that the IDE won't autocomplete the properties of the input object.
 

@@ -13,8 +13,8 @@ export type PostData = {
   slug: string
   title: string
   description: string
-  created: string
-  edited: string
+  created: Date
+  edited: Date
   keywords: string
   series?: string
   part?: string
@@ -61,21 +61,12 @@ export const getSortedPostsData = async (): Promise<PostData[]> => {
 
       const metadata = file.data.matter as PostMetadata
 
-      const dateTimeFormat = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'UTC',
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-      })
-
       return {
         id,
         slug: createSlug(id),
         ...metadata,
-        created: dateTimeFormat.format(new Date(metadata.created)),
-        edited: dateTimeFormat.format(new Date(metadata.edited)),
+        created: new Date(metadata.created),
+        edited: new Date(metadata.edited),
         markdownContent: file.value.toString(),
       }
     })
