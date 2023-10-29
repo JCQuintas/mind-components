@@ -4,4 +4,5 @@ export const siteData = {
   email: 'juniorquintas@gmail.com',
   github: 'JCQuintas',
   linkedIn: 'jcquintas',
+  url: 'https://mindcomponents.com',
 } as const

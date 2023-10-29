@@ -11,6 +11,7 @@ import { Icon } from '../../../components/icon/icon'
 import { Navigation } from '../../../components/navigation'
 import { PageHeader } from '../../../components/page-header'
 import { dateTimeFormat } from '../../../date-time-format'
+import { fillMetadata } from '../../../fill-metadata'
 import { siteData } from '../../../site-data'
 import { getPostData } from '../get-posts'
 import codeStyles from './code.module.scss'
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return notFound()
   }
 
-  return {
+  return fillMetadata({
     title: `${post.title} | ${siteData.title}`,
     description: post.description,
     keywords: post.keywords,
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: post.edited?.toISOString(),
       tags: post.keywords,
     },
-  }
+  })
 }
 
 export default async function Post({ params }: Props) {

@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { Poppins, Raleway, Ubuntu_Mono } from 'next/font/google'
+import { fillMetadata } from '../fill-metadata'
 import { siteData } from '../site-data'
 import './globals.css'
 
@@ -8,24 +9,13 @@ const poppins = Poppins({ weight: '800', subsets: ['latin', 'latin-ext'], variab
 const raleway = Raleway({ subsets: ['latin', 'latin-ext'], variable: '--font-body' })
 const ubuntuMono = Ubuntu_Mono({ subsets: ['latin', 'latin-ext'], variable: '--font-code', weight: '400' })
 
-export const metadata: Metadata = {
-  title: siteData.title,
-  description: `A personal blog and portfolio by ${siteData.author}.`,
-  keywords: ['jose quintas', 'mindcomponents', 'blog', 'portfolio', 'curriculum'],
-  robots: 'index, follow',
-  authors: [
-    {
-      name: siteData.author,
-    },
-  ],
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-  },
-  twitter: {
-    card: 'summary_large_image',
-  },
-}
+const description = `A personal blog and portfolio by ${siteData.author}.`
+const title = siteData.title
+
+export const metadata: Metadata = fillMetadata({
+  title,
+  description,
+})
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
 import { FunctionComponent } from 'react'
+import { siteData } from '../site-data'
 
 export const metadata: Metadata = {
-  title: '404: Not Found',
+  title: `Not Found | ${siteData.title}`,
 }
 
 const NotFoundPage: FunctionComponent = () => {

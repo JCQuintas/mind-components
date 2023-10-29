@@ -4,14 +4,15 @@ import { Bio } from '../../components/bio'
 import { Navigation } from '../../components/navigation'
 import { PageHeader } from '../../components/page-header'
 import { dateTimeFormat } from '../../date-time-format'
+import { fillMetadata } from '../../fill-metadata'
 import { siteData } from '../../site-data'
 import { getSortedPostsData } from './get-posts'
 import styles from './posts.module.scss'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = fillMetadata({
   title: `Posts | ${siteData.title}`,
   description: `A list of all posts by ${siteData.author}.`,
-}
+})
 
 export default async function Home() {
   const posts = await getSortedPostsData()
