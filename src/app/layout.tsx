@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { Poppins, Raleway, Ubuntu_Mono } from 'next/font/google'
+import Script from 'next/script'
 import { fillMetadata } from '../fill-metadata'
 import { siteData } from '../site-data'
 import './globals.css'
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <footer>Last migrated to a new JS framework on Oct/2023, may I never have to do this again.</footer>
       </body>
+      <Script src="https://analytics.eu.umami.is/script.js" data-website-id="905ba6d5-7711-4fd7-95d2-4d0260a6465c" />
     </html>
   )
 }
