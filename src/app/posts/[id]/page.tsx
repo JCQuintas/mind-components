@@ -78,8 +78,6 @@ export default async function Post({ params }: Props) {
           components={{
             code(props) {
               const { children, className, node, ...rest } = props
-              console.log(className, node, rest)
-
               const match = /language-(\w+)/.exec(className || '')
               return match ? (
                 <SyntaxHighlighter
