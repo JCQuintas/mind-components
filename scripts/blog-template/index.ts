@@ -1,4 +1,4 @@
-import { capitalCase, kebabCase, sentenceCase } from 'change-case'
+import { capitalCase, paramCase, sentenceCase } from 'change-case'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
 import inquirer from 'inquirer'
 import { join } from 'path'
@@ -13,7 +13,7 @@ const createDirectoryIfNotExists = (dir: string) => {
   }
 }
 
-const BLOG_CONTENT_FOLDER = '../content/blog'
+const BLOG_CONTENT_FOLDER = '../../public/posts'
 const TITLE_REPLACE = '<TITLE>'
 const DESCRIPTION_REPLACE = '<DESCRIPTION>'
 
@@ -33,7 +33,7 @@ const start = async () => {
     },
   ])
 
-  const directory = kebabCase(postData.title)
+  const directory = paramCase(postData.title)
   const directoryPath = join(__dirname, BLOG_CONTENT_FOLDER, directory)
 
   if (existsSync(directoryPath)) console.log(red + `A post or folder '${directory}' already exists.` + reset)
