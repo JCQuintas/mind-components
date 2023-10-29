@@ -1,11 +1,12 @@
 import clsx from 'clsx'
 import type { Metadata } from 'next'
-import { Poppins, Raleway } from 'next/font/google'
+import { Poppins, Raleway, Ubuntu_Mono } from 'next/font/google'
 import { siteData } from '../site-data'
 import './globals.css'
 
 const poppins = Poppins({ weight: '800', subsets: ['latin', 'latin-ext'], variable: '--font-heading' })
 const raleway = Raleway({ subsets: ['latin', 'latin-ext'], variable: '--font-body' })
+const ubuntuMono = Ubuntu_Mono({ subsets: ['latin', 'latin-ext'], variable: '--font-code', weight: '400' })
 
 export const metadata: Metadata = {
   title: siteData.title,
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={clsx(raleway.variable, poppins.variable)}>
+      <body className={clsx(raleway.variable, poppins.variable, ubuntuMono.variable)}>
         {children}
         <footer>Last migrated to a new JS framework on Oct/2023, may I never have to do this again.</footer>
       </body>

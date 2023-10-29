@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Markdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 import { Icon } from '../../../components/icon/icon'
 import { Navigation } from '../../../components/navigation'
 import { PageHeader } from '../../../components/page-header'
@@ -42,18 +43,20 @@ export default async function Post({ params }: Props) {
       <Navigation activePath="/posts" />
       <main className={styles.posts}>
         <h1 className={styles.title}>{post.title}</h1>
-        <p className={styles.published}>
-          <time dateTime={post.created}>{post.created}</time>
-        </p>
-        {post.created !== post.edited && (
+        <div>
           <p className={styles.published}>
-            <time dateTime={post.edited}>{post.edited}</time> (updated)
+            <time dateTime={post.created}>{post.created}</time>
           </p>
-        )}
+          {post.created !== post.edited && (
+            <p className={styles.published}>
+              <time dateTime={post.edited}>{post.edited}</time> (updated)
+            </p>
+          )}
+        </div>
         {post.series && post.part && (
           <SeriesInfo series={post.series} part={post.part} postsInSeries={post.postsInSeries} />
         )}
-        <Markdown>{post.markdownContent}</Markdown>
+        <Markdown rehypePlugins={[rehypeRaw]}>{post.markdownContent}</Markdown>
         <hr className={styles.divider} />
         {/* <Bio /> */}
         <ul className={styles.pagination}>

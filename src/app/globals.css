@@ -154,6 +154,7 @@ aside p:last-child {
 }
 
 blockquote {
+  font-size: var(--spacing-0-75);
   position: relative;
   padding: var(--spacing-0-5) var(--spacing-1);
   border-bottom-left-radius: var(--spacing-0-5);
@@ -163,7 +164,7 @@ blockquote {
   background: rgba(var(--foreground-rgb), 0.1);
   border-left: 2px solid;
   border-right: 2px solid;
-  line-height: 1.1;
+  line-height: 1.5;
   letter-spacing: var(--spacing-0-1);
   border-image: linear-gradient(to bottom, rgb(var(--primary-rgb), 1) 0%, rgba(var(--primary-rgb), 0) 70%) 1 100%;
 }
@@ -187,4 +188,19 @@ footer {
   opacity: 0.5;
   font-size: var(--spacing-0-5);
   text-align: center;
+}
+
+code,
+pre {
+  font-family: var(--font-code);
+}
+
+:not(pre) > code {
+  background-color: rgba(var(--foreground-rgb), 0.1);
+  font-size: 0.9em;
+  line-height: var(--spacing-1);
+  color: rgb(var(--foreground-rgb));
+  white-space: normal;
+  padding: 0.2em 0.3em;
+  border-radius: 0.5em;
 }
