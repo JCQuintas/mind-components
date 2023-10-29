@@ -1,8 +1,8 @@
 :root {
-  --foreground-rgb: 6, 28, 35;
-  --background-rgb: 244, 244, 244;
-  --accent-rgb: 255, 83, 112;
-  --primary-rgb: 120, 187, 27;
+  --foreground-rgb: 244, 244, 244;
+  --background-rgb: 6, 28, 35;
+  --accent-rgb: 240, 113, 120;
+  --primary-rgb: 195, 232, 141;
 
   --spacing-0-01: 0.0175rem;
   --spacing-0-2: 0.4375rem;
@@ -21,14 +21,14 @@
   --spacing-24: 42rem;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: light) {
   :root {
-    --foreground-rgb: 244, 244, 244;
-    --background-rgb: 6, 28, 35;
-    --accent-rgb: 240, 113, 120;
-    --primary-rgb: 195, 232, 141;
+    --foreground-rgb: 6, 28, 35;
+    --background-rgb: 244, 244, 244;
+    --accent-rgb: 255, 83, 112;
+    --primary-rgb: 120, 187, 27;
   }
-}
+} */
 
 * {
   box-sizing: border-box;
