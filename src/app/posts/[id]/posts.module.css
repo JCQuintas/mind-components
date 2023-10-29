@@ -26,6 +26,7 @@
   list-style: none;
   padding: 0;
   margin-left: 0;
+  gap: var(--spacing-0-5);
 }
 
 .pagination > li > a {

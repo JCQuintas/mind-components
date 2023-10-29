@@ -20,11 +20,19 @@ type PostData = {
     part?: string
   }
   markdownContent: string
+  next?: {
+    id: string
+    title: string
+  }
+  previous?: {
+    id: string
+    title: string
+  }
 }
 
 const postsDirectory = path.join(process.cwd(), 'public', 'posts')
 
-export const getSortedPostsData = async () => {
+export const getSortedPostsData = async (): Promise<PostData[]> => {
   const fileNames = await readdir(postsDirectory)
 
   const allPostsData = await Promise.all(
@@ -34,65 +42,55 @@ export const getSortedPostsData = async () => {
       const fullPath = path.join(postsDirectory, `${id}/index.md`)
       const fileContents = await readFile(fullPath, 'utf8')
 
-      const matterResult = await unified()
+      const file = await unified()
         .use(remarkParse)
         .use(remarkFrontmatter, ['yaml', 'toml'])
+        .use(() => (_, file) => matter(file))
+        .use(() => (tree, file) => {
+          visit(tree, 'image', (node) => {
+            const image = node as { url?: string }
+
+            const isLocal = image.url?.startsWith('/') || image.url?.startsWith('./')
+
+            if (isLocal) {
+              image.url = path.join('/posts', id, image.url as string)
+            }
+          })
+        })
+        .use(() => (tree) => remove(tree, null, ['yaml', 'toml']))
+        .use(remarkStringify)
         .process(fileContents)
 
       return {
         id,
-        ...(matterResult.data as { date: string; title: string }),
+        metadata: file.data.matter as PostData['metadata'],
+        markdownContent: file.value.toString(),
       }
     })
   )
 
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1
-    } else {
-      return -1
-    }
-  })
-}
-
-export const getAllPostIds = async () => {
-  const fileNames = await readdir(postsDirectory)
-
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ''),
-      },
-    }
-  })
-}
-
-export const getPostData = async (id: string): Promise<PostData> => {
-  const fullPath = path.join(postsDirectory, `${id}/index.md`)
-  const fileContents = await readFile(fullPath, 'utf8')
-
-  const data = await unified()
-    .use(remarkParse)
-    .use(remarkFrontmatter, ['yaml', 'toml'])
-    .use(() => (_, file) => matter(file))
-    .use(() => (tree, file) => {
-      visit(tree, 'image', (node) => {
-        const image = node as { url?: string }
-
-        const isLocal = image.url?.startsWith('/') || image.url?.startsWith('./')
-
-        if (isLocal) {
-          image.url = path.join('/posts', id, image.url as string)
-        }
-      })
+  return allPostsData
+    .sort((a, b) => {
+      if (a.metadata.created < b.metadata.created) {
+        return 1
+      } else {
+        return -1
+      }
     })
-    .use(() => (tree) => remove(tree, null, ['yaml', 'toml']))
-    .use(remarkStringify)
-    .process(fileContents)
+    .map((post, index, array) => {
+      const next = array[index - 1]
+      const previous = array[index + 1]
 
-  return {
-    id,
-    metadata: data.data.matter as PostData['metadata'],
-    markdownContent: data.value.toString(),
-  }
+      return {
+        ...post,
+        next: next ? { id: next.id, title: next.metadata.title } : undefined,
+        previous: previous ? { id: previous.id, title: previous.metadata.title } : undefined,
+      }
+    })
+}
+
+export const getPostData = async (id: string): Promise<PostData | undefined> => {
+  const postsData = await getSortedPostsData()
+  const post = postsData.find((post) => post.id === id)
+  return post
 }
