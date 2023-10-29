@@ -1,19 +1,18 @@
-const { existsSync, mkdirSync, readFileSync, writeFileSync } = require('fs')
-const { join } = require('path')
-const inquirer = require('inquirer')
-const { paramCase, capitalCase, sentenceCase } = require('change-case')
+import { capitalCase, kebabCase, sentenceCase } from 'change-case'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
+import inquirer from 'inquirer'
+import { join } from 'path'
 
 const red = '\x1b[31m'
 const reset = '\x1b[0m'
 const green = '\x1b[32m'
 
-const createDirectoryIfNotExists = (dir) => {
+const createDirectoryIfNotExists = (dir: string) => {
   if (!existsSync(dir)) {
     mkdirSync(dir)
   }
 }
 
-const BLOG_TEMPLATE_FOLDER = './blog-template'
 const BLOG_CONTENT_FOLDER = '../content/blog'
 const TITLE_REPLACE = '<TITLE>'
 const DESCRIPTION_REPLACE = '<DESCRIPTION>'
@@ -34,7 +33,7 @@ const start = async () => {
     },
   ])
 
-  const directory = paramCase(postData.title)
+  const directory = kebabCase(postData.title)
   const directoryPath = join(__dirname, BLOG_CONTENT_FOLDER, directory)
 
   if (existsSync(directoryPath)) console.log(red + `A post or folder '${directory}' already exists.` + reset)
