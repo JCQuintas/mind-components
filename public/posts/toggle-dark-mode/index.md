@@ -3,6 +3,7 @@ title: 'Toggle Dark Mode'
 created: '2019-08-31T20:22:37.000Z'
 edited: '2020-01-13T22:36:19.110Z'
 description: 'How to create your own Context to toggle dark mode using styled-components.'
+keywords: styled-components, react, dark mode, theme, context, useContext, useState, useEffect, localStorage
 ---
 
 So you are creating your own website and you decide to have a dark and light theme, there might be a few questions that pop on your mind. How do I switch between them? Do I need to store them in a global state manager like Redux or MobX? How to integrate it with my styling solution?

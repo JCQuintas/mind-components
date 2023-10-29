@@ -3,6 +3,7 @@ title: 'Blog init'
 created: '2019-08-29T00:15:09.000Z'
 edited: '2019-11-14T21:03:09.000Z'
 description: 'Why create this blog and the tech stack I used.'
+keywords: blog, gatsby, react, javascript, typescript, styled-components, zeit, now, medium
 ---
 
 Through this short blog post I'll go into details of why I wanted to create a personal blog, why didn't I just use [medium](https://medium.com) and why I chose [Gatsby](https://gatsbyjs.org) as the blog's framework.

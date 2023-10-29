@@ -5,6 +5,7 @@ edited: '2019-12-15T16:23:57.813Z'
 description: 'The basics of Typescript are very straight forward, but the likes of generic types and conditional types can be challenging. This post on Advanced Typescript Patterns tries to demystify them.'
 series: 'Advanced Typescript Patterns'
 part: 1
+keywords: typescript, types, patterns, inference, overload, function, argument
 ---
 
 From experience, most developers grasp the basics of typescript within weeks. But, while typescript infer a lot of types for us, sometimes you need to intervene, and when that happens **all hell breaks loose**.

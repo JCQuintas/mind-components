@@ -3,6 +3,7 @@ title: 'Home Assistant Zigbee2mqtt Setup With RaspBee II on RaspberryPi'
 created: '2021-05-16T16:27:10.548Z'
 edited: '2021-09-28T14:48:26.124Z'
 description: 'How to properly setup your Home Assistant instance to connect to your Zigbee devices using RaspBee II.'
+keywords: home assistant, zigbee, raspbee, raspbee ii, raspberry pi, zigbee2mqtt, mqtt, mosquitto, deconz, phoscon, hassio, homeassistant, home-assistant
 ---
 
 Recently I've been using [Home Assistant](https://www.home-assistant.io/) installed on a [RaspberryPi 4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) to handle a lot of my IoT and smart devices. Instead of buying Zigbee routers for every brand and having a mess of bridges, I've opted to buy a [RaspBee II](https://phoscon.de/en/raspbee2). But I struggled a lot to set it up using the [zigbee2mqtt](https://www.zigbee2mqtt.io/) addon. Luckily for you, I've documented my struggles so you can have an easier time.

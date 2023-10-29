@@ -5,6 +5,7 @@ edited: '2019-12-15T16:23:57.813Z'
 description: 'This part of Advanced Typescript Patterns focuses on type inference, getting a type from a function argument can be challenging at first, but after you understand what is happening it should become a breeze.'
 series: 'Advanced Typescript Patterns'
 part: 2
+keywords: typescript, types, patterns, inference, overload, function, argument
 ---
 
 Previously we started our journey into the advanced typescript patterns and dealt with **type extension**, types with **strict conditional properties** and **generic types**. On this part we will focus on **type inference** and how it can be used to help you, as well as **argument pattern matching**.
