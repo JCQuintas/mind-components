@@ -1,59 +1,26 @@
+import Image from 'next/image'
 import { FunctionComponent } from 'react'
-
-const Container = styled.div`
-  display: flex;
-  margin-bottom: ${({ theme }) => theme.spacing(2.5)};
-`
-
-const Image = styled(GImage)`
-  margin-right: ${({ theme }) => theme.spacing(0.5)};
-  margin-bottom: 0;
-  min-width: ${({ theme }) => theme.spacing(2)};
-  min-height: ${({ theme }) => theme.spacing(2)};
-  border-radius: 100%;
-`
-
-const Link = styled.a.attrs(() => ({
-  target: '_blank',
-  rel: 'noopener noreferrer',
-}))``
+import { siteData } from '../site-data'
+import profilePic from './../profile.png'
+import styles from './bio.module.scss'
 
 export const Bio: FunctionComponent = () => {
-  const data = useStaticQuery(query)
-
-  const { author, social } = data.site.siteMetadata as SiteMetadata
   return (
-    <Container>
-      <Image fixed={data.avatar.childImageSharp.fixed} alt={author} />
+    <div className={styles.bio}>
+      <Image src={profilePic} alt={siteData.author} className={styles.bioImage} height={64} width={64} />
       <div>
         <div>Hi, this is my personal website and blog.</div>
         <div>
-          Find me on <Link href={`https://github.com/${social.github}`}>Github</Link> or{' '}
-          <Link href={`https://linkedin.com/in/${social.linkedin}`}>LinkedIn</Link>
+          Find me on{' '}
+          <a href={`https://github.com/${siteData.github}`} target="_blank" rel="noopener noreferrer">
+            Github
+          </a>{' '}
+          or{' '}
+          <a href={`https://linkedin.com/in/${siteData.linkedIn}`} target="_blank" rel="noopener noreferrer">
+            aedIn
+          </a>
         </div>
       </div>
-    </Container>
+    </div>
   )
 }
-
-const query = graphql`
-  query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile.png/" }) {
-      childImageSharp {
-        fixed(width: 56, height: 56) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        author
-        social {
-          facebook
-          github
-          linkedin
-        }
-      }
-    }
-  }
-`

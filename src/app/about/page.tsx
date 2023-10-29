@@ -3,13 +3,13 @@ import Image from 'next/image'
 import { Navigation } from '../../components/navigation'
 import { PageHeader } from '../../components/page-header'
 import { siteData } from '../../site-data'
+import profilePic from './../../profile.png'
 import styles from './about.module.css'
 import { Company } from './components/company'
 import { Education } from './components/education'
 import { Language } from './components/language'
 import { Skills } from './components/skills'
 import { Social } from './components/social'
-import profilePic from './profile.png'
 
 export const metadata: Metadata = {
   title: `About | ${siteData.title}`,

@@ -1,0 +1,27 @@
+// const Container = styled.div`
+//   display: flex;
+//   margin-bottom: ${({ theme }) => theme.spacing(2.5)};
+// `
+
+// const Image = styled(GImage)`
+//   margin-right: ${({ theme }) => theme.spacing(0.5)};
+//   margin-bottom: 0;
+//   min-width: ${({ theme }) => theme.spacing(2)};
+//   min-height: ${({ theme }) => theme.spacing(2)};
+//   border-radius: 100%;
+// `
+
+.bio {
+  display: flex;
+  margin-bottom: var(--spacing-2);
+}
+
+.bioImage {
+  margin-right: var(--spacing-0-5);
+  margin-bottom: 0;
+  min-width: var(--spacing-2);
+  min-height: var(--spacing-2);
+  width: var(--spacing-2);
+  height: var(--spacing-2);
+  border-radius: 100%;
+}

@@ -6,6 +6,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus as codeTheme } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
+import { Bio } from '../../../components/bio'
 import { Icon } from '../../../components/icon/icon'
 import { Navigation } from '../../../components/navigation'
 import { PageHeader } from '../../../components/page-header'
@@ -108,7 +109,7 @@ export default async function Post({ params }: Props) {
           </aside>
         )}
         <hr className={styles.divider} />
-        {/* <Bio /> */}
+        <Bio />
         <ul className={styles.pagination}>
           <li>
             {post.previous && (
