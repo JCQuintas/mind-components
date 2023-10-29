@@ -13,7 +13,7 @@ In order to install the RaspBee on your RaspberryPi, simply follow the documenta
 
 Keep in mind that the RaspBee should be installed on the first pins in the board. You can see an example on the picture below.
 
-![RaspberryPi 4 board with a RaspBee II correctly connected to it](./raspbee-ii-install.jpg)
+![RaspberryPi 4 board with a RaspBee II correctly connected to it](./images/raspbee-ii-install.jpg)
 
 ## Configuring the RaspberryPi
 
@@ -21,7 +21,7 @@ In order for the RaspberryPi to use the correct addresses for the RaspBee device
 
 The changes you want to make are pretty simple, but keep in mind if you are using a `RaspberryPi 3` you should use `pi3-miniuart-bt` instead of `miniuart-bt` on the example below.
 
-```conf
+```
 enable_uart=1
 dtoverlay=miniuart-bt
 ```
@@ -34,7 +34,7 @@ In order to generate a `certificate` to use in in the `Mosquitto broker` addon, 
 
 You can then click on the sidebar (picture below), or setup a `username` and `password` on the addon and connect it through SSH using `ssh username@homeassistant.local` from your local terminal, accept the security prompt, then input your password when asked for it.
 
-![Example of how the SSH & Web Terminal screen looks like from inside Home Assistant](./ssh-and-web-terminal.jpg)
+![Example of how the SSH & Web Terminal screen looks like from inside Home Assistant](./images/ssh-and-web-terminal.jpg)
 
 After gaining access to the Home Assistant terminal, run the following command to generate a `key/cert` pair for `mqtt` and follow the prompts.
 
@@ -66,11 +66,11 @@ Finally, in order to properly connect your devices you will need the [zigbee2mqt
 
 You will need to add the repository URL on the link above into the `Supervisor → Add-on store → ⋮ → Manage add-on repositories`
 
-![Screen of the Home Assistant "Manage add-on repositories" popup with the zigbee2mqtt addon url filled](./add-hassio-zigbee2mqtt-repository.png)
+![Screen of the Home Assistant "Manage add-on repositories" popup with the zigbee2mqtt addon url filled](./images/add-hassio-zigbee2mqtt-repository.png)
 
 Then the addon will appear on its own section as show below. After installing it, proceed to the next steps.
 
-![Home Assistant addon section showing both the regular and edge versions of the addon](./zigbee2mqtt-addon.png)
+![Home Assistant addon section showing both the regular and edge versions of the addon](./images/zigbee2mqtt-addon.png)
 
 ## Configuring Zigbee2mqtt addon
 
@@ -92,7 +92,7 @@ Then make sure the device you want to add is in pairing mode. If you don't know 
 
 Once your device is detected, it will start a handshake and a green popup will show in the UI, after a few seconds your device should be added to the list of devices.
 
-![Zigbee2mqtt web interface with a red arrow pointing to the "Permit join (all)" button](./permit-join.png)
+![Zigbee2mqtt web interface with a red arrow pointing to the "Permit join (all)" button](./images/permit-join.png)
 
 That is it, you have a working setup now. If you still can't connect or have other problems, try the troubleshooting step below, or open an issue on this [blog's repository](https://github.com/JCQuintas/mind-components/issues) and I will try my best to help you out.
 
