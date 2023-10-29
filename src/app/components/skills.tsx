@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-import { Icon } from '../../../components/icon/icon'
+import { Icon } from '../../components/icon/icon'
 import styles from './skills.module.css'
 
 export const Skills: FunctionComponent = () => {

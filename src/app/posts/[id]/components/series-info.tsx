@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 import { FunctionComponent } from 'react'
-import { PostData } from '../get-posts'
+import { PostData } from '../../get-posts'
 import styles from './series-info.module.css'
 
 interface SeriesInfoProps {

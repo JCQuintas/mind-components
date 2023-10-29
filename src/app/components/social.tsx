@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react'
-import { Icon } from '../../../components/icon/icon'
-import { siteData } from '../../../site-data'
+import { Icon } from '../../components/icon/icon'
+import { siteData } from '../../site-data'
 import styles from './social.module.css'
 
 export const Social: FunctionComponent = () => {

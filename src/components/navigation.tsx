@@ -4,18 +4,18 @@ import { FunctionComponent } from 'react'
 import styles from './navigation.module.css'
 
 export type NavigationProps = {
-  activePath: string
+  activePath?: string
 }
 
 export const Navigation: FunctionComponent<NavigationProps> = ({ activePath }) => {
   const navigation = [
     {
-      label: 'Blog',
+      label: 'About',
       path: '/',
     },
     {
-      label: 'About',
-      path: '/about',
+      label: 'Posts',
+      path: '/posts',
     },
   ]
 

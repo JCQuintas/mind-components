@@ -11,9 +11,9 @@ import { Icon } from '../../../components/icon/icon'
 import { Navigation } from '../../../components/navigation'
 import { PageHeader } from '../../../components/page-header'
 import { dateTimeFormat } from '../../../date-time-format'
+import { getPostData } from '../get-posts'
 import codeStyles from './code.module.scss'
 import { SeriesInfo } from './components/series-info'
-import { getPostData } from './get-posts'
 import styles from './post.module.css'
 
 type Props = {
@@ -51,7 +51,7 @@ export default async function Post({ params }: Props) {
   return (
     <>
       <PageHeader />
-      <Navigation activePath="/posts" />
+      <Navigation />
       <main className={styles.posts}>
         <h1 className={styles.title}>{post.title}</h1>
         <div>
