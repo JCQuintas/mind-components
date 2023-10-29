@@ -10,10 +10,11 @@ import { Bio } from '../../../components/bio'
 import { Icon } from '../../../components/icon/icon'
 import { Navigation } from '../../../components/navigation'
 import { PageHeader } from '../../../components/page-header'
+import { dateTimeFormat } from '../../../date-time-format'
 import codeStyles from './code.module.scss'
 import { SeriesInfo } from './components/series-info'
 import { getPostData } from './get-posts'
-import styles from './posts.module.css'
+import styles from './post.module.css'
 
 type Props = {
   params: {
@@ -34,15 +35,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: post.keywords,
   }
 }
-
-const dateTimeFormat = new Intl.DateTimeFormat('en-GB', {
-  timeZone: 'UTC',
-  day: 'numeric',
-  month: 'short',
-  year: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
-})
 
 export default async function Post({ params }: Props) {
   const post = await getPostData(params.id)

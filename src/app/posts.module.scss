@@ -1,0 +1,25 @@
+.posts {
+  margin-bottom: 1em;
+}
+
+.post {
+  margin-bottom: var(--spacing-2);
+}
+
+.title {
+  margin-bottom: var(--spacing-0-1);
+  font-size: var(--spacing-1);
+  line-height: 1.4;
+
+  a {
+    box-shadow: none;
+  }
+}
+
+.description {
+  margin: 0;
+}
+
+.published {
+  color: rgba(var(--foreground-rgb), 0.5);
+}
