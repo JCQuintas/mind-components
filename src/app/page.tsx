@@ -1,4 +1,3 @@
-import { Metadata } from 'next'
 import Image from 'next/image'
 import { Navigation } from '../components/navigation'
 import { PageHeader } from '../components/page-header'
@@ -10,11 +9,6 @@ import { Education } from './components/education'
 import { Language } from './components/language'
 import { Skills } from './components/skills'
 import { Social } from './components/social'
-
-export const metadata: Metadata = {
-  title: `About | ${siteData.title}`,
-  description: 'The full curriculum of Jose Quintas.',
-}
 
 export default function About() {
   return (

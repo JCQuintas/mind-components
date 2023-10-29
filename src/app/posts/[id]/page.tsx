@@ -11,6 +11,7 @@ import { Icon } from '../../../components/icon/icon'
 import { Navigation } from '../../../components/navigation'
 import { PageHeader } from '../../../components/page-header'
 import { dateTimeFormat } from '../../../date-time-format'
+import { siteData } from '../../../site-data'
 import { getPostData } from '../get-posts'
 import codeStyles from './code.module.scss'
 import { SeriesInfo } from './components/series-info'
@@ -30,9 +31,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: post.title,
+    title: `${post.title} | ${siteData.title}`,
     description: post.description,
     keywords: post.keywords,
+    openGraph: {
+      type: 'article',
+      siteName: siteData.title,
+      locale: 'en_US',
+      publishedTime: post.created.toISOString(),
+      modifiedTime: post.edited?.toISOString(),
+      tags: post.keywords,
+    },
   }
 }
 

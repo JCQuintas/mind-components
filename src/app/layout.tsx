@@ -13,6 +13,18 @@ export const metadata: Metadata = {
   description: `A personal blog and portfolio by ${siteData.author}.`,
   keywords: ['jose quintas', 'mindcomponents', 'blog', 'portfolio', 'curriculum'],
   robots: 'index, follow',
+  authors: [
+    {
+      name: siteData.author,
+    },
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
