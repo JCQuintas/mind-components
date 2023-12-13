@@ -26,12 +26,12 @@ export const Skills: FunctionComponent = () => {
         Jest
       </li>
       <li>
-        <Icon.MobX />
-        MobX
+        <Icon.NestJs />
+        NestJS
       </li>
       <li>
-        <Icon.FramerMotion />
-        Framer Motion
+        <Icon.Graphql />
+        GraphQL
       </li>
       <li>
         <Icon.Html5 />
@@ -52,6 +52,22 @@ export const Skills: FunctionComponent = () => {
       <li>
         <Icon.Git />
         Git
+      </li>
+      <li>
+        <Icon.GoLang />
+        GoLang
+      </li>
+      <li>
+        <Icon.Mongodb />
+        MongoDB
+      </li>
+      <li>
+        <Icon.Postgres />
+        PostgreSQL
+      </li>
+      <li>
+        <Icon.Docker />
+        Docker
       </li>
     </ul>
   )

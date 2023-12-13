@@ -5,6 +5,7 @@ import clsx from 'clsx'
 import Aws from './aws'
 import Back from './back'
 import Css3 from './css-3'
+import Docker from './docker'
 import Email from './email'
 import Figma from './figma'
 import Forward from './forward'
@@ -12,13 +13,18 @@ import FramerMotion from './framer-motion'
 import Gcp from './gcp'
 import Git from './git'
 import Github from './github'
+import GoLang from './golang'
+import Graphql from './graphql'
 import Html5 from './html-5'
 import Jest from './jest'
 import LinkedIn from './linkedin'
 import Location from './location'
 import MobX from './mobx'
+import Mongodb from './mongodb'
 import Moon from './moon'
+import NestJs from './nest-js'
 import NodeJs from './node-js'
+import Postgres from './postgresql'
 import Python from './python'
 import ReactJs from './react-js'
 import Sun from './sun'
@@ -57,4 +63,10 @@ export const Icon = {
   Figma: build(Figma),
   FramerMotion: build(FramerMotion),
   MobX: build(MobX),
+  Docker: build(Docker),
+  GoLang: build(GoLang),
+  Graphql: build(Graphql),
+  Mongodb: build(Mongodb),
+  NestJs: build(NestJs),
+  Postgres: build(Postgres),
 }
