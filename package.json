@@ -13,6 +13,9 @@
     "curriculum"
   ],
   "license": "MIT",
+  "engines": {
+    "node": "24.x"
+  },
   "main": "n/a",
   "repository": {
     "type": "git",
