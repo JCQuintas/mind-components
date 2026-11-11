@@ -1,7 +1,7 @@
 ---
 title: 'Home Assistant Zigbee2mqtt Setup With RaspBee II on RaspberryPi'
 created: '2021-05-16T16:27:10.548Z'
-edited: '2021-09-28T14:48:26.124Z'
+edited: '2026-11-11T15:31:31.000Z'
 description: 'How to properly setup your Home Assistant instance to connect to your Zigbee devices using RaspBee II.'
 keywords: home assistant, zigbee, raspbee, raspbee ii, raspberry pi, zigbee2mqtt, mqtt, mosquitto, deconz, phoscon, hassio, homeassistant, home-assistant
 ---
@@ -81,7 +81,10 @@ If you followed all steps until now, we should be almost done with the setup, th
 serial:
   port: /dev/ttyAMA0
   adapter: deconz
+  baudrate: 38400
 ```
+
+<blockquote>Since zigbee2mqtt <code>2.14.2</code> the <code>baudrate</code> option is required. Older versions fell back to <code>38400</code> for <code>deconz</code> adapters, but the default is now <code>115200</code>, which makes the addon <a href="https://github.com/Koenkk/zigbee2mqtt/issues/33340">fail to start</a> with the RaspBee II.</blockquote>
 
 That should be it, after the addon is turned on, you can go the web ui and start adding your devices.
 
