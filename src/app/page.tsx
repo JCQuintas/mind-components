@@ -39,9 +39,23 @@ export default function About() {
         <h2>Experience</h2>
 
         <Company
+          position="Software Engineer (MUI X Charts)"
+          company="MUI"
+          period="April 2024 - Present"
+          website="https://mui.com"
+        >
+          MUI builds open source <b>React</b> component libraries, like Material UI and MUI X. I am part of the{' '}
+          <b>MUI X Charts</b> team, working on both the community and the commercial versions of the charts. My work
+          goes from rendering performance and <b>zoom and pan</b> interactions to the gesture engine that powers them,
+          which is built on top of native pointer events. A good part of my time also goes into public API design,
+          documentation, code reviews and helping the community on GitHub. Our stack is <b>TypeScript</b>, <b>React</b>{' '}
+          and <b>D3</b>.
+        </Company>
+
+        <Company
           position="Full-Stack Engineer (Team Lead)"
           company="Lepaya"
-          period="July 2021 - Present"
+          period="July 2021 - March 2024"
           website="https://lepaya.com/en/"
         >
           At Lepaya we are at the forefront of mixing <b>automated assignments</b> with{' '}
