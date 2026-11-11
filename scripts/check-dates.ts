@@ -12,7 +12,7 @@ const run = async () => {
   const files = readdirSync(blogFolder)
     .map((p) => join(blogFolder, p))
     .filter((p) => statSync(p).isDirectory())
-    .map((p) => join(p, 'index.md'))
+    .map((p) => join(p, 'post.md'))
     .filter(existsSync)
     .filter((p) => !!isFileTracked(p))
 

@@ -42,7 +42,7 @@ const start = async () => {
 
   const file = readFileSync(join(__dirname, 'index.md'), { encoding: 'utf8' })
   await writeFileSync(
-    join(directoryPath, 'index.md'),
+    join(directoryPath, 'post.md'),
     file
       .replace(TITLE_REPLACE, capitalCase(postData.title))
       .replace(DESCRIPTION_REPLACE, sentenceCase(postData.description))

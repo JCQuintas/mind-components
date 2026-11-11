@@ -37,7 +37,8 @@ export const getSortedPostsData = async (): Promise<PostData[]> => {
     fileNames.map(async (dirname) => {
       const id = dirname
 
-      const fullPath = path.join(postsDirectory, `${id}/index.md`)
+      // Not `index.md`: Vercel serves that as the directory index, shadowing the `/posts/[id]` route.
+      const fullPath = path.join(postsDirectory, `${id}/post.md`)
       const fileContents = await readFile(fullPath, 'utf8')
 
       const file = await unified()
